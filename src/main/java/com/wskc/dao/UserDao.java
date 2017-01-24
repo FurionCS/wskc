@@ -24,5 +24,4 @@ public interface UserDao extends IBaseDao<User>{
 	 * @return
 	 */
 	User loadByUserName(String userName);
-
 }

@@ -1,10 +1,12 @@
 package com.wskc.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
 import com.wskc.dto.IndustryUserDto;
-import com.wskc.model.Industry;
+import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.IndustryUser;
 import com.wskc.model.User;
 import com.wskc.model.UserBrandPUser;
+import com.wskc.service.BrandService;
 import com.wskc.service.IndustryService;
 import com.wskc.service.IndustryUserService;
 import com.wskc.service.UserBrandPUserService;
@@ -45,6 +48,9 @@ public class BasicController {
 	
 	@Autowired
 	private UserBrandPUserService userBrandPUserService;
+	
+	@Autowired
+	private BrandService brandService;
 	/**
 	 * 
 	 * 获得用户行业列表
@@ -132,17 +138,101 @@ public class BasicController {
 		return ajaxObj;
 	}
 	/**
-	 * 
+	 * 品牌列表
 	 * @param model
 	 * @param session
 	 * @return
 	 */
 	@RequestMapping(value="/brandList",method=RequestMethod.GET)
-	public String brandView(@RequestParam("menuids") String menuids,Model model,HttpSession session){
+	public String brandView(@RequestParam("menuids") String menuids,@RequestParam("industryId") Integer industryId,Model model,HttpSession session){
 		User user=(User) session.getAttribute("loginer");
-		//TODO 获得当前用户的所属行业
-		
-		//TODO 获得当前用户的品牌
+		model.addAttribute("menuids", menuids);
+			// 获得当前用户的所属行业
+		List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(user.getId());
+		if(liud!=null&&liud.size()>0){
+			// 获得当前用户的品牌
+			model.addAttribute("liud", liud);
+			if(industryId==null||industryId<1){
+				List<UserBrandPUserDto> lubpd=userBrandPUserService.getUBPUDAll(user.getId());
+				model.addAttribute("lubpd", lubpd);
+			}else{
+				List<UserBrandPUserDto> lubpd=userBrandPUserService.getUBPUDByIndustry(user.getId(), industryId);
+				model.addAttribute("lubpd", lubpd);
+			}
+		}
 		return "/basic/BrandList";
+	}
+	/**
+	 * 添加品牌
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/addBrand",method=RequestMethod.GET)
+	public String addBrand(Model model,HttpSession session,@RequestParam("menuids") String menuids){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+			// 获得当前用户的所属行业
+		List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(user.getId());
+		if(liud!=null&&liud.size()>0){
+			model.addAttribute("liud", liud);
+			return "/basic/AddBrand";
+		}else{
+			//正常情况下不会跳到这个
+			return "redirect:addIndustryUser?menuids=2_1";
+		}
+	}
+	
+	/**
+	 * 添加品牌
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/addUserBrandPUser",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj addUserBrandPUser(UserBrandPUser userBrandPUser,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		userBrandPUser.setUserId(user.getId());
+		int code=userBrandPUserService.addUBPU(userBrandPUser);
+		if(code==1){
+			ajaxObj.setResult(1);
+		}else if(code==-1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("您已经有该品牌，请勿重复添加");
+		}else if(code==-2){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("您填写的授权码不存在,请和上家核实");
+		}
+		return ajaxObj;
+	}
+	
+	/**
+	 * 品牌搜索
+	 * @param model
+	 * @param session
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="/brandSearch")
+	public @ResponseBody AjaxObj getBrandSearch(@RequestParam("q") String q,Model model,HttpSession session) throws UnsupportedEncodingException{
+		User user=(User) session.getAttribute("loginer");
+		q=new String(q.getBytes("iso8859-1"), "utf-8");  
+		AjaxObj ajaxObj=new AjaxObj();
+		if(StringUtils.isNotEmpty(q)){
+			List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(user.getId());
+			String industrys="";
+			for(int i=0;i<liud.size();i++){
+				if(i==0){
+					industrys+=liud.get(i).getIndustryId();
+				}else{
+					industrys+=","+liud.get(i).getIndustryId();
+				}
+			}
+			ajaxObj.setObj(brandService.getBrandSerach(industrys, q));
+		}else{
+			ajaxObj.setResult(0);
+		}
+		return ajaxObj;
 	}
 }

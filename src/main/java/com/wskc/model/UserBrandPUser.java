@@ -24,6 +24,8 @@ public class UserBrandPUser {
 	private Integer puserId;//上家id 
 	private String authCode;//授权码
 	private Date creatTime;//创建时间
+	private String pUserRemark;//上家备注
+	private String brankName;//品牌名称
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -66,6 +68,20 @@ public class UserBrandPUser {
 	}
 	public void setCreatTime(Date creatTime) {
 		this.creatTime = creatTime;
+	}
+	@Column(name="puser_remark")
+	public String getpUserRemark() {
+		return pUserRemark;
+	}
+	public void setpUserRemark(String pUserRemark) {
+		this.pUserRemark = pUserRemark;
+	}
+	@Column(name="brand_name")
+	public String getBrankName() {
+		return brankName;
+	}
+	public void setBrankName(String brankName) {
+		this.brankName = brankName;
 	}
 	public UserBrandPUser() {
 		super();

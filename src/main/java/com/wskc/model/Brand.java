@@ -20,6 +20,7 @@ public class Brand {
 	private int id;
 	private String name;  //品牌名称
 	private int industryId;//行业id
+	private String industryName;//行业名称
 	private String company; //公司
 	private Date brandCreateTime;//品牌创建时间
 	private Date createTime; //记录创建时间
@@ -71,6 +72,13 @@ public class Brand {
 	}
 	public void setLeastTime(Date leastTime) {
 		this.leastTime = leastTime;
+	}
+	@Column(name="industry_name")
+	public String getIndustryName() {
+		return industryName;
+	}
+	public void setIndustryName(String industryName) {
+		this.industryName = industryName;
 	}
 	public Brand() {
 		super();

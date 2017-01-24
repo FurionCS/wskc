@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import junit.framework.Assert;
 
+import org.cs.basic.test.util.AbstractDbUnitTestCase;
 import org.dbunit.DatabaseUnitException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,7 +24,7 @@ import com.wskc.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
-public class TestUserDao {
+public class TestUserDao extends AbstractDbUnitTestCase{
 	@Autowired
 	private SessionFactory sessionFactory;
 

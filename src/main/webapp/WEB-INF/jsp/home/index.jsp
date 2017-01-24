@@ -2,7 +2,7 @@
 <%@ taglib uri="Mytag" prefix="Layout"%>
 <%-- <Layout:overwrite name="import"></Layout:overwrite> --%>
 <Layout:overwrite name="title">
-框架
+首页
 </Layout:overwrite>
 <%-- <Layout:overwrite name="Mycss"></Layout:overwrite> --%>
 <Layout:overwrite name="MyContent">

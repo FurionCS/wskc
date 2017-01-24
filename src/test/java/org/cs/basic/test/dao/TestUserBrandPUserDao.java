@@ -6,6 +6,7 @@ import java.util.List;
 
 import junit.framework.Assert;
 
+import org.cs.basic.test.util.AbstractDbUnitTestCase;
 import org.dbunit.DatabaseUnitException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,11 +21,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import com.wskc.dao.UserBrandPUserDao;
+import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.UserBrandPUser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
-public class TestUserBrandPUserDao {
+public class TestUserBrandPUserDao extends AbstractDbUnitTestCase{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -45,7 +47,17 @@ public class TestUserBrandPUserDao {
 		Assert.assertNotNull(lubp);
 		Assert.assertEquals(1, lubp.size());
 	}
+	@Test
+	public void testGetUBPUDAll(){
+		List<UserBrandPUserDto> lubpd=userBrandPUserDao.getUBPUDAll(1);
+		Assert.assertNotNull(lubpd);
+	}
 	
+	@Test
+	public void testGetUBPUByUB(){
+		UserBrandPUser ubpu=userBrandPUserDao.getUBPUByUB(1, 1);
+		Assert.assertNotNull(ubpu);
+	}
 	@After
 	public void tearDown() throws Exception {
 		SessionHolder holder = (SessionHolder) TransactionSynchronizationManager.getResource(sessionFactory);

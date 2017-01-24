@@ -22,4 +22,10 @@ public class IndustryDaoImpl extends BaseDao<Industry> implements IndustryDao{
 		String hql="from Industry";
 		return this.list(hql);
 	}
+
+	@Override
+	public void updateIndustryUserNum(int num,int industryId) {
+		String hql="update Industry set userNum=userNum+? where id=?";
+		this.updateByHql(hql, new Object[]{num,industryId});
+	}
 }

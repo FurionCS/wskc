@@ -105,7 +105,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("</title>\r\n");
       out.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\">\r\n");
       out.write("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
-      out.write("<meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\"/>\r\n");
       out.write("<meta content=\"\" name=\"description\"/>\r\n");
       out.write("<meta content=\"\" name=\"author\"/>\r\n");
       out.write("<!-- BEGIN GLOBAL MANDATORY STYLES -->\r\n");
@@ -168,70 +167,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t<!-- BEGIN HEADER INNER -->\r\n");
       out.write("\t<div class=\"page-header-inner\">\r\n");
       out.write("\t\t<!-- BEGIN LOGO -->\r\n");
-      out.write("\t\t<div class=\"page-logo\">\r\n");
+      out.write("\t\t<div class=\"page-logo hidden-xs\">\r\n");
       out.write("\t\t\t<a href=\"index.html\">\r\n");
       out.write("\t\t\t<img src=\"");
       out.print(request.getContextPath() );
       out.write("/resources/admin/layout4/img/logo-light.png\" alt=\"logo\" class=\"logo-default\"/>\r\n");
       out.write("\t\t\t</a>\r\n");
-      out.write("\t\t\t<div class=\"menu-toggler sidebar-toggler\">\r\n");
+      out.write("\t\t\t<div class=\"menu-toggler sidebar-toggler\" style=\"float:left\">\r\n");
       out.write("\t\t\t\t<!-- DOC: Remove the above \"hide\" to enable the sidebar toggler button on header -->\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<!-- END LOGO -->\r\n");
-      out.write("\t\t<!-- BEGIN RESPONSIVE MENU TOGGLER -->\r\n");
-      out.write("\t\t<a href=\"javascript:;\" class=\"menu-toggler responsive-toggler\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\r\n");
-      out.write("\t\t</a>\r\n");
-      out.write("\t\t<!-- END RESPONSIVE MENU TOGGLER -->\r\n");
-      out.write("\t\t<!-- BEGIN PAGE ACTIONS -->\r\n");
-      out.write("\t\t<!-- DOC: Remove \"hide\" class to enable the page header actions -->\r\n");
-      out.write("\t\t<div class=\"page-actions\">\r\n");
-      out.write("\t\t\t<div class=\"btn-group\">\r\n");
-      out.write("\t\t\t\t<button type=\"button\" class=\"btn red-haze btn-sm dropdown-toggle\" data-toggle=\"dropdown\" data-hover=\"dropdown\" data-close-others=\"true\">\r\n");
-      out.write("\t\t\t\t<span class=\"hidden-sm hidden-xs\">Actions&nbsp;</span><i class=\"fa fa-angle-down\"></i>\r\n");
-      out.write("\t\t\t\t</button>\r\n");
-      out.write("\t\t\t\t<ul class=\"dropdown-menu\" role=\"menu\">\r\n");
-      out.write("\t\t\t\t\t<li>\r\n");
-      out.write("\t\t\t\t\t\t<a href=\"javascript:;\">\r\n");
-      out.write("\t\t\t\t\t\t<i class=\"icon-docs\"></i> New Post </a>\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t<li>\r\n");
-      out.write("\t\t\t\t\t\t<a href=\"javascript:;\">\r\n");
-      out.write("\t\t\t\t\t\t<i class=\"icon-tag\"></i> New Comment </a>\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t<li>\r\n");
-      out.write("\t\t\t\t\t\t<a href=\"javascript:;\">\r\n");
-      out.write("\t\t\t\t\t\t<i class=\"icon-share\"></i> Share </a>\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t<li class=\"divider\">\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t<li>\r\n");
-      out.write("\t\t\t\t\t\t<a href=\"javascript:;\">\r\n");
-      out.write("\t\t\t\t\t\t<i class=\"icon-flag\"></i> Comments <span class=\"badge badge-success\">4</span>\r\n");
-      out.write("\t\t\t\t\t\t</a>\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t\t<li>\r\n");
-      out.write("\t\t\t\t\t\t<a href=\"javascript:;\">\r\n");
-      out.write("\t\t\t\t\t\t<i class=\"icon-users\"></i> Feedbacks <span class=\"badge badge-danger\">2</span>\r\n");
-      out.write("\t\t\t\t\t\t</a>\r\n");
-      out.write("\t\t\t\t\t</li>\r\n");
-      out.write("\t\t\t\t</ul>\r\n");
-      out.write("\t\t\t</div>\r\n");
-      out.write("\t\t</div>\r\n");
-      out.write("\t\t<!-- END PAGE ACTIONS -->\r\n");
+      out.write("\t\r\n");
       out.write("\t\t<!-- BEGIN PAGE TOP -->\r\n");
       out.write("\t\t<div class=\"page-top\">\r\n");
-      out.write("\t\t\t<!-- BEGIN HEADER SEARCH BOX -->\r\n");
-      out.write("\t\t\t<!-- DOC: Apply \"search-form-expanded\" right after the \"search-form\" class to have half expanded search box -->\r\n");
-      out.write("\t\t\t<form class=\"search-form\" action=\"extra_search.html\" method=\"GET\">\r\n");
-      out.write("\t\t\t\t<div class=\"input-group\">\r\n");
-      out.write("\t\t\t\t\t<input type=\"text\" class=\"form-control input-sm\" placeholder=\"Search...\" name=\"query\">\r\n");
-      out.write("\t\t\t\t\t<span class=\"input-group-btn\">\r\n");
-      out.write("\t\t\t\t\t<a href=\"javascript:;\" class=\"btn submit\"><i class=\"icon-magnifier\"></i></a>\r\n");
-      out.write("\t\t\t\t\t</span>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("\t\t\t</form>\r\n");
-      out.write("\t\t\t<!-- END HEADER SEARCH BOX -->\r\n");
+      out.write("\t\t\r\n");
       out.write("\t\t\t<!-- BEGIN TOP NAVIGATION MENU -->\r\n");
       out.write("\t\t\t<div class=\"top-menu\">\r\n");
       out.write("\t\t\t\t<ul class=\"nav navbar-nav pull-right\">\r\n");
@@ -596,6 +546,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\t\t\t</ul>\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t\t<!-- END TOP NAVIGATION MENU -->\r\n");
+      out.write("\t\t\t\t<!-- BEGIN RESPONSIVE MENU TOGGLER -->\r\n");
+      out.write("\t\t\t<a href=\"javascript:;\" class=\"menu-toggler responsive-toggler\" data-toggle=\"collapse\" data-target=\".navbar-collapse\" style=\"float: left;margin-left: 20px;\">\r\n");
+      out.write("\t\t\t</a>\r\n");
+      out.write("\t\t<!-- END RESPONSIVE MENU TOGGLER -->\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<!-- END PAGE TOP -->\r\n");
       out.write("\t</div>\r\n");
@@ -628,7 +582,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                            <a href=\"../basic/industryList?menuids=2_1\"> <i class=\"fa fa-briefcase\"></i>所属行业</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li id=\"menupage2_2\">\r\n");
-      out.write("                            <a href=\"ui/buttons/2_2\"> <i class=\"fa fa-circle-o-notch\"></i>拥有品牌</a>\r\n");
+      out.write("                            <a href=\"../basic/brandList?menuids=2_2&industryId=0\"> <i class=\"fa fa-circle-o-notch\"></i>拥有品牌</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li id=\"menupage2_1\">\r\n");
       out.write("                            <a href=\"../Commodity/CommodityClassList.jsp?active=menupage2_1\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
@@ -954,7 +908,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       }
       do {
         out.write("\r\n");
-        out.write("框架\r\n");
+        out.write("首页\r\n");
         int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1053,7 +1007,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f2 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f2.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f2.setParent(null);
-    // /share/_LayoutB.jsp(41,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(40,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f2.setName("Mycss");
     int _jspx_eval_Layout_005fblock_005f2 = _jspx_th_Layout_005fblock_005f2.doStartTag();
     if (_jspx_th_Layout_005fblock_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1072,7 +1026,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f3 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f3.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f3.setParent(null);
-    // /share/_LayoutB.jsp(664,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(618,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f3.setName("MyContent");
     int _jspx_eval_Layout_005fblock_005f3 = _jspx_th_Layout_005fblock_005f3.doStartTag();
     if (_jspx_th_Layout_005fblock_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1091,7 +1045,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f4 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f4.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f4.setParent(null);
-    // /share/_LayoutB.jsp(712,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(666,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f4.setName("MyScript");
     int _jspx_eval_Layout_005fblock_005f4 = _jspx_th_Layout_005fblock_005f4.doStartTag();
     if (_jspx_th_Layout_005fblock_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

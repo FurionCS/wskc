@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.cs.basic.dao.IBaseDao;
 
+import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.UserBrandPUser;
 /**
  * 
@@ -21,5 +22,32 @@ public interface UserBrandPUserDao extends IBaseDao<UserBrandPUser>{
 	 */
 	public List<UserBrandPUser> getUserBrandPUserByIndustry(int userId,int industryId);
 	
+	/**
+	 * 根据用户id获得所有品牌信息
+	 * @param userId
+	 * @return
+	 */
+	public List<UserBrandPUserDto> getUBPUDAll(int userId);
 	
+	/**
+	 * 根据用户id获得所有品牌信息
+	 * @param userId
+	 * @return
+	 */
+	public List<UserBrandPUserDto> getUBPUDByIndustry(int userId,int industryId);
+	
+	/**
+	 * 根据品牌id,用户获得用户品牌信息
+	 * @param userId
+	 * @param brandId
+	 * @return
+	 */
+	public UserBrandPUser getUBPUByUB(int userId,int brandId);
+	
+	/**
+	 * 更加授权码获的用户品牌信息
+	 * @param auth_code
+	 * @return
+	 */
+	public UserBrandPUser getUBPUByCode(String authCode);
 }

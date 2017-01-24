@@ -15,7 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title><Layout:block name="title"></Layout:block></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
 <meta content="" name="author"/>
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -48,68 +47,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- BEGIN HEADER INNER -->
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
-		<div class="page-logo">
+		<div class="page-logo hidden-xs">
 			<a href="index.html">
 			<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/logo-light.png" alt="logo" class="logo-default"/>
 			</a>
-			<div class="menu-toggler sidebar-toggler">
+			<div class="menu-toggler sidebar-toggler" style="float:left">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
 			</div>
 		</div>
 		<!-- END LOGO -->
-		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-		</a>
-		<!-- END RESPONSIVE MENU TOGGLER -->
-		<!-- BEGIN PAGE ACTIONS -->
-		<!-- DOC: Remove "hide" class to enable the page header actions -->
-		<div class="page-actions">
-			<div class="btn-group">
-				<button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<span class="hidden-sm hidden-xs">Actions&nbsp;</span><i class="fa fa-angle-down"></i>
-				</button>
-				<ul class="dropdown-menu" role="menu">
-					<li>
-						<a href="javascript:;">
-						<i class="icon-docs"></i> New Post </a>
-					</li>
-					<li>
-						<a href="javascript:;">
-						<i class="icon-tag"></i> New Comment </a>
-					</li>
-					<li>
-						<a href="javascript:;">
-						<i class="icon-share"></i> Share </a>
-					</li>
-					<li class="divider">
-					</li>
-					<li>
-						<a href="javascript:;">
-						<i class="icon-flag"></i> Comments <span class="badge badge-success">4</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;">
-						<i class="icon-users"></i> Feedbacks <span class="badge badge-danger">2</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!-- END PAGE ACTIONS -->
+	
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-			<!-- BEGIN HEADER SEARCH BOX -->
-			<!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-			<form class="search-form" action="extra_search.html" method="GET">
-				<div class="input-group">
-					<input type="text" class="form-control input-sm" placeholder="Search..." name="query">
-					<span class="input-group-btn">
-					<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
-					</span>
-				</div>
-			</form>
-			<!-- END HEADER SEARCH BOX -->
+		
 			<!-- BEGIN TOP NAVIGATION MENU -->
 			<div class="top-menu">
 				<ul class="nav navbar-nav pull-right">
@@ -462,6 +412,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</ul>
 			</div>
 			<!-- END TOP NAVIGATION MENU -->
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+			<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse" style="float: left;margin-left: 20px;">
+			</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
 		</div>
 		<!-- END PAGE TOP -->
 	</div>
@@ -494,7 +448,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="../basic/industryList?menuids=2_1"> <i class="fa fa-briefcase"></i>所属行业</a>
                         </li>
                         <li id="menupage2_2">
-                            <a href="../basic/brandList?menuids=2_2"> <i class="fa fa-circle-o-notch"></i>拥有品牌</a>
+                            <a href="../basic/brandList?menuids=2_2&industryId=0"> <i class="fa fa-circle-o-notch"></i>拥有品牌</a>
                         </li>
                         <li id="menupage2_1">
                             <a href="../Commodity/CommodityClassList.jsp?active=menupage2_1"><i class="fa fa-turkish-lira"></i>旗下产品</a>
