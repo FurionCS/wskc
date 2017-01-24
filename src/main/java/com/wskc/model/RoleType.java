@@ -1,0 +1,5 @@
+package com.wskc.model;
+
+public enum RoleType {
+	ROLE_ADMIN,ROLE_USER,ROLE_VISITOR,ROLE_SERVICE,ROLE_PROGRAMMER,ROLE_PROPAGANDA
+}
