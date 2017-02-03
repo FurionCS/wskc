@@ -114,7 +114,9 @@ static {
           out.write("<script type=\"text/javascript\" src=\"");
           out.print(request.getContextPath() );
           out.write("/resources/js/my/Industry.js\"></script>\r\n");
-          out.write("\r\n");
+          out.write(" <script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/js/my/public.js\"></script>\r\n");
           int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f3.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -230,7 +232,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\r\n");
       out.write("\t\t<!-- BEGIN PAGE TOP -->\r\n");
       out.write("\t\t<div class=\"page-top\">\r\n");
-      out.write("\t\t\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\t<!-- BEGIN TOP NAVIGATION MENU -->\r\n");
       out.write("\t\t\t<div class=\"top-menu\">\r\n");
       out.write("\t\t\t\t<ul class=\"nav navbar-nav pull-right\">\r\n");
@@ -633,8 +635,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <li id=\"menupage2_2\">\r\n");
       out.write("                            <a href=\"../basic/brandList?menuids=2_2&industryId=0\"> <i class=\"fa fa-circle-o-notch\"></i>拥有品牌</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage2_1\">\r\n");
-      out.write("                            <a href=\"../Commodity/CommodityClassList.jsp?active=menupage2_1\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
+      out.write("                        <li id=\"menupage2_3\">\r\n");
+      out.write("                            <a href=\"../basic/productList?menuids=2_3\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -645,11 +647,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <span class=\"arrow \"></span>\r\n");
       out.write("                    </a>\r\n");
       out.write("                     <ul class=\"sub-menu\">\r\n");
-      out.write("                        <li id=\"menupage3_0\">\r\n");
-      out.write("                            <a href=\"../Order/OrderList.jsp?active=menupage3_0\"><i class=\"fa  fa-list-ul\"></i>采购<span class=\"badge badge-roundless badge-danger\">new</span></a>\r\n");
+      out.write("                        <li id=\"menupage3_1\">\r\n");
+      out.write("                            <a href=\"../purchase/AddPurchase?menuids=3_1\"><i class=\"fa  fa-list-ul\"></i>采购</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage3_0\">\r\n");
-      out.write("                            <a href=\"../Order/OrderList.jsp?active=menupage3_0\"><i class=\"fa   fa-align-justify\"></i>采购列表</a>\r\n");
+      out.write("                        <li id=\"menupage3_2\">\r\n");
+      out.write("                            <a href=\"../purchase/PurchaseList?menuids=3_2\"><i class=\"fa   fa-align-justify\"></i>采购列表</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -1104,7 +1106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t<!-- END SAMPLE TABLE PORTLET-->\r\n");
         out.write("\t\t\t\t</div>\r\n");
         out.write("</div>\r\n");
-        out.write("<input type=\"hidden\" value=\"-1\" id=\"industryId\"/>\r\n");
+        out.write("<input type=\"hidden\" value=\"-1\" id=\"hid\"/>\r\n");
         int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1203,7 +1205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t<tr onclick=\"selectIndustry(");
+          out.write("\t\t\t\t\t\t\t\t\t\t<tr onclick=\"selectTr(");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${iud.industryId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write(",this)\" id=\"tr_");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${iud.industryId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));

@@ -26,7 +26,7 @@ public class BrandDaoImpl extends BaseDao<Brand> implements BrandDao {
 
 	@Override
 	public List<Brand> getBrandSerach(String industryIds,String str) {
-		String hql="from Brand where industryId in ("+industryIds+") and name like '"+str+"%'";
+		String hql="from Brand where status=1 and industryId in ("+industryIds+") and name like '"+str+"%'";
 		return this.list(hql);
 	}
 

@@ -30,6 +30,14 @@ public interface UserBrandPUserDao extends IBaseDao<UserBrandPUser>{
 	public List<UserBrandPUserDto> getUBPUDAll(int userId);
 	
 	/**
+	 * 根据用户id和检索关键字获得品牌列表
+	 * @param userId
+	 * @param str
+	 * @return
+	 */
+	public List<UserBrandPUser> getUBPUDByP(int userId,String str);
+	
+	/**
 	 * 根据用户id获得所有品牌信息
 	 * @param userId
 	 * @return
@@ -50,4 +58,11 @@ public interface UserBrandPUserDao extends IBaseDao<UserBrandPUser>{
 	 * @return
 	 */
 	public UserBrandPUser getUBPUByCode(String authCode);
+	
+	/**
+	 * 删除用户品牌
+	 * @param userId
+	 * @param brandId
+	 */
+	public void deleteUBPUByUB(int userId,int brandId);
 }

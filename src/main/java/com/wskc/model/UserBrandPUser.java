@@ -25,7 +25,7 @@ public class UserBrandPUser {
 	private String authCode;//授权码
 	private Date creatTime;//创建时间
 	private String pUserRemark;//上家备注
-	private String brankName;//品牌名称
+	private String brandName;//品牌名称
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -77,11 +77,11 @@ public class UserBrandPUser {
 		this.pUserRemark = pUserRemark;
 	}
 	@Column(name="brand_name")
-	public String getBrankName() {
-		return brankName;
+	public String getBrandName() {
+		return brandName;
 	}
-	public void setBrankName(String brankName) {
-		this.brankName = brankName;
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 	public UserBrandPUser() {
 		super();

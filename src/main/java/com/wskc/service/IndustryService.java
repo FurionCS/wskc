@@ -2,6 +2,8 @@ package com.wskc.service;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
+
 import com.wskc.model.Industry;
 /**
  * 
@@ -16,4 +18,11 @@ public interface IndustryService {
 	 * @return
 	 */
 	List<Industry> getIndustryList();
+	
+	/**
+	 * 得到行业通过行业id
+	 * @param id
+	 * @return
+	 */
+	Industry getIndustryById(int id);
 }

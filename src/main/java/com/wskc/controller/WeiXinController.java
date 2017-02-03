@@ -27,6 +27,8 @@ public class WeiXinController {
 		resp.sendRedirect(location);
 	}
 	
+	
+	
 	@RequestMapping(value="/handleAuth")
 	public void handleAuth(@RequestParam("code") String code,@RequestParam("state") String state) throws Exception{
 		logger.info("code:"+code);
@@ -36,4 +38,5 @@ public class WeiXinController {
 		
 		System.out.println(oauthUser.getOpenid()+"/"+oauthUser.getNickname()+"/"+oauthUser.getHeadimgurl());
 	}
+	
 }

@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 import com.wskc.dao.BrandDao;
 import com.wskc.dao.IndustryDao;
 import com.wskc.dao.UserBrandPUserDao;
+import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.BasicException;
 import com.wskc.model.Brand;
 import com.wskc.model.UserBrandPUser;
+import com.wskc.model.UserProductStock;
 import com.wskc.service.UserBrandPUserService;
 /**
  * 
@@ -33,6 +35,9 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 	
 	@Autowired
 	private BrandDao brandDao;
+	
+	@Autowired
+	private UserProductStockDao userProductStockDao;
 	@Override
 	public List<UserBrandPUser> getUserBrandPUserByIndustry(int userId,
 			int industryId) {
@@ -78,6 +83,39 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 		// 更新行业用户数量
 		industryDao.updateIndustryUserNum(1, brand.getIndustryId());
 		return 1;
+	}
+	@Override
+	public boolean deleteUBPU(int userId, int brandId) {
+		//判断用户该品牌下是否有产品
+		List<UserProductStock> lups=userProductStockDao.getUserProductStockByBrandId(userId,brandId);
+		if(lups!=null&&lups.size()>0){
+			System.out.println("还有产品");
+			return false;
+		}else{
+			//删除品牌
+			userBrandPUserDao.deleteUBPUByUB(userId, brandId);
+			return true;
+		}
+	}
+	@Override
+	public UserBrandPUser getUBPUByUB(int userId, int brandId) {
+		return userBrandPUserDao.getUBPUByUB(userId, brandId);
+	}
+	@Override
+	public boolean updateUBPU(UserBrandPUser ubpu) {
+		if(ubpu.getId()<1||StringUtils.isNotEmpty(ubpu.getAuthCode()) || StringUtils.isNotEmpty(ubpu.getpUserRemark())){
+			throw new BasicException("id,授权码,备注不能为空");
+		}
+		UserBrandPUser ubpu2=userBrandPUserDao.load(ubpu.getId());
+		UserBrandPUser ubpu3=userBrandPUserDao.getUBPUByCode(ubpu.getAuthCode());
+		ubpu2.setPuserId(ubpu3.getUserId());
+		ubpu2.setpUserRemark(ubpu.getpUserRemark());
+		userBrandPUserDao.update(ubpu2);
+		return true;
+	}
+	@Override
+	public List<UserBrandPUser> getUBPUDByP(int userId, String str) {
+		return userBrandPUserDao.getUBPUDByP(userId, str);
 	}
 
 }

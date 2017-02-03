@@ -31,21 +31,17 @@
 	    </dependency>
 		
 	    
-	    <!-- hibernate验证jar -->
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
-		</dependency>
+	  
 		<!-- test jar -->
 		<dependency>
-		      <groupId>junit</groupId>
-		      <artifactId>junit</artifactId>
-		      <scope>test</scope>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <scope>test</scope>
 		 </dependency>
 	    <dependency>
-			    <groupId>org.dbunit</groupId>
-			    <artifactId>dbunit</artifactId>
-		    	<scope>test</scope>
+		    <groupId>org.dbunit</groupId>
+		    <artifactId>dbunit</artifactId>
+	    	<scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>com.github.springtestdbunit</groupId>
@@ -57,6 +53,7 @@
 		    <artifactId>spring-test</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		<!-- 数据库连接池 -->
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>druid</artifactId>
@@ -65,11 +62,17 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-webmvc</artifactId>
 		</dependency>
-		
+		<!-- hibernate核心包 -->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
 		</dependency>
+		<!-- hibernate验证jar -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<!-- spring核心包 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context</artifactId>
@@ -90,28 +93,21 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-orm</artifactId>
 		</dependency>
+		<!-- servlet包 -->
 		<dependency>
 		    <groupId>servletapi</groupId>
 		    <artifactId>servlet-api</artifactId>
 		    <scope>provided</scope>
 		</dependency>
 		<dependency>
-		    <groupId>jstl</groupId>
-		    <artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>jsp-api</artifactId>
 		    <scope>provided</scope>
 		</dependency>
+		<!-- jstl -->
 		<dependency>
-		    <groupId>net.sf.json-lib</groupId>
-		    <artifactId>json-lib</artifactId>
-		    <classifier>jdk15</classifier>
-		</dependency>
-		<dependency>
-		    <groupId>com.alibaba</groupId>
-		    <artifactId>fastjson</artifactId>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
 		</dependency>
 		<!-- logger -->
 		<dependency>
@@ -123,6 +119,7 @@
 		    <groupId>jsptags</groupId>
 		    <artifactId>pager-taglib</artifactId>
 		</dependency>
+		<!-- 数据库连接 -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
@@ -156,6 +153,44 @@
 		 <dependency>
 			<groupId>servletapi</groupId>
 			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<!-- config redis data and client jar -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+		<!-- json 相关 -->
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${jackson.version}</version>
 		</dependency>
   </dependencies>
   <build>

@@ -93,7 +93,46 @@ static {
         return;
       out.write('\r');
       out.write('\n');
-      out.write("\r\n");
+      out.write(' ');
+      //  Layout:overwrite
+      org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f2 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
+      _jspx_th_Layout_005foverwrite_005f2.setPageContext(_jspx_page_context);
+      _jspx_th_Layout_005foverwrite_005f2.setParent(null);
+      // /WEB-INF/jsp/basic/BrandList.jsp(142,1) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      _jspx_th_Layout_005foverwrite_005f2.setName("MyScript");
+      int _jspx_eval_Layout_005foverwrite_005f2 = _jspx_th_Layout_005foverwrite_005f2.doStartTag();
+      if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.pushBody();
+          _jspx_th_Layout_005foverwrite_005f2.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+          _jspx_th_Layout_005foverwrite_005f2.doInitBody();
+        }
+        do {
+          out.write("\r\n");
+          out.write(" <script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/global/plugins/bootstrap-suggest-plugin.js\"></script>\r\n");
+          out.write("  <script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/js/my/Brand.js\"></script>\r\n");
+          out.write(" <script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/js/my/public.js\"></script>\r\n");
+          out.write(" ");
+          int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f2.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+        if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.popBody();
+        }
+      }
+      if (_jspx_th_Layout_005foverwrite_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f2);
+        return;
+      }
+      _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f2);
+      out.write(" \r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -195,7 +234,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\r\n");
       out.write("\t\t<!-- BEGIN PAGE TOP -->\r\n");
       out.write("\t\t<div class=\"page-top\">\r\n");
-      out.write("\t\t\r\n");
+      out.write("\t\t\t\r\n");
       out.write("\t\t\t<!-- BEGIN TOP NAVIGATION MENU -->\r\n");
       out.write("\t\t\t<div class=\"top-menu\">\r\n");
       out.write("\t\t\t\t<ul class=\"nav navbar-nav pull-right\">\r\n");
@@ -598,8 +637,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <li id=\"menupage2_2\">\r\n");
       out.write("                            <a href=\"../basic/brandList?menuids=2_2&industryId=0\"> <i class=\"fa fa-circle-o-notch\"></i>拥有品牌</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage2_1\">\r\n");
-      out.write("                            <a href=\"../Commodity/CommodityClassList.jsp?active=menupage2_1\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
+      out.write("                        <li id=\"menupage2_3\">\r\n");
+      out.write("                            <a href=\"../basic/productList?menuids=2_3\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -610,11 +649,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <span class=\"arrow \"></span>\r\n");
       out.write("                    </a>\r\n");
       out.write("                     <ul class=\"sub-menu\">\r\n");
-      out.write("                        <li id=\"menupage3_0\">\r\n");
-      out.write("                            <a href=\"../Order/OrderList.jsp?active=menupage3_0\"><i class=\"fa  fa-list-ul\"></i>采购<span class=\"badge badge-roundless badge-danger\">new</span></a>\r\n");
+      out.write("                        <li id=\"menupage3_1\">\r\n");
+      out.write("                            <a href=\"../purchase/AddPurchase?menuids=3_1\"><i class=\"fa  fa-list-ul\"></i>采购</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage3_0\">\r\n");
-      out.write("                            <a href=\"../Order/OrderList.jsp?active=menupage3_0\"><i class=\"fa   fa-align-justify\"></i>采购列表</a>\r\n");
+      out.write("                        <li id=\"menupage3_2\">\r\n");
+      out.write("                            <a href=\"../purchase/PurchaseList?menuids=3_2\"><i class=\"fa   fa-align-justify\"></i>采购列表</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -1002,6 +1041,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t\t\t\t\t\t添加 <i class=\"fa fa-plus\"></i>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t\t</a>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"btn-group pull-left visible-xs-block\"  style=\"margin-left:3px;\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<a id=\"deleteUserBrand\" onclick=\"deleteUserBrand(0,2)\" class=\"btn red\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t删除 <i class=\"fa  fa-trash-o\"></i>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t</a>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t");
         if (_jspx_meth_c_005fif_005f0(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
@@ -1026,6 +1070,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t\t\t\t<th>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t创建时间\r\n");
         out.write("\t\t\t\t\t\t\t\t\t</th>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<th class=\"hidden-xs\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t操作\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</th>\r\n");
         out.write("\t\t\t\t\t\t\t\t</tr>\r\n");
         out.write("\t\t\t\t\t\t\t\t</thead>\r\n");
         out.write("\t\t\t\t\t\t\t\t<tbody>\r\n");
@@ -1048,6 +1095,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\r\n");
         out.write("</div>\r\n");
+        out.write("<input type=\"hidden\" value=\"-1\" id=\"hid\"/>\r\n");
         int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1072,7 +1120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/basic/BrandList.jsp(56,9) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/basic/BrandList.jsp(61,9) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${fn:length(liud)>0 }", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_0, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1116,10 +1164,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f0);
-    // /WEB-INF/jsp/basic/BrandList.jsp(66,13) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/basic/BrandList.jsp(71,13) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("iud");
-    // /WEB-INF/jsp/basic/BrandList.jsp(66,13) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/jsp/basic/BrandList.jsp(66,13) '${liud }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${liud }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/jsp/basic/BrandList.jsp(71,13) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/jsp/basic/BrandList.jsp(71,13) '${liud }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${liud }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
@@ -1162,29 +1210,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/basic/BrandList.jsp(98,8) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/basic/BrandList.jsp(106,8) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f1.setVar("ubpd");
-    // /WEB-INF/jsp/basic/BrandList.jsp(98,8) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/jsp/basic/BrandList.jsp(98,8) '${lubpd }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${lubpd }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/jsp/basic/BrandList.jsp(106,8) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/jsp/basic/BrandList.jsp(106,8) '${lubpd }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${lubpd }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
     int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f1 = _jspx_th_c_005fforEach_005f1.doStartTag();
       if (_jspx_eval_c_005fforEach_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t\t<tr>\r\n");
+          out.write("\t\t\t\t\t\t\t\t<tr onclick=\"selectTr(");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write(",this)\" id=\"tr_");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\">\r\n");
           out.write("\t\t\t\t\t\t\t\t\t<td>\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"\" >");
+          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"../basic/editUserBrandPUser?menuids=2_2&brandId=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write('"');
+          out.write(' ');
+          out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandName }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</a>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t</td>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t<td>\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"\" title=\"分享授权码\">");
+          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"javascript:void(0)\" title=\"分享授权码\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.authCode }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</a>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t</td>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t<td>\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"\">");
+          out.write("\t\t\t\t\t\t\t\t\t\t <a href=\"../basic/editUserBrandPUser?menuids=2_2&brandId=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write('"');
+          out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.puserRemark }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</a>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t</td>\r\n");
@@ -1192,6 +1251,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           out.write("\t\t\t\t\t\t\t\t\t\t");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.createTime }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t</td>\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t<td class=\"hidden-xs\">\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t\t<a href=\"../basic/editUserBrandPUser?menuids=2_2&brandId=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\"  class=\"label label-info\" style=\"color: white;\">修改</a>\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" onclick=\"deleteUserBrand(");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${ubpd.brandId }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write(",1)\" class=\"label label-Danger\" style=\"color: white;\">删除</a>\r\n");
           out.write("\t\t\t\t\t\t\t\t\t</td>\r\n");
           out.write("\t\t\t\t\t\t\t\t</tr>\r\n");
           out.write("\t\t\t\t\t\t\t\t");
@@ -1222,7 +1289,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/basic/BrandList.jsp(119,7) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/basic/BrandList.jsp(131,7) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${fn:length(lubpd)<1 }", java.lang.Boolean.class, (PageContext)_jspx_page_context, _jspx_fnmap_0, false)).booleanValue());
     int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
     if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {

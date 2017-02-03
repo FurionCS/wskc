@@ -2,14 +2,12 @@ package org.cs.basic.test.dao;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 import org.cs.basic.test.util.AbstractDbUnitTestCase;
 import org.dbunit.DatabaseUnitException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,17 +18,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import com.wskc.dao.IndustryDao;
-import com.wskc.dao.IndustryUserDao;
-import com.wskc.dto.IndustryUserDto;
+import com.wskc.service.IndustryService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration(locations = {"classpath:/applicationContext.xml","classpath:/applicationContext-redis.xml"})
 public class TestIndustryDao extends AbstractDbUnitTestCase{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Autowired
 	private IndustryDao industryDao;
+	@Autowired
+	private IndustryService industryService;
 	@Before
 	public void setUp() throws SQLException, IOException, DatabaseUnitException {
 		Session s = sessionFactory.openSession();
@@ -44,6 +43,11 @@ public class TestIndustryDao extends AbstractDbUnitTestCase{
 	@Test
 	public void testUpdateIndustry(){
 		industryDao.updateIndustryUserNum(-1, 1);
+	}
+	
+	@Test
+	public void testGetIndustryList(){
+		industryService.getIndustryList();
 	}
 
 	@After

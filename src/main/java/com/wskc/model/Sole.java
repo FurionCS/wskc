@@ -28,7 +28,7 @@ public class Sole {
 	private int num;//数量
 	private double price;//价格
 	private double factPrice; //实际价格
-	private double totleMoney;//总共金额
+	private double totalMoney;//总共金额
 	private double deliveryFee; //快递费
 	private double otherFee;//其他费用
 	private Date createTime;//创建时间
@@ -110,12 +110,13 @@ public class Sole {
 	public void setFactPrice(double factPrice) {
 		this.factPrice = factPrice;
 	}
-	@Column(name="totle_money")
-	public double getTotleMoney() {
-		return totleMoney;
+
+	@Column(name="total_money")
+	public double getTotalMoney() {
+		return totalMoney;
 	}
-	public void setTotleMoney(double totleMoney) {
-		this.totleMoney = totleMoney;
+	public void setTotalMoney(double totalMoney) {
+		this.totalMoney = totalMoney;
 	}
 	@Column(name="create_time")
 	public Date getCreateTime() {

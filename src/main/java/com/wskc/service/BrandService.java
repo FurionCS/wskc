@@ -19,5 +19,11 @@ public interface BrandService {
 	 * @return
 	 */
 	public List<Brand> getBrandSerach(String industrys,String str);
+	
+	/**
+	 * 添加品牌到库
+	 * @param brand
+	 */
+	public int addBrandToPublic(Brand brand);
 
 }

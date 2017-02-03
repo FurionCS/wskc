@@ -85,7 +85,7 @@ public final class AddBrand_jsp extends org.apache.jasper.runtime.HttpJspBase
       org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f2 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
       _jspx_th_Layout_005foverwrite_005f2.setPageContext(_jspx_page_context);
       _jspx_th_Layout_005foverwrite_005f2.setParent(null);
-      // /WEB-INF/jsp/basic/AddBrand.jsp(76,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/basic/AddBrand.jsp(81,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_Layout_005foverwrite_005f2.setName("MyScript");
       int _jspx_eval_Layout_005foverwrite_005f2 = _jspx_th_Layout_005foverwrite_005f2.doStartTag();
       if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -620,8 +620,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <li id=\"menupage2_2\">\r\n");
       out.write("                            <a href=\"../basic/brandList?menuids=2_2&industryId=0\"> <i class=\"fa fa-circle-o-notch\"></i>拥有品牌</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage2_1\">\r\n");
-      out.write("                            <a href=\"../Commodity/CommodityClassList.jsp?active=menupage2_1\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
+      out.write("                        <li id=\"menupage2_3\">\r\n");
+      out.write("                            <a href=\"../basic/productList?menuids=2_3\"><i class=\"fa fa-turkish-lira\"></i>旗下产品</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -1005,6 +1005,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t\t\t<i class=\"icon-pin font-green\"></i>\r\n");
         out.write("\t\t\t\t\t\t\t\t<span class=\"caption-subject bold uppercase\">添加品牌</span>\r\n");
         out.write("\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t<div class=\"actions\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t<a class=\"btn btn-circle btn-icon-only blue\" href=\"../basic/addBrandToPublic?menuids=2_2\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t<i class=\"icon-cloud-upload\"></i>\r\n");
+        out.write("\t\t\t\t\t\t\t\t</a>\r\n");
+        out.write("\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t<div class=\"portlet-body form\">\r\n");
         out.write("\t\t\t\t\t\t\t<form role=\"form\">\r\n");
@@ -1012,7 +1017,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group\"> \r\n");
         out.write("\t\t\t\t\t\t\t\t\t<label for=\"taobao\">品牌</label>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t  <div class=\"input-group\">\r\n");
-        out.write("\t\t\t\t\t                        <input type=\"text\" class=\"form-control\" id=\"brand\">\r\n");
+        out.write("\t\t\t\t\t                        <input type=\"text\" class=\"form-control\" id=\"brand\" placeholder=\"如搜索不到请点击右上角按钮添加到库\">\r\n");
         out.write("\t\t\t\t\t                        <div class=\"input-group-btn\">\r\n");
         out.write("\t\t\t\t\t                            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 34px;\">\r\n");
         out.write("\t\t\t\t\t                                <span class=\"caret\"></span>\r\n");
@@ -1025,7 +1030,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t                  </div>\r\n");
         out.write("\t\t\t\t\t                <div class=\"form-group form-md-line-input has-success\">\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"code\" placeholder=\"授权码为8位,可不填\">\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">授权码</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">上家授权码</label>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input has-warning\">\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"remark\" placeholder=\"用于标记上家,可不填\">\r\n");

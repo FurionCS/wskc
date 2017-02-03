@@ -28,6 +28,14 @@ public interface UserBrandPUserService {
 	public List<UserBrandPUserDto> getUBPUDAll(int userId);
 	
 	/**
+	 * 根据用户id和检索关键字获得品牌列表
+	 * @param userId
+	 * @param str
+	 * @return
+	 */
+	public List<UserBrandPUser> getUBPUDByP(int userId,String str);
+	
+	/**
 	 * 根据用户id,行业Id获得所有品牌信息
 	 * @param userId
 	 * @return
@@ -38,4 +46,24 @@ public interface UserBrandPUserService {
 	 * @param ubpu
 	 */
 	public int addUBPU(UserBrandPUser ubpu);
+	/**
+	 * 删除用户品牌
+	 * @param userId
+	 * @param brandId
+	 */
+	public boolean deleteUBPU(int userId,int brandId);
+	
+	/**
+	 * 根据品牌id,用户获得用户品牌信息
+	 * @param userId
+	 * @param brandId
+	 * @return
+	 */
+	public UserBrandPUser getUBPUByUB(int userId,int brandId);
+	
+	/**
+	 * 修改用户品牌
+	 * @param ubpu
+	 */
+	public boolean updateUBPU(UserBrandPUser ubpu);
 }

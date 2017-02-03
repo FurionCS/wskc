@@ -58,6 +58,16 @@ public class TestUserBrandPUserDao extends AbstractDbUnitTestCase{
 		UserBrandPUser ubpu=userBrandPUserDao.getUBPUByUB(1, 1);
 		Assert.assertNotNull(ubpu);
 	}
+	
+	@Test
+	public void testDeleteUBPU(){
+		userBrandPUserDao.deleteUBPUByUB(1, 1);
+	}
+	
+	@Test
+	public void testGetUBPUDByP(){
+		userBrandPUserDao.getUBPUDByP(1,"贴");
+	}
 	@After
 	public void tearDown() throws Exception {
 		SessionHolder holder = (SessionHolder) TransactionSynchronizationManager.getResource(sessionFactory);

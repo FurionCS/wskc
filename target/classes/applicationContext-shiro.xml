@@ -12,7 +12,7 @@
          http://www.springframework.org/schema/tx 
          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	 
-	 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
+	 <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>
 	 <bean id="urlPermissionResolver" class="org.cs.basic.permission.UrlPermissionResovler"/>
 	 <bean id="hashMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
 	 	<property name="hashAlgorithmName" value="md5"/>
@@ -28,7 +28,7 @@
 	 
 	 <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 	    <property name="realm" ref="adminRealm"/>
-	  	<property name="cacheManager" ref="cacheManager"/> 
+	  	<property name="cacheManager" ref="shiroCacheManager"/> 
 	    <property name="authorizer.permissionResolver" ref="urlPermissionResolver"/>
 	</bean>
 	
@@ -52,11 +52,11 @@
 	    </property> -->
 	    <property name="filterChainDefinitions">
 	        <value>
-	        	/home/**=anon
-	        	/home/logout=logout
 	        	/home/index=authc
+	        	/home/logout=logout
 	        	<!-- /admin/**=authc,resourceCheckFilter -->
 	        	/basic/**=authc
+	        	/purchase/**=authc
 	        </value>
 	    </property>
 	</bean>

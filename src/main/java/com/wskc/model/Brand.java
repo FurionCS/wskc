@@ -22,9 +22,10 @@ public class Brand {
 	private int industryId;//行业id
 	private String industryName;//行业名称
 	private String company; //公司
-	private Date brandCreateTime;//品牌创建时间
 	private Date createTime; //记录创建时间
 	private Date leastTime; //修改时间
+	private int createrId;//创建者id
+	private int status; //状态1正常，0停用，2审核中
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -52,13 +53,6 @@ public class Brand {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	@Column(name="brand_create_time")
-	public Date getBrandCreateTime() {
-		return brandCreateTime;
-	}
-	public void setBrandCreateTime(Date brandCreateTime) {
-		this.brandCreateTime = brandCreateTime;
-	}
 	@Column(name="create_time")
 	public Date getCreateTime() {
 		return createTime;
@@ -79,6 +73,19 @@ public class Brand {
 	}
 	public void setIndustryName(String industryName) {
 		this.industryName = industryName;
+	}
+	@Column(name="creater_id")
+	public int getCreaterId() {
+		return createrId;
+	}
+	public void setCreaterId(int createrId) {
+		this.createrId = createrId;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public Brand() {
 		super();

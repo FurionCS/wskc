@@ -48,4 +48,16 @@ public class UserBrandPUserDaoImpl extends BaseDao<UserBrandPUser> implements Us
 		return (UserBrandPUser) this.queryObject(hql,authCode);
 	}
 
+	@Override
+	public void deleteUBPUByUB(int userId, int brandId) {
+		String hql="delete from UserBrandPUser where userId=? and brandId=?";
+		this.updateByHql(hql, new Object[]{userId,brandId});
+	}
+
+	@Override
+	public List<UserBrandPUser> getUBPUDByP(int userId, String str) {
+		String hql="from UserBrandPUser ubpu where ubpu.userId=? and ubpu.brandName like ?";
+		return this.list(hql, new Object[]{userId,str+'%'});
+	}
+
 }

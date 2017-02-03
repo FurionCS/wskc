@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 
 
+
 import com.wskc.config.IndustryUserConfig;
+import com.wskc.dao.IndustryDao;
 import com.wskc.dao.IndustryUserDao;
 import com.wskc.dto.IndustryUserDto;
 import com.wskc.model.BasicException;
@@ -30,6 +32,9 @@ public class IndustryUserServiceImpl implements IndustryUserService{
 	
 	@Autowired
 	private IndustryUserDao industryUserDao;
+	
+	@Autowired
+	private IndustryDao industryDao;
 	@Override
 	public List<IndustryUserDto> getIndustryByUserId(int userId) {
 		if(userId>0){
@@ -54,6 +59,7 @@ public class IndustryUserServiceImpl implements IndustryUserService{
 		if(industryUser2!=null){
 			return false;
 		}else{
+			industryDao.updateIndustryUserNum(1, industryUser.getIndustryId());
 			industryUserDao.add(industryUser);
 			return true;
 		}
@@ -61,6 +67,7 @@ public class IndustryUserServiceImpl implements IndustryUserService{
 
 	@Override
 	public void deleteIndustryUserByUI(int userId, int industryId) {
+		industryDao.updateIndustryUserNum(-1, industryId);
 		industryUserDao.deleteIndustryUserByUI(userId, industryId);
 	}
 

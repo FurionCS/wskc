@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.cs.basic.model.Pager;
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +21,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wskc.dto.AjaxObj;
 import com.wskc.dto.IndustryUserDto;
 import com.wskc.dto.UserBrandPUserDto;
+import com.wskc.dto.UserProductDto;
+import com.wskc.model.Brand;
 import com.wskc.model.IndustryUser;
+import com.wskc.model.Product;
 import com.wskc.model.User;
 import com.wskc.model.UserBrandPUser;
+import com.wskc.model.UserProductStock;
 import com.wskc.service.BrandService;
 import com.wskc.service.IndustryService;
 import com.wskc.service.IndustryUserService;
+import com.wskc.service.ProductService;
 import com.wskc.service.UserBrandPUserService;
+import com.wskc.service.UserProductStockService;
 
 /**
  * 
@@ -51,6 +58,12 @@ public class BasicController {
 	
 	@Autowired
 	private BrandService brandService;
+	
+	@Autowired
+	private UserProductStockService userProductStockService;
+	
+	@Autowired
+	private ProductService productService;
 	/**
 	 * 
 	 * 获得用户行业列表
@@ -64,7 +77,6 @@ public class BasicController {
 		model.addAttribute("menuids", menuids);
 		User user=(User) session.getAttribute("loginer");
 		List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(user.getId());
-//		List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(1);
 		model.addAttribute("liud", liud);
 		return "basic/Industry";
 	}
@@ -99,7 +111,6 @@ public class BasicController {
 		industryUser.setIndustryId(industryId);
 		industryUser.setCreateTime(new Date());
 		industryUser.setModifyTime(new Date());
-//		industryUser.setUserId(1);
 		industryUser.setUserId(user.getId());
 		boolean isSuccess=industryUserService.addIndustryUser(industryUser);
 		if(isSuccess){
@@ -125,14 +136,12 @@ public class BasicController {
 		AjaxObj ajaxObj=new AjaxObj();
 		// 先判断是否该行业下有品牌
 		List<UserBrandPUser> lubp=userBrandPUserService.getUserBrandPUserByIndustry(user.getId(), industryId);
-//		List<UserBrandPUser> lubp=userBrandPUserService.getUserBrandPUserByIndustry(1, industryId);
 		if(lubp!=null&&lubp.size()>0){
 			ajaxObj.setResult(0);
 			ajaxObj.setMsg("您将要删除的行业下还有品牌,不能删除");
 			return ajaxObj;
 		}
 		industryUserService.deleteIndustryUserByUI(user.getId(), industryId);
-//		industryUserService.deleteIndustryUserByUI(1, industryId);
 		ajaxObj.setResult(1);
 		ajaxObj.setMsg("删除成功");
 		return ajaxObj;
@@ -235,4 +244,293 @@ public class BasicController {
 		}
 		return ajaxObj;
 	}
+	
+	/**
+	 * 删除用户品牌
+	 * @param brandId
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/deleteUserBrandPUser",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj deleteUserBrandPUser(@RequestParam("brandId") Integer brandId,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		// 先判断brandId是否为空
+		AjaxObj ajaxObj=new AjaxObj();
+		if(brandId==null || brandId<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("品牌ID不能为空");
+			return ajaxObj;
+		}
+		boolean isSuccess=userBrandPUserService.deleteUBPU(user.getId(), brandId);
+		if(isSuccess){
+			ajaxObj.setResult(1);
+			ajaxObj.setMsg("删除成功");
+		}else{
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("您品牌下还有产品,不能删除");
+		}
+		return ajaxObj;
+	}
+	
+	/**
+	 * 修改用户品牌页面
+	 * @param menuids
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/editUserBrandPUser",method=RequestMethod.GET)
+	public String editUserBrandPUser(@RequestParam("menuids") String menuids,@RequestParam("brandId") int brandId,HttpSession session,Model model){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		if(brandId<1){
+			return "redirect:brandList";
+		}
+		// 根据用户id,品牌id获得用户品牌信息
+		UserBrandPUser ubpu=userBrandPUserService.getUBPUByUB(user.getId(), brandId);
+		model.addAttribute("ubpu", ubpu);
+		return "/basic/ModifyBrand";
+	}
+	
+	/**
+	 * 修改用户品牌
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/editUserBrandPUser",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj editUserBrandPUser(UserBrandPUser ubpu){
+		AjaxObj ajaxObj=new AjaxObj();
+		boolean isSuccess=userBrandPUserService.updateUBPU(ubpu);
+		if(isSuccess){
+			ajaxObj.setResult(1);
+			ajaxObj.setMsg("更新成功");
+		}else{
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("更新失败");
+		}
+		return ajaxObj;
+	}
+	/**
+	 * 添加品牌到库
+	 * @param menuids
+	 * @param session
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/addBrandToPublic",method=RequestMethod.GET)
+	public String addBrandToPublic(@RequestParam("menuids") String menuids,HttpSession session,Model model){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		List<IndustryUserDto> liud=industryUserService.getIndustryByUserId(user.getId());
+		model.addAttribute("liud", liud);
+		return "/basic/AddBrandToPublic";
+	}
+	
+	/**
+	 * 添加品牌到库
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/addBrandToPublic",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj addBrandToPublic(Brand brand,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		if(brand==null || brand.getIndustryId()<1|| brand.getCompany().equals("") || brand.getName().equals("")){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("您提交的参数不符合要求");
+		}else{
+			brand.setCreaterId(user.getId());
+			brand.setCreateTime(new Date());
+			brand.setLeastTime(new Date());
+			brand.setStatus(2);
+			int i=brandService.addBrandToPublic(brand);
+			if(i==-1){
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("您没有该行业请勿添加");
+			}else if(i==1){
+				ajaxObj.setResult(1);
+				ajaxObj.setMsg("成功添加该品牌到库,审核时间为24小时内");
+			}
+		}		
+		return ajaxObj;
+	}
+	/**
+	 * 得到所有产品列表
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/productList",method=RequestMethod.GET)
+	public String productView(@RequestParam("menuids") String menuids,Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		// 获取用户的所有品牌，
+		List<UserBrandPUserDto> lubpud=userBrandPUserService.getUBPUDAll(user.getId());
+		model.addAttribute("lubpud", lubpud);
+		return "/basic/ProductList";
+	}
+	/**
+	 * 得到用户产品分页
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/findUserProduct",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj findUserProduct(int brandId,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		// 获得第一页产品 0表示所有品牌
+		Pager<UserProductDto> pups=userProductStockService.findUserProductStock(user.getId(), brandId);
+		pups.setTotal(userProductStockService.getUserProductNum(user.getId(), brandId));
+		ajaxObj.setResult(1);
+		ajaxObj.setObj(pups);
+		return ajaxObj;
+	}
+	/**
+	 * 得到用户产品详细
+	 * @param menuids
+	 * @param stockId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/showUserProduct",method=RequestMethod.GET)
+	public String showUserProduct(@RequestParam("menuids") String menuids,@RequestParam("stockId") int stockId,Model model){
+		model.addAttribute("menuids", menuids);
+		UserProductDto upd=userProductStockService.showUserProductStock(stockId);
+		model.addAttribute("upd", upd);
+		return "/basic/ShowUserProduct";
+	}
+	
+	/**
+	 * 修改用户产品
+	 * @return
+	 */
+	@RequestMapping(value="/updateUserProductStatus",method=RequestMethod.POST)
+	public  @ResponseBody AjaxObj updateUserProductStatus(@RequestParam("stockId") int stockId,@RequestParam("status") int status){
+		AjaxObj ajaxObj=new AjaxObj();
+		if(stockId>0&&status>-1){
+			userProductStockService.updateUserProductStatus(stockId, status);
+			ajaxObj.setResult(1);
+			ajaxObj.setMsg("修改成功");
+		}else{
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不对");
+		}
+		return ajaxObj;
+	}
+	
+	
+	/**
+	 * 添加用户产品
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/addUserProduct",method=RequestMethod.GET)
+	public String addUserProduct(Model model,HttpSession session,@RequestParam("menuids") String menuids){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+			// 获得当前用户的品牌
+		List<UserBrandPUserDto> libpud=userBrandPUserService.getUBPUDAll(user.getId());
+		if(libpud!=null&&libpud.size()>0){
+			model.addAttribute("libpud", libpud);
+			return "/basic/AddUserProduct";
+		}else{
+			//正常情况下不会跳到这个
+			return "redirect:addBrand?menuids=2_2";
+		}
+	}
+	
+	/**
+	 * 产品搜索
+	 * @param model
+	 * @param session
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="/ProductSearch")
+	public @ResponseBody AjaxObj getProductSearch(@RequestParam("q") String q,Model model,HttpSession session) throws UnsupportedEncodingException{
+		User user=(User) session.getAttribute("loginer");
+		q=new String(q.getBytes("iso8859-1"), "utf-8");  
+		AjaxObj ajaxObj=new AjaxObj();
+		if(StringUtils.isNotEmpty(q)){
+			// 获得当前用户的品牌
+		List<UserBrandPUserDto> libpud=userBrandPUserService.getUBPUDAll(user.getId());
+		String brandIds="";
+			for(int i=0;i<libpud.size();i++){
+				if(i==0){
+					brandIds+=libpud.get(i).getBrandId();
+				}else{
+					brandIds+=","+libpud.get(i).getBrandId();
+				}
+			}
+			ajaxObj.setObj(productService.getProductSerach(brandIds, q));
+		}else{
+			ajaxObj.setResult(0);
+		}
+		return ajaxObj;
+	}
+	/**
+	 * 添加用户产品
+	 * @param userProductStock
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="AddUserProduct",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj addUserProduct(UserProductStock userProductStock,Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		if(userProductStock.getProductId()<1||userProductStock.getBrandId()<1||userProductStock.getNum()<0||userProductStock.getTotalMoney()<0){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不对");
+		}
+		userProductStock.setUserId(user.getId());
+		UserProductStock ups=userProductStockService.addUserProductStock(userProductStock);
+		if(ups!=null){
+			ajaxObj.setResult(1);
+			ajaxObj.setMsg("添加成功");
+		}else{
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("添加失败");
+		}
+		return ajaxObj;
+	}
+	
+	/**
+	 * 添加产品页面视图
+	 * @param model
+	 * @param menuids
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/AddProduct",method=RequestMethod.GET)
+	public String addProductView(Model model,@RequestParam("menuids") String menuids,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		List<UserBrandPUserDto> lubpd=userBrandPUserService.getUBPUDAll(user.getId());
+		model.addAttribute("lubpd", lubpd);
+		return "/basic/AddProduct";
+	}
+	
+	/**
+	 * 添加产品信息
+	 * @param product
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="AddProduct",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj addProduct(Product product,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		product.setCreateUserId(user.getId());
+		Product product2=productService.addProduct(product);
+		if(product2!=null){
+			ajaxObj.setResult(1);
+			ajaxObj.setMsg("添加成功");
+		}else{
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("添加失败");
+		}
+		return ajaxObj;
+	}
 }
+

@@ -3,6 +3,7 @@ package com.wskc.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.IndustryDao;
@@ -26,7 +27,10 @@ public class IndustryServiceImpl implements IndustryService{
 	 */
 	@Override
 	public List<Industry> getIndustryList() {
-		return industryDao.getIndustryList();
+			return industryDao.getIndustryList();
 	}
-
+	@Override
+	public Industry getIndustryById(int id) {
+		return industryDao.load(id);
+	}
 }

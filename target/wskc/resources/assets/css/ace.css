@@ -1665,7 +1665,7 @@ pre.prettyprint {
     display: inline-block !important;
   }
 }
-/**娉ㄩ噴 By Niesl 2015骞�鏈�0鏃�8:55:02**/
+/**注释 By Niesl 2015年3月30日18:55:02**/
 /*@media (max-height: 540px) and (min-width: 480px) and (max-width: 540px), (max-height: 540px) and (max-width: 360px) {
   .navbar:not(.navbar-collapse) .navbar-buttons .user-info {
     position: fixed;
@@ -2336,7 +2336,7 @@ body.mob-safari .sidebar.sidebar-fixed {
   text-align: center;
   min-height: 40px;
   margin-bottom: 0;
-   /*琚�鑱傚竻鏋�娉ㄩ噴鎺変簡涓嬮潰杩欏彞锛屽鐞嗛�鎷╃毊鑲や笅鎷夊嚭涓嶆潵*/
+   /*被 聂帅林 注释掉了下面这句，处理选择皮肤下拉出不来*/
   /*overflow: hidden;*/
   position: relative;
   border: 0 solid;
@@ -8713,7 +8713,7 @@ input[type=checkbox].ace.ace-switch + .lbl {
 }
 input[type=checkbox].ace.ace-switch + .lbl::before {
   font-family:'Microsoft YaHei','SimSun','Arial';
-  content: "寮�a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0鍏�;
+  content: "开\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0关";
   color: #999;
   text-shadow: 0 0 0 #999;
   font-weight: normal;
@@ -8848,7 +8848,7 @@ input[type=checkbox].ace.ace-switch.ace-switch-5:checked + .lbl::after {
   color: #848484;
 }
 input[type=checkbox].ace.ace-switch.ace-switch-5 + .lbl::before {
-  content: "鏄痋a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0鍚�;
+  content: "是\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0\a0否";
 }
 input[type=checkbox].ace.ace-switch.ace-switch-5:checked + .lbl::before {
   text-indent: 8px;
@@ -10920,7 +10920,7 @@ td .lbl:only-child {
   top: 45%;
   left: 45%;
   text-align: center;
-    background-image :url(../../Images/loading.gif) ;
+    background-image :url(/Images/loading.gif) ;
     background-repeat:no-repeat;
     width:32px;
     height:32px;

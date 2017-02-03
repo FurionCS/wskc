@@ -17,6 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="" name="description"/>
 <meta content="" name="author"/>
+<!-- UC强制全屏 -->
+<meta name="full-screen" content="yes">
+<!-- QQ强制全屏 -->
+<meta name="x5-fullscreen" content="true">
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="<%=request.getContextPath() %>/resources/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="<%=request.getContextPath() %>/resources/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -59,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-		
+			
 			<!-- BEGIN TOP NAVIGATION MENU -->
 			<div class="top-menu">
 				<ul class="nav navbar-nav pull-right">
@@ -450,8 +454,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li id="menupage2_2">
                             <a href="../basic/brandList?menuids=2_2&industryId=0"> <i class="fa fa-circle-o-notch"></i>拥有品牌</a>
                         </li>
-                        <li id="menupage2_1">
-                            <a href="../Commodity/CommodityClassList.jsp?active=menupage2_1"><i class="fa fa-turkish-lira"></i>旗下产品</a>
+                        <li id="menupage2_3">
+                            <a href="../basic/productList?menuids=2_3"><i class="fa fa-turkish-lira"></i>旗下产品</a>
                         </li>
                     </ul>
                 </li>
@@ -462,11 +466,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <span class="arrow "></span>
                     </a>
                      <ul class="sub-menu">
-                        <li id="menupage3_0">
-                            <a href="../Order/OrderList.jsp?active=menupage3_0"><i class="fa  fa-list-ul"></i>采购<span class="badge badge-roundless badge-danger">new</span></a>
+                        <li id="menupage3_1">
+                            <a href="../purchase/AddPurchase?menuids=3_1"><i class="fa  fa-list-ul"></i>采购</a>
                         </li>
-                        <li id="menupage3_0">
-                            <a href="../Order/OrderList.jsp?active=menupage3_0"><i class="fa   fa-align-justify"></i>采购列表</a>
+                        <li id="menupage3_2">
+                            <a href="../purchase/PurchaseList?menuids=3_2"><i class="fa   fa-align-justify"></i>采购列表</a>
                         </li>
                     </ul>
                 </li>
