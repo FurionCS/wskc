@@ -58,6 +58,7 @@
 	        	/basic/**=authc
 	        	/purchase/**=authc
 	        	/storage/**=authc
+	        	/allocation/**=authc
 	        </value>
 	    </property>
 	</bean>

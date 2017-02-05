@@ -30,8 +30,17 @@ $.fn.datetimepicker.dates['zh-CN'] = {
  * @returns
  */
 function isDouble(obj){
-	var reg=/\d+(\.\d+)?/;
+    var reg = /^-?\d+(\.\d+)?$/;
 	return reg.test(obj);
+}
+/**
+ * 判断是否正整数
+ * @param obj
+ * @returns
+ */
+function isUnsigedInteger(obj){
+    var  reg =/^[0-9]*[1-9][0-9]*$/;
+    return reg.test(obj);
 }
 /** 
  * 对日期进行格式化， 

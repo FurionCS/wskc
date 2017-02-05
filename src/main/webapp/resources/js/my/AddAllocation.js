@@ -60,9 +60,10 @@ $(".form_datetime").datetimepicker({
     startDate: new Date(),
     minuteStep: 10
 });
-
-function submitPurchase(){
-	   console.log($("#createTime").val());
+/**
+ * 添加调拨单
+ */
+function submitAllocation(){
 		var brandId=$("#brandId").val();
 		var brandName=$("#brandName").val();
 		var productId=$("#productId").val();
@@ -71,25 +72,23 @@ function submitPurchase(){
 			noty({text:"请选择产品,如没有请添加",layout:'topCenter',type:"error",timeout:3000});
 			return;
 		}
-		var price=$("#price").val().trim();
+		var type=$('input[name="type"]:checked').val();
+		var allocationTo=$("#allocationTo").val().trim();
+		if(allocationTo==""){
+			noty({text:"请填写调给人",layout:'topCenter',type:"error",timeout:3000});
+			return;
+		}
 		var num=$("#num").val().trim();
 		if(!isUnsigedInteger(num)){
 			noty({text:"您填写的数量格式不正确",layout:'topCenter',type:"error",timeout:3000});
 			return;
 		}
-		var deliveryFee=$("#deliveryFee").val().trim();
-		var otherFee=$("#otherFee").val().trim();
-		if(deliveryFee==""){
-			deliveryFee=0;
-		}
-		if(otherFee==""){
-			otherFee=0;
-		}
-		if(!isDouble(price)||!isDouble(deliveryFee)||!isDouble(otherFee)){
+		var counterFee=$("#counterFee").val();
+		if(!isDouble(counterFee)){
 			noty({text:"您填写的价格格式不正确",layout:'topCenter',type:"error",timeout:3000});
 			return;
 		}
-		var status=$("#status").val().trim();
+		var status=$("#status").val();
 		var remark=$("#remark").val();
 		var createTime=$("#createTime").val();
 		if(createTime==""){
@@ -99,15 +98,15 @@ function submitPurchase(){
 			createTime=createTime.replace(regEx,"/"); 
 		}
 		$.ajax({
-			url:"../purchase/AddPurchase",
+			url:"../allocation/AddAllocation",
 			type:"POST",
 			dataType:"json",
-			data:{"brandId":brandId,"brandName":brandName,"productId":productId,"productName":productName,"price":price,"num":num,"deliveryFee":deliveryFee,"otherFee":otherFee,"status":status,"remark":remark,"createTime":new Date(createTime)},
+			data:{"brandId":brandId,"brandName":brandName,"productId":productId,"productName":productName,"num":num,"counterFee":counterFee,"status":status,"remark":remark,"createTime":new Date(createTime),"type":type,"allocationTo":allocationTo},
 			success:function(data){
 				if(data!=null){
 					if(data.result==1){
 						noty({text:data.msg,layout:'topCenter',type:"success",timeout:2000})
-						setTimeout(function(){window.location.href="../purchase/PurchaseList?menuids=3_1"},2000);
+						setTimeout(function(){window.location.href="../allocation/AllocationList?menuids=3_1"},2000);
 					}else{
 						noty({text:data.msg,layout:'topCenter',type:"error",timeout:3000})
 					}

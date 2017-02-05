@@ -1,4 +1,4 @@
-package org.apache.jsp.WEB_002dINF.jsp.home;
+package org.apache.jsp.WEB_002dINF.jsp.allocation;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -6,7 +6,7 @@ import javax.servlet.jsp.*;
 import java.util.*;
 import java.util.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class AddAllocation_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -20,6 +20,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
@@ -31,6 +32,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
@@ -38,6 +40,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.release();
+    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.release();
     _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.release();
   }
 
@@ -67,19 +70,93 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write(" \r\n");
       out.write('\r');
       out.write('\n');
       if (_jspx_meth_Layout_005foverwrite_005f0(_jspx_page_context))
         return;
       out.write('\r');
       out.write('\n');
+      //  Layout:overwrite
+      org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f1 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
+      _jspx_th_Layout_005foverwrite_005f1.setPageContext(_jspx_page_context);
+      _jspx_th_Layout_005foverwrite_005f1.setParent(null);
+      // /WEB-INF/jsp/allocation/AddAllocation.jsp(9,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      _jspx_th_Layout_005foverwrite_005f1.setName("Mycss");
+      int _jspx_eval_Layout_005foverwrite_005f1 = _jspx_th_Layout_005foverwrite_005f1.doStartTag();
+      if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.pushBody();
+          _jspx_th_Layout_005foverwrite_005f1.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+          _jspx_th_Layout_005foverwrite_005f1.doInitBody();
+        }
+        do {
+          out.write("\r\n");
+          out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css\">\r\n");
+          int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+        if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.popBody();
+        }
+      }
+      if (_jspx_th_Layout_005foverwrite_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f1);
+        return;
+      }
+      _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f1);
+      out.write(' ');
       out.write('\r');
       out.write('\n');
-      if (_jspx_meth_Layout_005foverwrite_005f1(_jspx_page_context))
+      if (_jspx_meth_Layout_005foverwrite_005f2(_jspx_page_context))
         return;
       out.write('\r');
       out.write('\n');
-      out.write("\r\n");
+      //  Layout:overwrite
+      org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f3 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
+      _jspx_th_Layout_005foverwrite_005f3.setPageContext(_jspx_page_context);
+      _jspx_th_Layout_005foverwrite_005f3.setParent(null);
+      // /WEB-INF/jsp/allocation/AddAllocation.jsp(136,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      _jspx_th_Layout_005foverwrite_005f3.setName("MyScript");
+      int _jspx_eval_Layout_005foverwrite_005f3 = _jspx_th_Layout_005foverwrite_005f3.doStartTag();
+      if (_jspx_eval_Layout_005foverwrite_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        if (_jspx_eval_Layout_005foverwrite_005f3 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.pushBody();
+          _jspx_th_Layout_005foverwrite_005f3.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+          _jspx_th_Layout_005foverwrite_005f3.doInitBody();
+        }
+        do {
+          out.write("\r\n");
+          out.write("<script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/global/plugins/bootstrap-suggest-plugin.js\"></script>\r\n");
+          out.write("<script type=\"text/javascript\" src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js\"></script>\r\n");
+          out.write("<script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/js/my/public.js\" ></script>\r\n");
+          out.write("<script src=\"");
+          out.print(request.getContextPath() );
+          out.write("/resources/js/my/AddAllocation.js\" ></script>\r\n");
+          int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f3.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+        if (_jspx_eval_Layout_005foverwrite_005f3 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+          out = _jspx_page_context.popBody();
+        }
+      }
+      if (_jspx_th_Layout_005foverwrite_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f3);
+        return;
+      }
+      _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f3);
+      out.write(" \r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -928,7 +1005,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f0 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
     _jspx_th_Layout_005foverwrite_005f0.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005foverwrite_005f0.setParent(null);
-    // /WEB-INF/jsp/home/index.jsp(4,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/allocation/AddAllocation.jsp(6,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005foverwrite_005f0.setName("title");
     int _jspx_eval_Layout_005foverwrite_005f0 = _jspx_th_Layout_005foverwrite_005f0.doStartTag();
     if (_jspx_eval_Layout_005foverwrite_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -939,7 +1016,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       }
       do {
         out.write("\r\n");
-        out.write("首页\r\n");
+        out.write("添加调拨单\r\n");
         int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -956,39 +1033,205 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     return false;
   }
 
-  private boolean _jspx_meth_Layout_005foverwrite_005f1(PageContext _jspx_page_context)
+  private boolean _jspx_meth_Layout_005foverwrite_005f2(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  Layout:overwrite
-    org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f1 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
-    _jspx_th_Layout_005foverwrite_005f1.setPageContext(_jspx_page_context);
-    _jspx_th_Layout_005foverwrite_005f1.setParent(null);
-    // /WEB-INF/jsp/home/index.jsp(8,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_Layout_005foverwrite_005f1.setName("MyContent");
-    int _jspx_eval_Layout_005foverwrite_005f1 = _jspx_th_Layout_005foverwrite_005f1.doStartTag();
-    if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+    org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f2 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
+    _jspx_th_Layout_005foverwrite_005f2.setPageContext(_jspx_page_context);
+    _jspx_th_Layout_005foverwrite_005f2.setParent(null);
+    // /WEB-INF/jsp/allocation/AddAllocation.jsp(12,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_Layout_005foverwrite_005f2.setName("MyContent");
+    int _jspx_eval_Layout_005foverwrite_005f2 = _jspx_th_Layout_005foverwrite_005f2.doStartTag();
+    if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
         out = _jspx_page_context.pushBody();
-        _jspx_th_Layout_005foverwrite_005f1.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_Layout_005foverwrite_005f1.doInitBody();
+        _jspx_th_Layout_005foverwrite_005f2.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+        _jspx_th_Layout_005foverwrite_005f2.doInitBody();
       }
       do {
         out.write("\r\n");
-        out.write("你好,Mr.Cheng\r\n");
-        int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f1.doAfterBody();
+        out.write("<div class=\"page-head\">\r\n");
+        out.write("\t<!-- BEGIN PAGE TITLE -->\r\n");
+        out.write("\t<div class=\"page-title hidden-xs\">\r\n");
+        out.write("\t\t<h1>添加调拨单</h1>\r\n");
+        out.write("\t</div>\r\n");
+        out.write("\t<!-- END PAGE TITLE -->\r\n");
+        out.write("</div>\r\n");
+        out.write("<ul class=\"page-breadcrumb breadcrumb\">\r\n");
+        out.write("\t\t<li>\r\n");
+        out.write("\t\t\t<a href=\"javascript:void(0)\">库存管理</a>\r\n");
+        out.write("\t\t\t<i class=\"fa fa-circle\"></i>\r\n");
+        out.write("\t\t</li>\r\n");
+        out.write("\t\t<li>\r\n");
+        out.write("\t\t\t<a href=\"javascript:void(0)\">调拨单</a>\r\n");
+        out.write("\t\t\t<i class=\"fa fa-circle\"></i>\r\n");
+        out.write("\t\t</li>\r\n");
+        out.write("\t\t<li>\r\n");
+        out.write("\t\t\t<a href=\"javascript:void(0)\">添加调拨单</a>\r\n");
+        out.write("\t\t</li>\r\n");
+        out.write("</ul>\r\n");
+        out.write("<div class=\"row\">\r\n");
+        out.write("\t<div class=\"col-md-8 col-xs-12 \">\r\n");
+        out.write("\t\t\t\t\t<!-- BEGIN SAMPLE FORM PORTLET-->\r\n");
+        out.write("\t\t\t\t\t<div class=\"portlet light\">\r\n");
+        out.write("\t\t\t\t\t\t<div class=\"portlet-title\">\r\n");
+        out.write("\t\t\t\t\t\t\t<div class=\"caption font-green\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t<i class=\"icon-pin font-green\"></i>\r\n");
+        out.write("\t\t\t\t\t\t\t\t<span class=\"caption-subject bold uppercase\">调拨单</span>\r\n");
+        out.write("\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t<div class=\"portlet-body form\">\r\n");
+        out.write("\t\t\t\t\t\t\t<form role=\"form\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t<div class=\"form-body\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input  has-error\" >\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control edited\" readonly=\"\" value=\"自动编码\" id=\"form_control_1\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">调拨单编码</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-radios\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label>调拨类型</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"md-radio-inline\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"md-radio\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"type1\" name=\"type\" class=\"md-radiobtn\" value=\"调入\" checked=\"\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<label for=\"radio6\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"inc\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"check\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"box\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t调入 </label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<div class=\"md-radio\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"type2\" name=\"type\" class=\"md-radiobtn\" value=\"调出\" >\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<label for=\"radio7\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"inc\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"check\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"box\"></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t调出 </label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t                <div class=\"form-group form-md-line-input\" id=\"productDiv\"> \r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"taobao\">产品</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t  <div class=\"input-group\">\r\n");
+        out.write("\t\t\t\t\t\t                        <input type=\"text\" class=\"form-control\" id=\"product\" placeholder=\"\">\r\n");
+        out.write("\t\t\t\t\t\t                        <div class=\"input-group-btn\">\r\n");
+        out.write("\t\t\t\t\t\t                            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 34px;border:none;border-bottom:1px solid #e5e5e5\">\r\n");
+        out.write("\t\t\t\t\t\t                                <span class=\"caret\"></span>\r\n");
+        out.write("\t\t\t\t\t\t                            </button>\r\n");
+        out.write("\t\t\t\t\t\t                            <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\r\n");
+        out.write("\t\t\t\t\t\t                            </ul>\r\n");
+        out.write("\t\t\t\t\t\t                        </div>\r\n");
+        out.write("\t\t\t\t\t\t                        <!-- /btn-group -->\r\n");
+        out.write("\t\t\t\t\t\t                    </div>\r\n");
+        out.write("\t\t\t\t\t                  </div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input has-success \">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"allocationTo\" class=\"form-control\" placeholder=\"调出时为收货人,调入时为发货人\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">调给人</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input has-success \">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"num\" class=\"form-control\" >\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">数量(必填)</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input has-success \">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"counterFee\" class=\"form-control\" >\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">费用</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">创建日期</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"input-group date form_datetime\" data-date=\"2012-12-21T15:25:00Z\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<span class=\"input-group-btn\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<button class=\"btn  date-set\" style=\"background: none;\" type=\"button\"><i class=\"fa fa-calendar\"></i></button>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\t<button class=\"btn  date-reset\" style=\"background: none;\" type=\"button\"><i class=\"fa fa-times\"></i></button>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t</span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" size=\"16\" readonly=\"\" class=\"form-control\" id=\"createTime\" value=\"\" placeholder=\"默认当前时间\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<!-- /input-group -->\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input  has-info\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" id=\"status\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t<option value=\"\"></option>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t");
+        if (_jspx_meth_c_005fforEach_005f0(_jspx_th_Layout_005foverwrite_005f2, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t</select>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">状态</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<div class=\"form-group form-md-line-input\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" rows=\"3\" id=\"remark\" placeholder=\"填写入库单备注\" style=\"margin: 0px -4px 0px 0px;\"></textarea>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<label for=\"form_control_1\">备注</label>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t\t<div class=\"form-actions noborder\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn col-md-4 col-md-offset-4  col-xs-12 btn-lg blue\" onclick=\"submitAllocation()\">提交</a>\r\n");
+        out.write("\t\t\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t\t\t</form>\r\n");
+        out.write("\t\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t</div>\r\n");
+        out.write("\t\t\t\t\t<!-- END SAMPLE FORM PORTLET-->\r\n");
+        out.write("\t\t\t\t</div>\r\n");
+        out.write("</div>\r\n");
+        out.write("<input type=\"hidden\" id=\"brandId\"/>\r\n");
+        out.write("<input type=\"hidden\" id=\"brandName\"/>\r\n");
+        out.write("<input type=\"hidden\" id=\"productId\"/>\r\n");
+        out.write("<input type=\"hidden\" id=\"productName\"/>\r\n");
+        int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
-      if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+      if (_jspx_eval_Layout_005foverwrite_005f2 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
         out = _jspx_page_context.popBody();
       }
     }
-    if (_jspx_th_Layout_005foverwrite_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f1);
+    if (_jspx_th_Layout_005foverwrite_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f2);
       return true;
     }
-    _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f1);
+    _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.reuse(_jspx_th_Layout_005foverwrite_005f2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fforEach_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f2, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f2);
+    // /WEB-INF/jsp/allocation/AddAllocation.jsp(111,11) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setVar("statu");
+    // /WEB-INF/jsp/allocation/AddAllocation.jsp(111,11) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/jsp/allocation/AddAllocation.jsp(111,11) '${status }'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${status }",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
+      if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${statu.key  }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${statu.value }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</option>\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t\t\t");
+          int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_005fforEach_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fforEach_005f0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fforEach_005f0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fforEach_005f0.doFinally();
+      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f0);
+    }
     return false;
   }
 

@@ -153,7 +153,7 @@ function submitStorage(){
 		noty({text:"请选择对应产品,或关联采购单,调拨单",layout:'topCenter',type:"error",timeout:3000})
 		return;
 	}
-	if(isNaN(num)){
+	if(!isUnsigedInteger(num)){
 		noty({text:"数量为整数",layout:'topCenter',type:"error",timeout:3000})
 		return;
 	}

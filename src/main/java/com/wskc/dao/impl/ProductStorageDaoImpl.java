@@ -5,8 +5,8 @@ import org.cs.basic.model.Pager;
 import org.springframework.stereotype.Repository;
 
 import com.wskc.dao.ProductStorageDao;
+import com.wskc.dto.ProductStorageDto;
 import com.wskc.model.ProductStorage;
-import com.wskc.model.ProductStorageDto;
 
 /**
  * 

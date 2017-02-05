@@ -1,18 +1,24 @@
-package com.wskc.dao;
+package com.wskc.service;
 
-import org.cs.basic.dao.IBaseDao;
 import org.cs.basic.model.Pager;
 
 import com.wskc.dto.ProductAllocationDto;
 import com.wskc.model.ProductAllocation;
+
 /**
  * 
  * <p>Title:</p>
- * <p>Description:产品调拨接口</p>
+ * <p>Description:产品调拨</p>
  * @author Mr.Cheng
- * @date 2017年1月20日 上午9:20:40
+ * @date 2017年2月5日 下午12:36:35
  */
-public interface ProductAllocationDao extends IBaseDao<ProductAllocation>{
+public interface ProductAllocationService {
+	/**
+	 * 添加产品入库
+	 * @param productAllocation
+	 * @return
+	 */
+	ProductAllocation addProductAllocaiton(ProductAllocation productAllocation);
 	
 	/**
 	 * 分页获得调拨单
@@ -29,6 +35,11 @@ public interface ProductAllocationDao extends IBaseDao<ProductAllocation>{
 	 */
 	ProductAllocationDto getProductAllocationDtoById(int id);
 	
-	
-	
+	/**
+	 * 保存编辑调拨
+	 * @param productAllocation
+	 * @return
+	 */
+	boolean EditProductAllocation(ProductAllocation productAllocation);
+
 }

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
+import com.wskc.dto.ProductStorageDto;
 import com.wskc.dto.PurchaseDto;
 import com.wskc.model.ProductStorage;
-import com.wskc.model.ProductStorageDto;
 import com.wskc.model.ProductStorageStatus;
 import com.wskc.model.ProductStorageType;
 import com.wskc.model.Purchase;

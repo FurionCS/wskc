@@ -3,8 +3,8 @@ package com.wskc.dao;
 import org.cs.basic.dao.IBaseDao;
 import org.cs.basic.model.Pager;
 
+import com.wskc.dto.ProductStorageDto;
 import com.wskc.model.ProductStorage;
-import com.wskc.model.ProductStorageDto;
 /**
  * 
  * <p>Title:</p>

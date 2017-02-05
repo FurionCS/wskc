@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import com.wskc.dao.BrandDao;
 import com.wskc.dao.ProductStorageDao;
 import com.wskc.dao.UserProductStockDao;
+import com.wskc.dto.ProductStorageDto;
 import com.wskc.model.Brand;
 import com.wskc.model.ProductStorage;
-import com.wskc.model.ProductStorageDto;
 import com.wskc.service.ProductStorageService;
 
 /**

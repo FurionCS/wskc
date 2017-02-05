@@ -1,4 +1,4 @@
-package com.wskc.model;
+package com.wskc.dto;
 
 import java.util.Date;
 
