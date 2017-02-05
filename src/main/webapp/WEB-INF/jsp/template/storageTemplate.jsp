@@ -1,10 +1,11 @@
-<script type="text/html" id="purchaseTemplate">
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>  
+<script type="text/html" id="storageTemplate">
 	<div class="row">
 			<div class="col-md-8 col-xs-12 ">
 							<!-- BEGIN SAMPLE FORM PORTLET-->
 							<div class="portlet light">
 									<div class="caption font-green">
-										<span class="caption-subject bold uppercase">¶©µ¥±àºÅ:{{#data.purchaseNo}}</span>
+										<span class="caption-subject bold uppercase">å…¥åº“ç¼–ç :<a href="../storage/showStorage?menuids=5_1&id={{id}}">{{storageNo}}</a></span>
 									</div>
 									<hr style="padding:0;margin:5px 0 0 0;">
 								<div class="portlet-body form">
@@ -13,36 +14,47 @@
 												<div class="portlet-body">
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
-															 ²úÆ·Ãû³Æ
+																å…¥åº“ç±»å‹
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
-															 {{#data.productName}} 
+															 {{type}} 
 														</div>
 													</div>
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
-															 Æ·ÅÆÃû³Æ
+															 å…¥åº“äº§å“
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
-															 {{#data.brandName}}
+															 {{productName}}
 														</div>
 													</div>
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
-															 ÊıÁ¿
+															 å•†å“æ€»ä»·
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
-															{{#data.num}}
+															{{num}}*{{price}}=ï¿¥{{num*price | doubleFormat}} (æ•°é‡*å•ä»·)
 														</div>
 													</div>
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
-															 ×´Ì¬
+															 çŠ¶æ€
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
-															 {{#data.status}}
+															<span class="label label-success">
+																{{status | statusFormat}} 
+															</span>
 														</div>
 													</div>
+													<div class="row static-info">
+														<div class="col-md-5 col-sm-5  col-xs-5 name">
+															 åˆ›å»ºæ—¶é—´
+														</div>
+														<div class="col-md-7 col-sm-7 col-xs-7 value">
+															{{createTime | dateFormat:'yyyyå¹´ MMæœˆ ddæ—¥ hh:mm:ss'}}
+														</div>
+													</div>
+													
 												</div>
 										</div>
 									</div>

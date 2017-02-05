@@ -12,4 +12,5 @@ import com.wskc.model.ProductAllocation;
  */
 public interface ProductAllocationDao extends IBaseDao<ProductAllocation>{
 
+	
 }

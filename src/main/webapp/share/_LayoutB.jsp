@@ -474,7 +474,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                     </ul>
                 </li>
-                <li id="menupage4">
+				 <li id="menupage5">
+                    <a href="javascript:;">
+                        <i class="fa fa-eye"></i>
+                        <span class="title">库存管理</span>
+                        <span class="arrow "></span>
+                    </a>
+                     <ul class="sub-menu">
+                        <li id="menupage5_0">
+                            <a href="javascript:void(0)"> <i class="fa  fa-circle-o"></i>调拨单 <span class="arrow "></span></a>
+                            <ul class="sub-menu">
+								<li id="menupage5_0_1">
+									<a href="../allocation/AllocationList?menuids=5_0">
+									<i class="icon-user"></i>
+									调拨单列表
+									</a>
+								</li>
+								<li id="menupage5_0_2">
+									<a href="../allocation/AddAllocation?menuids=5_0">
+									<i class="icon-user"></i>
+									添加调拨单
+									</a>
+								</li>
+							</ul>
+                        </li>
+                         <li id="menupage5_1">
+                            <a href="javascript:void(0)"><i class="fa fa-signal"></i>入库单 <span class="arrow "></span></a>
+                             <ul class="sub-menu">
+								<li id="menupage5_1_1">
+									<a href="../storage/StorageList?menuids=5_1">
+									<i class="icon-user"></i>
+									入库单列表
+									</a>
+								</li>
+								<li id="menupage5_1_2">
+									<a href="../storage/AddStorage?menuids=5_1">
+									<i class="icon-user"></i>
+									添加入库单
+									</a>
+								</li>
+							</ul>
+                        </li>
+                         <li id="menupage5_0">
+                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-bar-chart-o"></i>出库单</a>
+                        </li>
+                        <li id="menupage5_1">
+                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-tachometer"></i>库存量查询</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li id="menupage4">
                     <a href="javascript:;">
                         <i class="fa fa-table"></i>
                         <span class="title">销售管理</span>
@@ -487,28 +536,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li id="menupage4_1">
                             <a href="../User/AddUser.jsp?active=menupage4_1"><i class="fa fa-th"></i>销售列表</a>
                         </li>
-                    </ul>
-                </li>
-				 <li id="menupage5">
-                    <a href="javascript:;">
-                        <i class="fa fa-eye"></i>
-                        <span class="title">库存管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                     <ul class="sub-menu">
-                        <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"> <i class="fa  fa-circle-o"></i>调拨单</a>
-                        </li>
-                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-signal"></i>其他入库单</a>
-                        </li>
-                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-bar-chart-o"></i>其他出库单</a>
-                        </li>
-                        <li id="menupage5_1">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-tachometer"></i>库存量查询</a>
-                        </li>
-                         
                     </ul>
                 </li>
                 <li id="menupage6">
@@ -553,7 +580,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</ul>
                         </li>
                         <li id="menupage6_2">
-                            <a href="javascript:void(0)"><i class="fa fa-users"></i>组别 <span class="arrow "></a>
+                            <a href="javascript:void(0)"><i class="fa fa-users"></i>组别 <span class="arrow "></span></a>
                             <ul class="sub-menu">
 								<li id="menupage6_2">
 									<a href="../group/add?menuids=6_2">

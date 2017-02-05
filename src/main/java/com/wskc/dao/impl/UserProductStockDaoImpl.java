@@ -66,4 +66,11 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 		String sql="select ups.id as 'stockId',ups.user_id as 'userId',ups.product_id as 'productId',ups.status as 'status',ups.product_name as 'productName',ups.num as 'num',ups.total_money as 'totalMoney',ups.brand_name as 'brandName',ups.brand_id as 'brandId',ups.create_time as 'createTime',pi.size as 'size',pi.unit as 'unit',pi.code as 'code' from t_user_product_stock ups ,t_product_info pi where ups.product_id=pi.id and ups.user_id=? and ups.`status`=1 and ups.product_name like ?";
 		return this.listBySql(sql, new Object[]{userId,str+'%'},UserProductDto.class,false);
 	}
+
+	@Override
+	public void updateUserProductStock(int userId, int productId, int num,
+			double totalMoney) {
+		String hql="from UserProductStock set num+=?,totalMoney+=? where userId=? and productId=?";
+		 this.updateByHql(hql, new Object[]{num,totalMoney,userId,productId});
+	}
 }

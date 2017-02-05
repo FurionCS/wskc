@@ -79,5 +79,11 @@ template.helper('dateFormat', function (date, format) {
     });
     return format;
 });
+/**
+ * 保留两位小数
+ */
+template.helper('doubleFormat', function (date) {
+	return date.toFixed(2);
+});
 
 

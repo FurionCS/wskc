@@ -158,6 +158,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n");
       out.write("<meta content=\"\" name=\"description\"/>\r\n");
       out.write("<meta content=\"\" name=\"author\"/>\r\n");
+      out.write("<!-- UC强制全屏 -->\r\n");
+      out.write("<meta name=\"full-screen\" content=\"yes\">\r\n");
+      out.write("<!-- QQ强制全屏 -->\r\n");
+      out.write("<meta name=\"x5-fullscreen\" content=\"true\">\r\n");
       out.write("<!-- BEGIN GLOBAL MANDATORY STYLES -->\r\n");
       out.write("<link href=\"");
       out.print(request.getContextPath() );
@@ -655,7 +659,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
-      out.write("                <li id=\"menupage4\">\r\n");
+      out.write("\t\t\t\t <li id=\"menupage5\">\r\n");
+      out.write("                    <a href=\"javascript:;\">\r\n");
+      out.write("                        <i class=\"fa fa-eye\"></i>\r\n");
+      out.write("                        <span class=\"title\">库存管理</span>\r\n");
+      out.write("                        <span class=\"arrow \"></span>\r\n");
+      out.write("                    </a>\r\n");
+      out.write("                     <ul class=\"sub-menu\">\r\n");
+      out.write("                        <li id=\"menupage5_0\">\r\n");
+      out.write("                            <a href=\"../allocation/Allocation?menuids=5_0\"> <i class=\"fa  fa-circle-o\"></i>调拨单</a>\r\n");
+      out.write("                        </li>\r\n");
+      out.write("                         <li id=\"menupage5_1\">\r\n");
+      out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-signal\"></i>入库单 <span class=\"arrow \"></span></a>\r\n");
+      out.write("                             <ul class=\"sub-menu\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_1_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../storage/StorageList?menuids=5_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t入库单列表\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_1_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../storage/AddStorage?menuids=5_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t添加入库单\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t</ul>\r\n");
+      out.write("                        </li>\r\n");
+      out.write("                         <li id=\"menupage5_0\">\r\n");
+      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-bar-chart-o\"></i>出库单</a>\r\n");
+      out.write("                        </li>\r\n");
+      out.write("                        <li id=\"menupage5_1\">\r\n");
+      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-tachometer\"></i>库存量查询</a>\r\n");
+      out.write("                        </li>\r\n");
+      out.write("                    </ul>\r\n");
+      out.write("                </li>\r\n");
+      out.write("                 <li id=\"menupage4\">\r\n");
       out.write("                    <a href=\"javascript:;\">\r\n");
       out.write("                        <i class=\"fa fa-table\"></i>\r\n");
       out.write("                        <span class=\"title\">销售管理</span>\r\n");
@@ -668,28 +707,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                        <li id=\"menupage4_1\">\r\n");
       out.write("                            <a href=\"../User/AddUser.jsp?active=menupage4_1\"><i class=\"fa fa-th\"></i>销售列表</a>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </li>\r\n");
-      out.write("\t\t\t\t <li id=\"menupage5\">\r\n");
-      out.write("                    <a href=\"javascript:;\">\r\n");
-      out.write("                        <i class=\"fa fa-eye\"></i>\r\n");
-      out.write("                        <span class=\"title\">库存管理</span>\r\n");
-      out.write("                        <span class=\"arrow \"></span>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                     <ul class=\"sub-menu\">\r\n");
-      out.write("                        <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"> <i class=\"fa  fa-circle-o\"></i>调拨单</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                         <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-signal\"></i>其他入库单</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                         <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-bar-chart-o\"></i>其他出库单</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage5_1\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-tachometer\"></i>库存量查询</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                         \r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
       out.write("                <li id=\"menupage6\">\r\n");
@@ -734,7 +751,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li id=\"menupage6_2\">\r\n");
-      out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-users\"></i>组别 <span class=\"arrow \"></a>\r\n");
+      out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-users\"></i>组别 <span class=\"arrow \"></span></a>\r\n");
       out.write("                            <ul class=\"sub-menu\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<li id=\"menupage6_2\">\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<a href=\"../group/add?menuids=6_2\">\r\n");
@@ -1297,7 +1314,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f2 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f2.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f2.setParent(null);
-    // /share/_LayoutB.jsp(40,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(44,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f2.setName("Mycss");
     int _jspx_eval_Layout_005fblock_005f2 = _jspx_th_Layout_005fblock_005f2.doStartTag();
     if (_jspx_th_Layout_005fblock_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1316,7 +1333,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f3 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f3.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f3.setParent(null);
-    // /share/_LayoutB.jsp(618,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(635,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f3.setName("MyContent");
     int _jspx_eval_Layout_005fblock_005f3 = _jspx_th_Layout_005fblock_005f3.doStartTag();
     if (_jspx_th_Layout_005fblock_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1335,7 +1352,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f4 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f4.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f4.setParent(null);
-    // /share/_LayoutB.jsp(666,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(683,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f4.setName("MyScript");
     int _jspx_eval_Layout_005fblock_005f4 = _jspx_th_Layout_005fblock_005f4.doStartTag();
     if (_jspx_th_Layout_005fblock_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

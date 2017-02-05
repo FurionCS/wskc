@@ -57,7 +57,7 @@ public final class purchaseTemplate_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t\t\t\t\t\t<!-- BEGIN SAMPLE FORM PORTLET-->\n");
       out.write("\t\t\t\t\t\t\t<div class=\"portlet light\">\n");
       out.write("\t\t\t\t\t\t\t\t\t<div class=\"caption font-green\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t<span class=\"caption-subject bold uppercase\">采购编码:<a>{{purchaseNo}}</a></span>\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<span class=\"caption-subject bold uppercase\">采购编码:<a href=\"../purchase/showPurchase?menuids=3_2&id={{id}}\">{{purchaseNo}}</a></span>\n");
       out.write("\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t<hr style=\"padding:0;margin:5px 0 0 0;\">\n");
       out.write("\t\t\t\t\t\t\t\t<div class=\"portlet-body form\">\n");
@@ -82,10 +82,10 @@ public final class purchaseTemplate_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row static-info\">\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-5 col-sm-5  col-xs-5 name\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 数量\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 商品总价\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7 value\">\n");
-      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{num}}\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{num}}*{{price}}=￥{{num*price | doubleFormat}} (数量*单价)\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row static-info\">\n");

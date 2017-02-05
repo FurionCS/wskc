@@ -1,5 +1,8 @@
 package com.wskc.service.impl;
 
+import java.util.Date;
+import java.util.List;
+
 import org.cs.basic.model.Pager;
 import org.cs.basic.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +28,18 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public Purchase addPurchase(Purchase purchase) {
 		String purchaseNo=DateUtils.stringOfDate(purchase.getCreateTime()).replace("-", "");
-		if(purchase.getProductId()>=10000){
-			purchaseNo+=purchase.getProductId()%10000;
+		purchaseNo+=1;//特殊编号
+		if(purchase.getProductId()>=1000){
+			purchaseNo+=purchase.getProductId()%1000;
 		}else{
-			purchaseNo+=String.format("%04d", purchase.getProductId());
+			purchaseNo+=String.format("%03d", purchase.getProductId());
 		}
 		if(purchase.getBrandId()>=1000){
 			purchaseNo+=purchase.getBrandId()%1000;
 		}else{
 			purchaseNo+=String.format("%03d", purchase.getBrandId());
 		}
-		purchaseNo+=(int)(Math.random()*100);
+		purchaseNo+=(int)(Math.random()*90)+10;
 		purchase.setPurchaseNo(purchaseNo);
 		return purchaseDao.add(purchase);
 	}
@@ -50,5 +54,26 @@ public class PurchaseServiceImpl implements PurchaseService{
 		}else{
 			return null;
 		}
+	}
+	@Override
+	public boolean editPurchase(Purchase purchase) {
+		Purchase purchase2=purchaseDao.load(purchase.getId());
+		if(purchase2==null){
+			return false;
+		}else{
+			purchase2.setModifyTime(new Date());
+			purchase2.setNum(purchase.getNum());
+			purchase2.setPrice(purchase.getPrice());
+			purchase2.setOtherFee(purchase.getOtherFee());
+			purchase2.setDeliveryFee(purchase.getDeliveryFee());
+			purchase2.setStatus(purchase.getStatus());
+			purchase2.setRemark(purchase.getRemark());
+			purchaseDao.update(purchase2);
+			return true;
+		}
+	}
+	@Override
+	public List<Purchase> getPurchaseList(int userId, String str) {
+		return purchaseDao.getPurchaseList(userId, str);
 	}
 }

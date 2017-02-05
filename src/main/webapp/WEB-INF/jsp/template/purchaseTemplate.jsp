@@ -5,7 +5,7 @@
 							<!-- BEGIN SAMPLE FORM PORTLET-->
 							<div class="portlet light">
 									<div class="caption font-green">
-										<span class="caption-subject bold uppercase">采购编码:<a>{{purchaseNo}}</a></span>
+										<span class="caption-subject bold uppercase">采购编码:<a href="../purchase/showPurchase?menuids=3_2&id={{id}}">{{purchaseNo}}</a></span>
 									</div>
 									<hr style="padding:0;margin:5px 0 0 0;">
 								<div class="portlet-body form">
@@ -30,10 +30,10 @@
 													</div>
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
-															 数量
+															 商品总价
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
-															{{num}}
+															{{num}}*{{price}}=￥{{num*price | doubleFormat}} (数量*单价)
 														</div>
 													</div>
 													<div class="row static-info">

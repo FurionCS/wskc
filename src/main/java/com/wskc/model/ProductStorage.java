@@ -18,6 +18,7 @@ import javax.persistence.Table;
 @Table(name="t_product_storage")
 public class ProductStorage {
 	private int id;
+	private int userId; //用户id
 	private String storageNo; //入库表编号
 	private String type; //类型
 	private int brandId; //品牌id 
@@ -30,6 +31,7 @@ public class ProductStorage {
 	private String remark;//备注
 	private Date createTime;//创建时间
 	private Date modifyTime;//修改时间
+	private String  relevanceNo;//关联编号
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -37,6 +39,13 @@ public class ProductStorage {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	@Column(name="user_id")
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	@Column(name="storage_no")
 	public String getStorageNo() {
@@ -116,6 +125,13 @@ public class ProductStorage {
 	}
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
+	}
+	@Column(name="relevance_no")
+	public String getRelevanceNo() {
+		return relevanceNo;
+	}
+	public void setRelevanceNo(String relevanceNo) {
+		this.relevanceNo = relevanceNo;
 	}
 	public ProductStorage() {
 		super();

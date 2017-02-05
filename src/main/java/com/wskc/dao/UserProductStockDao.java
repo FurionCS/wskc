@@ -56,4 +56,13 @@ public interface UserProductStockDao extends IBaseDao<UserProductStock>{
 	 * @return
 	 */
 	public List<UserProductDto> getUserProductByq(int userId,String str);
+	
+	/**
+	 * 更新用户产品库存
+	 * @param userId
+	 * @param productId
+	 * @param num
+	 * @param totalMoney
+	 */
+	public void updateUserProductStock(int userId, int productId,int num,double totalMoney);
 }

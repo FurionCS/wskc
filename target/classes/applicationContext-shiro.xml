@@ -57,6 +57,7 @@
 	        	<!-- /admin/**=authc,resourceCheckFilter -->
 	        	/basic/**=authc
 	        	/purchase/**=authc
+	        	/storage/**=authc
 	        </value>
 	    </property>
 	</bean>

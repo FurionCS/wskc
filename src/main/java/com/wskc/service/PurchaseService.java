@@ -1,5 +1,7 @@
 package com.wskc.service;
 
+import java.util.List;
+
 import org.cs.basic.model.Pager;
 
 import com.wskc.dto.PurchaseDto;
@@ -35,4 +37,19 @@ public interface PurchaseService {
 	 * @return
 	 */
 	public PurchaseDto getPurchaseDtoById(int id);
+	
+	/**
+	 * 编辑采购订单
+	 * @param purchase
+	 * @return
+	 */
+	public boolean editPurchase(Purchase purchase);
+	
+	/**
+	 * 得到用户采购单列表
+	 * @param userId
+	 * @param str
+	 * @return
+	 */
+	public List<Purchase> getPurchaseList(int userId,String str);
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
+import com.wskc.dto.PurchaseDto;
 import com.wskc.model.Purchase;
 import com.wskc.model.PurchaseStatus;
 import com.wskc.model.User;
@@ -85,6 +86,8 @@ public class PurchaseController {
 		return ajaxObj;
 	}
 	
+	
+	
 	/**
 	 * 添加采购
 	 * @param purchase
@@ -111,7 +114,7 @@ public class PurchaseController {
 	 * @return
 	 */
 	@RequestMapping(value="/PurchaseList",method=RequestMethod.GET)
-	public String PurchaseListView(@RequestParam("menuids") String menuids,Model model){
+	public String purchaseListView(@RequestParam("menuids") String menuids,Model model){
 		model.addAttribute("menuids", menuids);
 		return "purchase/PurchaseList";
 	}
@@ -121,7 +124,7 @@ public class PurchaseController {
 	 * @return
 	 */
 	@RequestMapping(value="/PurchaseList",method=RequestMethod.POST)
-	public @ResponseBody AjaxObj PurchaseList(@RequestParam("str") String str,HttpSession session){
+	public @ResponseBody AjaxObj purchaseList(@RequestParam("str") String str,HttpSession session){
 		User user=(User) session.getAttribute("loginer");
 		AjaxObj ajaxObj=new AjaxObj();
 		Pager<Purchase> pp=purchaseService.findPurchaseList(user.getId(), str);
@@ -134,4 +137,87 @@ public class PurchaseController {
 		}
 		return ajaxObj;
 	}
+	/**
+	 * 展示采购订单
+	 * @param id
+	 * @param model
+	 * @param menuids
+	 * @return
+	 */
+	@RequestMapping(value="/showPurchase",method=RequestMethod.GET)
+	public String showPurchase(@RequestParam("id") int id,Model model,@RequestParam("menuids") String menuids){
+		model.addAttribute("menuids", menuids);
+		if(id>0){
+			PurchaseDto pd=purchaseService.getPurchaseDtoById(id);
+			model.addAttribute("pd", pd);
+			return "purchase/ShowPurchase";
+		}else{
+			return "redirect:PurchaseList?menuids="+menuids;
+		}
+	}
+	/**
+	 * 编辑采购页面
+	 * @param id
+	 * @param model
+	 * @param menuids
+	 * @return
+	 */
+	@RequestMapping(value="/EditPurchase",method=RequestMethod.GET)
+	public String editPurchaseView(@RequestParam("id") int id,Model model,@RequestParam("menuids") String menuids){
+		model.addAttribute("menuids", menuids);
+		if(id>0){
+			PurchaseDto pd=purchaseService.getPurchaseDtoById(id);
+			model.addAttribute("pd", pd);
+			model.addAttribute("status", EnumUtils.enum2Map(PurchaseStatus.class));
+			return "purchase/EditPurchase";
+		}else{
+			return "redirect:PurchaseList?menuids="+menuids;
+		}
+	}
+	/**
+	 * 编辑采购
+	 * @param purchase
+	 * @return
+	 */
+	@RequestMapping(value="/EditPurchase",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj editPurchase(Purchase purchase){
+		AjaxObj ajaxObj=new AjaxObj();
+		if(purchase.getId()<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("id不正确");
+		}else{
+			
+			boolean isSuccess=purchaseService.editPurchase(purchase);
+			if(isSuccess){
+				ajaxObj.setResult(1);
+				ajaxObj.setMsg("修改成功");
+			}else{
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("修改失败,查不到该记录");
+			}
+		}
+		return ajaxObj;
+	}
+	
+	
+	/**
+	 * 采购单搜索
+	 * @param model
+	 * @param session
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="/PurchaseSearch")
+	public @ResponseBody AjaxObj getPurchaseSearch(@RequestParam("q") String q,HttpSession session) throws UnsupportedEncodingException{
+		User user=(User) session.getAttribute("loginer");
+		q=new String(q.getBytes("iso8859-1"), "utf-8");  
+		AjaxObj ajaxObj=new AjaxObj();
+		if(StringUtils.isNotEmpty(q)){
+			ajaxObj.setObj(purchaseService.getPurchaseList(user.getId(), q));
+		}else{
+			ajaxObj.setResult(0);
+		}
+		return ajaxObj;
+	}
+	
 }

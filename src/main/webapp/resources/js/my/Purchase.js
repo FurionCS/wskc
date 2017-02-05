@@ -22,7 +22,7 @@ function getList(me) {
                 if (result!=null) {
                     var Data=result.obj.datas;
                     var html = "";
-                    if(Data.length<1|| Data==undefined){
+                    if(Data.length<1|| Data==undefined || me!=undefined){
            	    		 // 无数据
                            me.noData();
                     }
@@ -34,7 +34,9 @@ function getList(me) {
                     $("#ListBody").html(html);
                 }
                 else {
-                    
+                    if(me==undefined){
+                    	html+='<div class="col-md-12 col-xs-12">已无数据</div>';
+                    }
                     $("#ListBody").html(html);
                 }
                 $("#chk_All").attr("checked", false).closest("span").removeClass("checked");
@@ -92,11 +94,13 @@ function getList(me) {
 	  
   }
   
-
+/**
+ * 下拉加载
+ */
   $('.purchaseList').dropload({
 	  	scrollArea:window,
 	    domDown : {
-            domClass   : 'dropload-down',
+            domClass   : 'dropload-down col-md-12',
             domRefresh : '<div class="dropload-refresh col-md-8">上拉加载更多</div>',
             domLoad    : '<div class="dropload-load col-md-8"><span class="loading"></span>加载中...</div>',
             domNoData  : '<div class="dropload-noData col-md-8">已无数据</div>'
@@ -109,4 +113,49 @@ function getList(me) {
 	    	me.resetload();
 	    }
 	});
+  
+  /**
+   * 编辑提交
+   */
+  function submitEditPurchase(){
+		var id=$("#id").val();
+		var price=$("#price").val().trim();
+		var num=$("#num").val().trim();
+		if(isNaN(num)){
+			noty({text:"您填写的数量格式不正确",layout:'topCenter',type:"error",timeout:3000});
+			return;
+		}
+		var deliveryFee=$("#deliveryFee").val().trim();
+		var otherFee=$("#otherFee").val().trim();
+		if(deliveryFee==""){
+			deliveryFee=0;
+		}
+		if(otherFee==""){
+			otherFee=0;
+		}
+		if(!isDouble(price)||!isDouble(deliveryFee)||!isDouble(otherFee)){
+			noty({text:"您填写的价格格式不正确",layout:'topCenter',type:"error",timeout:3000});
+			return;
+		}
+		var status=$("#status").val().trim();
+		var remark=$("#remark").val();
+		$.ajax({
+			url:"../purchase/EditPurchase",
+			type:"POST",
+			dataType:"json",
+			data:{"id":id,"price":price,"num":num,"deliveryFee":deliveryFee,"otherFee":otherFee,"status":status,"remark":remark},
+			success:function(data){
+				if(data!=null){
+					if(data.result==1){
+						noty({text:data.msg,layout:'topCenter',type:"success",timeout:2000})
+						setTimeout(function(){window.location.href="../purchase/showPurchase?menuids=3_2&id="+id},2000);
+					}else{
+						noty({text:data.msg,layout:'topCenter',type:"error",timeout:3000})
+					}
+				}else{
+					noty({text:"请求出错",layout:'topCenter',type:"error",timeout:2000})
+				}
+			}
+		})
+}
 
