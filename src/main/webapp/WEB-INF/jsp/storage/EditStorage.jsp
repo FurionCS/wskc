@@ -20,7 +20,7 @@
 </div>
 <ul class="page-breadcrumb breadcrumb">
 		<li>
-			<a href="javascript:void(0)">入库管理</a>
+			<a href="javascript:void(0)">库存管理</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
@@ -87,7 +87,7 @@
 									</div>
 									<div class="form-actions noborder">
 										<a href="javascript:void(0)" class="btn col-md-4 col-md-offset-2 col-xs-offset-1 col-xs-5 btn-lg blue" onclick="submitEditStorage()">提交</a>
-										<a href="../purchase/showStorage?menuids=5_1&id=${psd.id}" class="btn col-md-4   col-xs-5 btn-lg default" >返回</a>
+										<a href="../storage/showStorage?menuids=5_1&id=${psd.id}" class="btn col-md-4   col-xs-5 btn-lg default" >返回</a>
 									</div>
 								</form>
 							</div>
@@ -100,6 +100,7 @@
 <Layout:overwrite name="MyScript">
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/my/public.js?v=1"></script>
 <script src="<%=request.getContextPath() %>/resources/js/my/EditStorage.js?v=1"></script>
 </Layout:overwrite> 
 

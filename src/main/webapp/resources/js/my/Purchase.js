@@ -158,4 +158,15 @@ function getList(me) {
 			}
 		})
 }
-
+  /**
+   * 格式化状态
+   */
+  template.helper('statusFormat', function (data) {
+	  if(data==0){
+		  return "作废";
+	  }else if(data==1){
+		  return "待审";
+	  }else if(data==2) {
+		  return "已审";
+	  }
+  });

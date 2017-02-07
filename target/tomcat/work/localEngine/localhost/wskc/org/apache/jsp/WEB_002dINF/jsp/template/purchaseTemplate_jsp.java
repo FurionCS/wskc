@@ -90,6 +90,16 @@ public final class purchaseTemplate_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row static-info\">\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-5 col-sm-5  col-xs-5 name\">\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 状态\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7 value\">\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"label label-success\">\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t {{status | statusFormat}}\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"row static-info\">\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-5 col-sm-5  col-xs-5 name\">\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 创建时间\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7 value\">\n");

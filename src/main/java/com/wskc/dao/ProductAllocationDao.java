@@ -1,5 +1,7 @@
 package com.wskc.dao;
 
+import java.util.List;
+
 import org.cs.basic.dao.IBaseDao;
 import org.cs.basic.model.Pager;
 
@@ -28,6 +30,15 @@ public interface ProductAllocationDao extends IBaseDao<ProductAllocation>{
 	 * @return
 	 */
 	ProductAllocationDto getProductAllocationDtoById(int id);
+	
+	
+	/**
+	 * 获得调拨单
+	 * @param userId
+	 * @param str
+	 * @return
+	 */
+	List<ProductAllocation> getProductAllocation(int userId,String str,String type);
 	
 	
 	

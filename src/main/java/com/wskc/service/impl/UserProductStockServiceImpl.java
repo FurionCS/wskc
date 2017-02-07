@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.ProductDao;
+import com.wskc.dao.SoleDao;
 import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.ProductDto;
 import com.wskc.dto.UserProductDto;
@@ -26,6 +27,9 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 	
 	@Autowired
 	private UserProductStockDao userProductStockDao;
+	
+	@Autowired
+	private SoleDao soleDao;
 	
 	@Autowired
 	private ProductDao productDao;
@@ -72,7 +76,28 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 	@Override
 	public List<UserProductDto> getUserProductByq(int userId,
 			 String str) {
-		return userProductStockDao.getUserProductByq(userId, str);
+		List<UserProductDto> lupd=userProductStockDao.getUserProductByq(userId, str);
+		for(UserProductDto upd:lupd){
+			int soleNum=soleDao.getUserProudctSoleStratusZ(upd.getUserId(), upd.getProductId());
+			upd.setSoleNum(upd.getNum()-soleNum);
+		}
+		return lupd;
+	}
+
+	@Override
+	public Pager<UserProductDto> findUserProductStockForSerach(int userId,
+			String str) {
+		Pager<UserProductDto> pupd=userProductStockDao.findUserProductStockForSerach(userId, str);
+		for(UserProductDto upd:pupd.getDatas()){
+			int soleNum=soleDao.getUserProudctSoleStratusZ(upd.getUserId(), upd.getProductId());
+			upd.setSoleNum(upd.getNum()-soleNum);
+		}
+		return pupd;
+	}
+
+	@Override
+	public UserProductStock getUserProductStock(int userId, int productId) {
+		return userProductStockDao.getUserProductStock(userId, productId);
 	}
 
 }

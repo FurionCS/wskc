@@ -28,4 +28,10 @@ public class IndustryDaoImpl extends BaseDao<Industry> implements IndustryDao{
 		String hql="update Industry set userNum=userNum+? where id=?";
 		this.updateByHql(hql, new Object[]{num,industryId});
 	}
+
+	@Override
+	public void updateIndustryBrandName(int num, int industryId) {
+		String hql="update Industry set brandName=brandName+? where id=?";
+		this.updateByHql(hql, new Object[]{num,industryId});		
+	}
 }

@@ -19,7 +19,9 @@ public class UserProductDto {
 	private String size; //规格
 	private String unit; //单位
 	private Date createTime; //用户产品创建时间
+	private Date modifyTime;//修改时间
 	private Integer num; //数量
+	private Integer soleNum;//可售库存
 	private Double totalMoney; //总价格
 	private int status;//状态
 	public int getStockId() {
@@ -99,8 +101,21 @@ public class UserProductDto {
 	public String getCode() {
 		return code;
 	}
+	
+	public Date getModifyTime() {
+		return modifyTime;
+	}
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public Integer getSoleNum() {
+		return soleNum;
+	}
+	public void setSoleNum(Integer soleNum) {
+		this.soleNum = soleNum;
 	}
 	public UserProductDto() {
 		super();

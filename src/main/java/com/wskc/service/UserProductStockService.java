@@ -54,5 +54,20 @@ public interface UserProductStockService {
 	 * @return
 	 */
 	public List<UserProductDto> getUserProductByq(int userId,String str);
+	
+	/**
+	 * 分页获得用户产品信息为了查询
+	 * @param pager
+	 * @return
+	 */
+	public Pager<UserProductDto> findUserProductStockForSerach(int userId,String str);
+	
+	/**
+	 * 获得用户产品库存
+	 * @param userId
+	 * @param productId
+	 * @return
+	 */
+	public UserProductStock getUserProductStock(int userId,int productId);
 
 }

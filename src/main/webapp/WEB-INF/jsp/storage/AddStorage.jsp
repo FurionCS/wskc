@@ -19,7 +19,7 @@
 </div>
 <ul class="page-breadcrumb breadcrumb">
 		<li>
-			<a href="javascript:void(0)">入库管理</a>
+			<a href="javascript:void(0)">库存管理</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>

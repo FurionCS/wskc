@@ -59,6 +59,7 @@ public class IndustryUserServiceImpl implements IndustryUserService{
 		if(industryUser2!=null){
 			return false;
 		}else{
+			//更新行业用户数量
 			industryDao.updateIndustryUserNum(1, industryUser.getIndustryId());
 			industryUserDao.add(industryUser);
 			return true;
@@ -67,7 +68,9 @@ public class IndustryUserServiceImpl implements IndustryUserService{
 
 	@Override
 	public void deleteIndustryUserByUI(int userId, int industryId) {
+		//更新行业用户数量
 		industryDao.updateIndustryUserNum(-1, industryId);
+		//删除用户所属行业
 		industryUserDao.deleteIndustryUserByUI(userId, industryId);
 	}
 

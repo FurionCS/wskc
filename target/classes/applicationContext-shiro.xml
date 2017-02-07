@@ -59,6 +59,9 @@
 	        	/purchase/**=authc
 	        	/storage/**=authc
 	        	/allocation/**=authc
+	        	/library/**=authc
+	        	/stock/**=authc
+	        	/sole/**=authc
 	        </value>
 	    </property>
 	</bean>

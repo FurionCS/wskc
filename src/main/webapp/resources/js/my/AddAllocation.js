@@ -106,7 +106,7 @@ function submitAllocation(){
 				if(data!=null){
 					if(data.result==1){
 						noty({text:data.msg,layout:'topCenter',type:"success",timeout:2000})
-						setTimeout(function(){window.location.href="../allocation/AllocationList?menuids=3_1"},2000);
+						setTimeout(function(){window.location.href="../allocation/AllocationList?menuids=5_0"},2000);
 					}else{
 						noty({text:data.msg,layout:'topCenter',type:"error",timeout:3000})
 					}

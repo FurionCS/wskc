@@ -126,7 +126,7 @@ public final class ShowPurchase_jsp extends org.apache.jasper.runtime.HttpJspBas
       org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f3 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
       _jspx_th_Layout_005foverwrite_005f3.setPageContext(_jspx_page_context);
       _jspx_th_Layout_005foverwrite_005f3.setParent(null);
-      // /WEB-INF/jsp/purchase/ShowPurchase.jsp(174,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/purchase/ShowPurchase.jsp(171,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_Layout_005foverwrite_005f3.setName("MyScript");
       int _jspx_eval_Layout_005foverwrite_005f3 = _jspx_th_Layout_005foverwrite_005f3.doStartTag();
       if (_jspx_eval_Layout_005foverwrite_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -699,7 +699,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                    </a>\r\n");
       out.write("                     <ul class=\"sub-menu\">\r\n");
       out.write("                        <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../allocation/Allocation?menuids=5_0\"> <i class=\"fa  fa-circle-o\"></i>调拨单</a>\r\n");
+      out.write("                            <a href=\"javascript:void(0)\"> <i class=\"fa  fa-circle-o\"></i>调拨单 <span class=\"arrow \"></span></a>\r\n");
+      out.write("                            <ul class=\"sub-menu\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_0_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../allocation/AllocationList?menuids=5_0\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t调拨单列表\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_0_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../allocation/AddAllocation?menuids=5_0\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t添加调拨单\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                         <li id=\"menupage5_1\">\r\n");
       out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-signal\"></i>入库单 <span class=\"arrow \"></span></a>\r\n");
@@ -718,11 +732,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\t\t\t\t\t\t\t</li>\r\n");
       out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                         <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-bar-chart-o\"></i>出库单</a>\r\n");
+      out.write("                         <li id=\"menupage5_2\">\r\n");
+      out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-bar-chart-o\"></i>出库单<span class=\"arrow \"></span></a>\r\n");
+      out.write("                             <ul class=\"sub-menu\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_2_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../library/LibraryList?menuids=5_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t出库单列表\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_2_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../library/AddLibrary?menuids=5_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t添加出库单\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                        <li id=\"menupage5_1\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-tachometer\"></i>库存量查询</a>\r\n");
+      out.write("                        <li id=\"menupage5_3\">\r\n");
+      out.write("                            <a href=\"../stock/StockList?menuids=5_3\"><i class=\"fa fa-tachometer\"></i>库存量查询</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -734,10 +762,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("                    </a>\r\n");
       out.write("                     <ul class=\"sub-menu\">\r\n");
       out.write("                        <li id=\"menupage4_0\">\r\n");
-      out.write("                            <a href=\"../User/UserList.jsp?active=menupage4_0\"><i class=\"fa fa-th\"></i>销售</a>\r\n");
+      out.write("                            <a href=\"../sole/AddSole?menuids=4_0\"><i class=\"fa fa-th\"></i>销售</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li id=\"menupage4_1\">\r\n");
-      out.write("                            <a href=\"../User/AddUser.jsp?active=menupage4_1\"><i class=\"fa fa-th\"></i>销售列表</a>\r\n");
+      out.write("                            <a href=\"../sole/SoleList?menuids=4_1\"><i class=\"fa fa-th\"></i>销售列表</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </li>\r\n");
@@ -1029,8 +1057,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    HttpServletRequest request = (HttpServletRequest)_jspx_page_context.getRequest();
-    HttpServletResponse response = (HttpServletResponse)_jspx_page_context.getResponse();
     //  Layout:overwrite
     org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f2 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
     _jspx_th_Layout_005foverwrite_005f2.setPageContext(_jspx_page_context);
@@ -1228,14 +1254,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         if (_jspx_meth_c_005fif_005f2(_jspx_th_Layout_005foverwrite_005f2, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
-        if (_jspx_meth_c_005fif_005f3(_jspx_th_Layout_005foverwrite_005f2, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
-        if (_jspx_meth_c_005fif_005f4(_jspx_th_Layout_005foverwrite_005f2, _jspx_page_context))
-          return true;
-        out.write("\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t       </span>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n");
@@ -1248,9 +1266,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t</div>\r\n");
         out.write("</div>\r\n");
-        org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../template/purchaseTemplate.jsp", out, false);
-        out.write('\r');
-        out.write('\n');
         int evalDoAfterBody = _jspx_th_Layout_005foverwrite_005f2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1305,9 +1320,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('已');
-        out.write('收');
-        out.write('货');
+        out.write('作');
+        out.write('废');
         int evalDoAfterBody = _jspx_th_c_005fif_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1334,9 +1348,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
     if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('未');
-        out.write('收');
-        out.write('货');
+        out.write('待');
+        out.write('审');
         int evalDoAfterBody = _jspx_th_c_005fif_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1364,8 +1377,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     if (_jspx_eval_c_005fif_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write('已');
-        out.write('退');
-        out.write('货');
+        out.write('审');
         int evalDoAfterBody = _jspx_th_c_005fif_005f2.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -1376,61 +1388,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       return true;
     }
     _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f2);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005fif_005f3(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_005fif_005f3.setPageContext(_jspx_page_context);
-    _jspx_th_c_005fif_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f2);
-    // /WEB-INF/jsp/purchase/ShowPurchase.jsp(158,16) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fif_005f3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pd.status==3 }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
-    int _jspx_eval_c_005fif_005f3 = _jspx_th_c_005fif_005f3.doStartTag();
-    if (_jspx_eval_c_005fif_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("部分退货");
-        int evalDoAfterBody = _jspx_th_c_005fif_005f3.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_005fif_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f3);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f3);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005fif_005f4(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f2, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:if
-    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f4 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-    _jspx_th_c_005fif_005f4.setPageContext(_jspx_page_context);
-    _jspx_th_c_005fif_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f2);
-    // /WEB-INF/jsp/purchase/ShowPurchase.jsp(159,16) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fif_005f4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${pd.status==4 }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
-    int _jspx_eval_c_005fif_005f4 = _jspx_th_c_005fif_005f4.doStartTag();
-    if (_jspx_eval_c_005fif_005f4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write('作');
-        out.write('废');
-        int evalDoAfterBody = _jspx_th_c_005fif_005f4.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_005fif_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f4);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f4);
     return false;
   }
 
@@ -1499,7 +1456,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f3 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f3.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f3.setParent(null);
-    // /share/_LayoutB.jsp(635,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(663,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f3.setName("MyContent");
     int _jspx_eval_Layout_005fblock_005f3 = _jspx_th_Layout_005fblock_005f3.doStartTag();
     if (_jspx_th_Layout_005fblock_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1518,7 +1475,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f4 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f4.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f4.setParent(null);
-    // /share/_LayoutB.jsp(683,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(711,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f4.setName("MyScript");
     int _jspx_eval_Layout_005fblock_005f4 = _jspx_th_Layout_005fblock_005f4.doStartTag();
     if (_jspx_th_Layout_005fblock_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

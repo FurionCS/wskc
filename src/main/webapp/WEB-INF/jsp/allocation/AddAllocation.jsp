@@ -50,23 +50,23 @@
 									<div class="form-group form-md-radios">
 										<label>调拨类型</label>
 										<div class="md-radio-inline">
-											<div class="md-radio">
-												<input type="radio" id="type1" name="type" class="md-radiobtn" value="调入" checked="">
-												<label for="radio6">
-												<span class="inc"></span>
-												<span class="check"></span>
-												<span class="box"></span>
-												调入 </label>
-											</div>
-											<div class="md-radio">
-												<input type="radio" id="type2" name="type" class="md-radiobtn" value="调出" >
-												<label for="radio7">
-												<span class="inc"></span>
-												<span class="check"></span>
-												<span class="box"></span>
-												调出 </label>
-											</div>
+										<div class="md-radio">
+											<input type="radio" id="radio6" name="type" class="md-radiobtn" value="调入"checked="">
+											<label for="radio6">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span>
+											调入 </label>
 										</div>
+										<div class="md-radio">
+											<input type="radio" id="radio7" name="type" class="md-radiobtn" value="调出">
+											<label for="radio7">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span>
+											调出 </label>
+										</div>
+									</div>
 								</div>
 					                <div class="form-group form-md-line-input" id="productDiv"> 
 										<label for="taobao">产品</label>
@@ -134,6 +134,7 @@
 <input type="hidden" id="productName"/>
 </Layout:overwrite>
 <Layout:overwrite name="MyScript">
+<script src="<%=request.getContextPath() %>/resources/js/template/template.js"></script>
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/my/public.js" ></script>

@@ -1,5 +1,7 @@
 package com.wskc.service;
 
+import java.util.List;
+
 import org.cs.basic.model.Pager;
 
 import com.wskc.dto.ProductAllocationDto;
@@ -41,5 +43,13 @@ public interface ProductAllocationService {
 	 * @return
 	 */
 	boolean EditProductAllocation(ProductAllocation productAllocation);
+	
+	/**
+	 * 获得调拨单
+	 * @param userId
+	 * @param str
+	 * @return
+	 */
+	List<ProductAllocation> getProductAllocation(int userId,String str,String type);
 
 }

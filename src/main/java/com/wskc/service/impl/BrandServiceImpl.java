@@ -51,6 +51,7 @@ public class BrandServiceImpl implements BrandService{
 			Industry industry=industryDao.load(brand.getIndustryId());
 			brand.setIndustryName(industry.getName());
 			brandDao.add(brand);
+			
 			return 	1;
 		}else{
 			return -1;

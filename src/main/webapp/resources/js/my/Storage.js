@@ -57,6 +57,61 @@ $("#purchase").bsSuggest({
     console.log("onUnsetSelectValue");
 });
 
+/**
+ * 采购单搜索
+ */
+$("#allocation").bsSuggest({
+    indexId: 0,             //data.value 的第几个数据，作为input输入框的内容
+    indexKey: 0,            //data.value 的第几个数据，作为input输入框的内容
+    allowNoKeyword: false,  //是否允许无关键字时请求数据。为 false 则无输入时不执行过滤请求
+    multiWord: true,        //以分隔符号分割的多关键字支持
+    separator: ",",         //多关键字支持时的分隔符，默认为空格
+    getDataMethod: "url",   //获取数据的方式，总是从 URL 获取
+    showHeader: true,       //显示多个字段的表头
+    autoDropup: true,       //自动判断菜单向上展开
+    effectiveFields: ["Id","brandName"],
+    effectiveFieldsAlias:{Id: "编码-产品名称", brandName: "品牌"},
+    url: '../allocation/AllocationSearch?type=1&q=', /*优先从url ajax 请求 json 帮助数据，注意最后一个参数为关键字请求参数*/
+//     jsonp: 'callback',               //如果从 url 获取数据，并且需要跨域，则该参数必须设置
+    // url 获取数据时，对数据的处理，作为 fnGetData 的回调函数
+    fnProcessData: function(json){
+        var index, len, data = {value: []}; 
+        if(! json || ! json.obj || ! json.obj.length) {
+            return false;
+        }
+        for (index = 0; index < json.obj.length; index++) {
+            data.value.push({
+                "Id": json.obj[index].allocationNo+"  "+json.obj[index].productName,
+                "brandName": json.obj[index].brandName,
+                "brandId":json.obj[index].brandId,
+                "productId":json.obj[index].productId,
+                "productName":json.obj[index].productName,
+                "num":json.obj[index].num,
+                "allocationNo":json.obj[index].allocationNo
+            });
+        }
+        console.log('淘宝搜索 API: ', data);
+        return data;
+    }
+}).on('onDataRequestSuccess', function (e, result) {
+    console.log('onDataRequestSuccess: ', result);
+    $("#num").val("");
+    $("#brandId").val("");
+    $("#brandName").val("");
+    $("#productId").val("");
+    $("#productName").val("");
+    $("#relevanceNo").val("0");
+}).on('onSetSelectValue', function (e, keyword, data) {
+    console.log('onSetSelectValue: ', keyword, data);
+    $("#num").val(data.num);
+    $("#brandId").val(data.brandId);
+    $("#brandName").val(data.brandName);
+    $("#productId").val(data.productId);
+    $("#productName").val(data.productName);
+    $("#relevanceNo").val(data.allocationNo);
+}).on('onUnsetSelectValue', function () {
+    console.log("onUnsetSelectValue");
+});
 $(".form_datetime").datetimepicker({
 	language:  'zh-CN', 
     format: "yyyy-mm-dd hh:ii:ss",

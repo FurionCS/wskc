@@ -25,10 +25,10 @@ public class Sole {
 	private String brandName;//品牌名称
 	private int productId;//产品id 
 	private String productName;//产品名称
+	private String customer;//消费者
 	private int num;//数量
 	private double price;//价格
 	private double factPrice; //实际价格
-	private double totalMoney;//总共金额
 	private double deliveryFee; //快递费
 	private double otherFee;//其他费用
 	private Date createTime;//创建时间
@@ -111,13 +111,6 @@ public class Sole {
 		this.factPrice = factPrice;
 	}
 
-	@Column(name="total_money")
-	public double getTotalMoney() {
-		return totalMoney;
-	}
-	public void setTotalMoney(double totalMoney) {
-		this.totalMoney = totalMoney;
-	}
 	@Column(name="create_time")
 	public Date getCreateTime() {
 		return createTime;
@@ -157,6 +150,13 @@ public class Sole {
 	}
 	public void setOtherFee(double otherFee) {
 		this.otherFee = otherFee;
+	}
+	
+	public String getCustomer() {
+		return customer;
+	}
+	public void setCustomer(String customer) {
+		this.customer = customer;
 	}
 	public Sole() {
 		super();

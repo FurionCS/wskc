@@ -152,11 +152,9 @@
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">
 															<span class="label label-success">
-															 <c:if test="${pd.status==0 }">已收货</c:if>
-															 <c:if test="${pd.status==1 }">未收货</c:if>
-															 <c:if test="${pd.status==2 }">已退货</c:if>
-															 <c:if test="${pd.status==3 }">部分退货</c:if>
-															 <c:if test="${pd.status==4 }">作废</c:if>
+															 <c:if test="${pd.status==0 }">作废</c:if>
+															 <c:if test="${pd.status==1 }">待审</c:if>
+															 <c:if test="${pd.status==2 }">已审</c:if>
 													       </span>
 														</div>
 													</div>
@@ -169,7 +167,6 @@
 						</div>
 		</div>
 </div>
-<jsp:include page="../template/purchaseTemplate.jsp"></jsp:include>
 </Layout:overwrite>
 <Layout:overwrite name="MyScript">
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>

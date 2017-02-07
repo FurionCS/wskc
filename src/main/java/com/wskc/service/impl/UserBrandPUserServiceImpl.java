@@ -80,8 +80,6 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 		ubpu.setAuthCode(Long.toHexString(new Date().getTime()));
 		ubpu.setCreatTime(new Date());
 		userBrandPUserDao.add(ubpu);
-		// 更新行业用户数量
-		industryDao.updateIndustryUserNum(1, brand.getIndustryId());
 		return 1;
 	}
 	@Override

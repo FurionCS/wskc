@@ -23,5 +23,11 @@ public interface IndustryDao extends IBaseDao<Industry>{
 	 * 更新行业用户数
 	 */
 	public void updateIndustryUserNum(int num,int industryId);
+	/**
+	 * 更新行业品牌数
+	 * @param num
+	 * @param industryId
+	 */
+	public void updateIndustryBrandName(int num,int industryId);
 	
 }

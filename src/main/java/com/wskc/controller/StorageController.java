@@ -105,7 +105,7 @@ public class StorageController {
 	}
 	
 	/**
-	 * 展示采购订单
+	 * 展示入库
 	 * @param id
 	 * @param model
 	 * @param menuids
@@ -146,7 +146,7 @@ public class StorageController {
 	}
 	
 	/**
-	 * 编辑采购
+	 * 编辑入库
 	 * @param purchase
 	 * @return
 	 */

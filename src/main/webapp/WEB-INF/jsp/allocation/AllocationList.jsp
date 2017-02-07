@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%-- <Layout:overwrite name="import"></Layout:overwrite> --%>
 <Layout:overwrite name="title">
-入库列表
+调拨列表
 </Layout:overwrite>
 <Layout:overwrite name="Mycss">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
@@ -14,7 +14,7 @@
 <div class="page-head">
 	<!-- BEGIN PAGE TITLE -->
 	<div class="page-title hidden-xs">
-		<h1>入库列表</h1>
+		<h1>调拨列表</h1>
 	</div>
 	<!-- END PAGE TITLE -->
 </div>
@@ -24,11 +24,11 @@
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a href="javascript:void(0)">入库单</a>
+			<a href="javascript:void(0)">调拨单</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a href="javascript:void(0)">入库单列表</a>
+			<a href="javascript:void(0)">调拨单列表</a>
 		</li>
 </ul>
 <div class="form-group" >

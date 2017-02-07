@@ -47,6 +47,11 @@ public class TestUserProductStockDao extends AbstractDbUnitTestCase{
 		List<UserProductStock> lups=userProductStockDao.getUserProductStockByBrandId(1,1);
 		Assert.assertNotNull(lups);
 	}
+	
+	@Test
+	public void testUpdateUserProductStock(){
+		userProductStockDao.updateUserProductStock(1, 1, -4, -12);
+	}
 
 	@After
 	public void tearDown() throws Exception {

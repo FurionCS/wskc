@@ -33,7 +33,8 @@ public class PurchaseDaoImpl extends BaseDao<Purchase> implements PurchaseDao{
 
 	@Override
 	public List<Purchase> getPurchaseList(int userId, String str) {
-		String hql="from Purchase where userId=? and (purchaseNo like ? or productName like ?)";
+		//只有状态为审核的情况下才能关联入库单
+		String hql="from Purchase where userId=? and status=2 and (purchaseNo like ? or productName like ?)";
 		return this.list(hql, new Object[]{userId,str+'%',str+'%'});
 	}
 }

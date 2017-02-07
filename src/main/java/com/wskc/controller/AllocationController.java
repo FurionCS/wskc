@@ -1,7 +1,10 @@
 package com.wskc.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.cs.basic.model.Pager;
 import org.cs.basic.util.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,6 +168,32 @@ public class AllocationController {
 				ajaxObj.setResult(0);
 				ajaxObj.setMsg("修改失败,查不到该记录");
 			}
+		}
+		return ajaxObj;
+	}
+	
+	
+	/**
+	 * 品牌搜索
+	 * @param model
+	 * @param session
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="/AllocationSearch")
+	public @ResponseBody AjaxObj getAllocationSearch(@RequestParam("q") String q,@RequestParam("type") int type,Model model,HttpSession session) throws UnsupportedEncodingException{
+		User user=(User) session.getAttribute("loginer");
+		q=new String(q.getBytes("iso8859-1"), "utf-8");  
+		AjaxObj ajaxObj=new AjaxObj();
+		if(StringUtils.isNotEmpty(q)){
+			if(type==1){
+				ajaxObj.setObj(productAllocationService.getProductAllocation(user.getId(), q,"调入"));
+			}else{
+				ajaxObj.setObj(productAllocationService.getProductAllocation(user.getId(), q,"调出"));
+			}
+			
+		}else{
+			ajaxObj.setResult(0);
 		}
 		return ajaxObj;
 	}

@@ -27,10 +27,12 @@ public class ProductLibrary {
 	private int productId;//产品id
 	private String productName; //产品名称
 	private int num; //数量
+	private double price;//单价
 	private int status; //状态
 	private String remark;//备注
 	private Date createTime;//创建时间
 	private Date modifyTime;//修改时间
+	private String relevanceNo;//关联
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -93,6 +95,12 @@ public class ProductLibrary {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	public int getStatus() {
 		return status;
 	}
@@ -118,6 +126,13 @@ public class ProductLibrary {
 	}
 	public void setModifyTime(Date modifyTime) {
 		this.modifyTime = modifyTime;
+	}
+	@Column(name="relevance_no")
+	public String getRelevanceNo() {
+		return relevanceNo;
+	}
+	public void setRelevanceNo(String relevanceNo) {
+		this.relevanceNo = relevanceNo;
 	}
 	public ProductLibrary() {
 		super();

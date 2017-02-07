@@ -38,6 +38,16 @@
 													</div>
 													<div class="row static-info">
 														<div class="col-md-5 col-sm-5  col-xs-5 name">
+															 状态
+														</div>
+														<div class="col-md-7 col-sm-7 col-xs-7 value">
+															<span class="label label-success">
+															 {{status | statusFormat}}
+															</span>
+														</div>
+													</div>
+													<div class="row static-info">
+														<div class="col-md-5 col-sm-5  col-xs-5 name">
 															 创建时间
 														</div>
 														<div class="col-md-7 col-sm-7 col-xs-7 value">

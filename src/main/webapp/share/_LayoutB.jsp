@@ -515,11 +515,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</li>
 							</ul>
                         </li>
-                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-bar-chart-o"></i>出库单</a>
+                         <li id="menupage5_2">
+                            <a href="javascript:void(0)"><i class="fa fa-bar-chart-o"></i>出库单<span class="arrow "></span></a>
+                             <ul class="sub-menu">
+								<li id="menupage5_2_1">
+									<a href="../library/LibraryList?menuids=5_2">
+									<i class="icon-user"></i>
+									出库单列表
+									</a>
+								</li>
+								<li id="menupage5_2_2">
+									<a href="../library/AddLibrary?menuids=5_2">
+									<i class="icon-user"></i>
+									添加出库单
+									</a>
+								</li>
+							</ul>
                         </li>
-                        <li id="menupage5_1">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-tachometer"></i>库存量查询</a>
+                        <li id="menupage5_3">
+                            <a href="../stock/StockList?menuids=5_3"><i class="fa fa-tachometer"></i>库存量查询</a>
                         </li>
                     </ul>
                 </li>
@@ -531,10 +545,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                      <ul class="sub-menu">
                         <li id="menupage4_0">
-                            <a href="../User/UserList.jsp?active=menupage4_0"><i class="fa fa-th"></i>销售</a>
+                            <a href="../sole/AddSole?menuids=4_0"><i class="fa fa-th"></i>销售</a>
                         </li>
                         <li id="menupage4_1">
-                            <a href="../User/AddUser.jsp?active=menupage4_1"><i class="fa fa-th"></i>销售列表</a>
+                            <a href="../sole/SoleList?menuids=4_1"><i class="fa fa-th"></i>销售列表</a>
                         </li>
                     </ul>
                 </li>

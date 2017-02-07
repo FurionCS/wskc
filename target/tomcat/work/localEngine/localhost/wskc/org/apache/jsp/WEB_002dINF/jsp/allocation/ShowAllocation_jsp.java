@@ -726,8 +726,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\t\t\t\t\t\t\t</li>\r\n");
       out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
-      out.write("                         <li id=\"menupage5_0\">\r\n");
-      out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-bar-chart-o\"></i>出库单</a>\r\n");
+      out.write("                         <li id=\"menupage5_2\">\r\n");
+      out.write("                            <a href=\"javascript:void(0)\"><i class=\"fa fa-bar-chart-o\"></i>出库单<span class=\"arrow \"></span></a>\r\n");
+      out.write("                             <ul class=\"sub-menu\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_2_1\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../library/LibraryList?menuids=5_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t出库单列表\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t\t<li id=\"menupage5_2_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<a href=\"../library/AddLibrary?menuids=5_2\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<i class=\"icon-user\"></i>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t添加出库单\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</a>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</li>\r\n");
+      out.write("\t\t\t\t\t\t\t</ul>\r\n");
       out.write("                        </li>\r\n");
       out.write("                        <li id=\"menupage5_1\">\r\n");
       out.write("                            <a href=\"../test/test2.jsp?active=menupage5_0\"><i class=\"fa fa-tachometer\"></i>库存量查询</a>\r\n");
@@ -1452,7 +1466,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f3 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f3.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f3.setParent(null);
-    // /share/_LayoutB.jsp(649,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(663,3) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f3.setName("MyContent");
     int _jspx_eval_Layout_005fblock_005f3 = _jspx_th_Layout_005fblock_005f3.doStartTag();
     if (_jspx_th_Layout_005fblock_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1471,7 +1485,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.BlockTag _jspx_th_Layout_005fblock_005f4 = (org.cs.basic.layout.BlockTag) _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.get(org.cs.basic.layout.BlockTag.class);
     _jspx_th_Layout_005fblock_005f4.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005fblock_005f4.setParent(null);
-    // /share/_LayoutB.jsp(697,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /share/_LayoutB.jsp(711,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005fblock_005f4.setName("MyScript");
     int _jspx_eval_Layout_005fblock_005f4 = _jspx_th_Layout_005fblock_005f4.doStartTag();
     if (_jspx_th_Layout_005fblock_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

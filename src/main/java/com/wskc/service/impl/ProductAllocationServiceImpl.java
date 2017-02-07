@@ -1,6 +1,7 @@
 package com.wskc.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.cs.basic.model.Pager;
 import org.cs.basic.util.DateUtils;
@@ -69,5 +70,10 @@ public class ProductAllocationServiceImpl implements ProductAllocationService {
 			productAllocationDao.update(productAllocation2);
 			return true;
 		}
+	}
+
+	@Override
+	public List<ProductAllocation> getProductAllocation(int userId, String str,String type) {
+		return productAllocationDao.getProductAllocation(userId, str,type);
 	}
 }

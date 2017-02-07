@@ -70,7 +70,21 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 	@Override
 	public void updateUserProductStock(int userId, int productId, int num,
 			double totalMoney) {
-		String hql="from UserProductStock set num+=?,totalMoney+=? where userId=? and productId=?";
+		String hql="";
+		hql="update UserProductStock set num=num+?,totalMoney=totalMoney+?,modifyTime=now() where userId=? and productId=?";
 		 this.updateByHql(hql, new Object[]{num,totalMoney,userId,productId});
+	}
+
+	@Override
+	public Pager<UserProductDto> findUserProductStockForSerach(int userId,
+			String str) {
+		 String sql="select ups.id as 'stockId',ups.user_id as 'userId',ups.product_id as 'productId',ups.product_name as 'productName',ups.num as 'num',ups.total_money as 'totalMoney',ups.brand_name as 'brandName',ups.status as 'status',ups.brand_id as 'brandId',ups.modify_time as 'modifyTime',pi.size as 'size',pi.unit as 'unit',pi.code as 'code' from t_user_product_stock ups ,t_product_info pi where ups.product_id=pi.id and ups.user_id=? and ups.status=1 and (pi.code like ? or ups.product_name like ? or ups.brand_name like ?) order by ups.num,ups.modify_time desc";
+		 return this.findBySql(sql,new Object[]{userId,str+'%',str+'%',str+'%'}, UserProductDto.class, false);
+	}
+
+	@Override
+	public UserProductStock getUserProductStock(int userId, int productId) {
+		String hql="from UserProductStock where userId=? and productId=?";
+		return (UserProductStock) this.queryObject(hql, new Object[]{userId,productId});
 	}
 }

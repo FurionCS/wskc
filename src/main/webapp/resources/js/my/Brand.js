@@ -63,7 +63,7 @@ function submitBrand(){
 		url:"../basic/addUserBrandPUser",
 		type:"POST",
 		dataType:"json",
-		data:{"brandId":brandId,"brankName":brandName,"authCode":code,"pUserRemark":remark},
+		data:{"brandId":brandId,"brandName":brandName,"authCode":code,"pUserRemark":remark},
 		success:function(data){
 			if(data!=null){
 				if(data.result==1){
