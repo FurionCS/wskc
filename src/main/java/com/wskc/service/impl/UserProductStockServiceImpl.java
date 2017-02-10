@@ -15,6 +15,7 @@ import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.ProductDto;
+import com.wskc.dto.ProductStockWarnDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.BasicException;
 import com.wskc.model.UserProductStock;
@@ -148,6 +149,21 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 			}
 			return lpat;
 		}
+	}
+
+	@Override
+	public List<ProductStockWarnDto> listProductStockWarn(int userId) {
+		return userProductStockDao.listProductStockWarn(userId);
+	}
+
+	@Override
+	public boolean updateProductStockWarn(int stockId, int warnNum) {
+		UserProductStock ups=userProductStockDao.load(stockId);
+		if(ups!=null){
+			ups.setWarnNum(warnNum);
+			userProductStockDao.update(ups);
+		}
+		return true;
 	}
 
 }

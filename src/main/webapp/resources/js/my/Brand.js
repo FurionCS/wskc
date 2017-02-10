@@ -190,3 +190,39 @@ function submitBrandToPublic(){
 }
 
 
+
+/**
+ * 修改警告库存
+ */
+function submitWarn(){
+	var stockId=$("#stockId").val();
+	if(stockId==""||stockId<0){
+		noty({text:"请库存id不存在",layout:'topCenter',type:"error",timeout:3000})
+		return;
+	}
+	var warnNum=$("#warnNum").val();
+	if(warnNum<0){
+		noty({text:"库存格式不符合",layout:'topCenter',type:"error",timeout:3000})
+		return;
+	}
+	$.ajax({
+		url:"../basic/editWarnNum",
+		type:"POST",
+		dataType:"json",
+		data:{"stockId":stockId,"warnNum":warnNum},
+		success:function(data){
+			if(data!=null){
+				if(data.result==1){
+					noty({text:data.msg,layout:'topCenter',type:"success",timeout:2000})
+					setTimeout(function(){window.location.href="../basic/productList?menuids=2_3"},2000);
+				}else{
+					noty({text:data.msg,layout:'topCenter',type:"error",timeout:3000})
+				}
+			}else{
+				noty({text:"请求出错",layout:'topCenter',type:"error",timeout:2000})
+			}
+		}
+	})
+}
+
+

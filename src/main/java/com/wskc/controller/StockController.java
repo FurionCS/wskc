@@ -19,6 +19,7 @@ import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.ProductDto;
+import com.wskc.dto.ProductStockWarnDto;
 import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.User;
@@ -164,5 +165,18 @@ public class StockController {
 	public @ResponseBody List<ProductAgentTree> treeList(int brandId,int productId,int id){
 		List<ProductAgentTree> lg=userProductStockService.listProductAgentTree(brandId, id, productId);
 		return lg;
+	}
+	/**
+	 * 获得警告库存信息
+	 * @return
+	 */
+	@RequestMapping(value="/listProductStockWarn",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj listProductStockWarn(HttpSession session){
+		AjaxObj ajaxObj=new AjaxObj();
+		User user=(User) session.getAttribute("loginer");
+		List<ProductStockWarnDto> lpswd=userProductStockService.listProductStockWarn(user.getId());
+		ajaxObj.setResult(1);
+		ajaxObj.setObj(lpswd);
+		return ajaxObj;
 	}
 }

@@ -61,6 +61,7 @@ D:\workspace\wskc\src\main\java\com\wskc\model\SoleReturn.java
 D:\workspace\wskc\src\main\java\com\wskc\util\MessageUtil.java
 D:\workspace\wskc\src\main\java\com\wskc\web\SystemContextFilter.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\impl\ProductDaoImpl.java
+D:\workspace\wskc\src\main\java\com\wskc\dto\ProductStockWarnDto.java
 D:\workspace\wskc\src\main\java\com\wskc\model\ProductLibrary.java
 D:\workspace\wskc\src\main\java\com\wskc\controller\LibraryController.java
 D:\workspace\wskc\src\main\java\com\wskc\model\User.java

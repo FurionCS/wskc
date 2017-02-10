@@ -532,5 +532,29 @@ public class BasicController {
 		}
 		return ajaxObj;
 	}
+	/**
+	 * 修改库存
+	 * @param stockId
+	 * @param warnNum
+	 * @return
+	 */
+	@RequestMapping(value="/editWarnNum",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj editWarnNum(int stockId,int warnNum){
+		AjaxObj ajaxObj=new AjaxObj();
+		if(stockId<1||warnNum<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不正确");
+		}else{
+			boolean isSuccess=userProductStockService.updateProductStockWarn(stockId, warnNum);
+			if(isSuccess){
+				ajaxObj.setResult(1);
+				ajaxObj.setMsg("修改成功");
+			}else{
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("修改失败");
+			}
+		}
+		return ajaxObj;
+	}
 }
 

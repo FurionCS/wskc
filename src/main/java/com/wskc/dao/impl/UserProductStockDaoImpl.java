@@ -10,6 +10,7 @@ import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
+import com.wskc.dto.ProductStockWarnDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 
@@ -55,7 +56,7 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 
 	@Override
 	public UserProductDto showUserProductStock(int stockId) {
-		String sql="select ups.id as 'stockId',ups.user_id as 'userId',ups.product_id as 'productId',ups.status as 'status',ups.product_name as 'productName',ups.num as 'num',ups.total_money as 'totalMoney',ups.brand_name as 'brandName',ups.brand_id as 'brandId',ups.create_time as 'createTime',pi.size as 'size',pi.unit as 'unit',pi.code as 'code' from t_user_product_stock ups ,t_product_info pi where ups.product_id=pi.id and ups.id=?";
+		String sql="select ups.id as 'stockId',ups.warn_num as 'warnNum',ups.user_id as 'userId',ups.product_id as 'productId',ups.status as 'status',ups.product_name as 'productName',ups.num as 'num',ups.total_money as 'totalMoney',ups.brand_name as 'brandName',ups.brand_id as 'brandId',ups.create_time as 'createTime',pi.size as 'size',pi.unit as 'unit',pi.code as 'code' from t_user_product_stock ups ,t_product_info pi where ups.product_id=pi.id and ups.id=?";
 		return (UserProductDto) this.sqlObject(sql, stockId, UserProductDto.class,false);
 	}
 	@Override
@@ -115,5 +116,11 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 			int productId) {
 		String sql="select  ups.num,ui.user_nike as 'name',ups.user_id as 'id',ubp.num as 'agentNum' from t_user_product_stock ups,t_user_info ui,(select ubp.user_id,ubp.num from t_user_brand_puser ubp where ubp.puser_id=? and ubp.brand_id=?) ubp where ups.user_id=ui.id  and ubp.user_id=ups.user_id  and ups.product_id=?";
 		return this.listBySql(sql, new Object[]{userId,brandId,productId},ProductAgentTree.class, false);
+	}
+
+	@Override
+	public List<ProductStockWarnDto> listProductStockWarn(int userId) {
+		String sql="select ups.brand_id as 'brandId',ups.product_id as 'productId',ups.brand_name as 'brandName',ups.product_name as 'productName',ups.num,ups.modify_time as 'modifyTime',ups.warn_num as 'warnNum' from t_user_product_stock ups where  ups.user_id=? and ups.`status`=1 and ups.num<=ups.warn_num";
+		return this.listBySql(sql, userId, ProductStockWarnDto.class, false);
 	}
 }

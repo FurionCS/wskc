@@ -22,6 +22,7 @@ public class UserProductDto {
 	private Date modifyTime;//修改时间
 	private Integer num; //数量
 	private Integer soleNum;//可售库存
+	private Integer warnNum;//警告库存
 	private Double totalMoney; //总价格
 	private int status;//状态
 	public int getStockId() {
@@ -84,7 +85,12 @@ public class UserProductDto {
 	public void setBrandId(int brandId) {
 		this.brandId = brandId;
 	}
-	
+	public Integer getWarnNum() {
+		return warnNum;
+	}
+	public void setWarnNum(Integer warnNum) {
+		this.warnNum = warnNum;
+	}
 	public int getUserId() {
 		return userId;
 	}

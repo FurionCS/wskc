@@ -309,16 +309,17 @@ function updateUserProductStatus(stockId,status,type){
 			return;
 	  }
 	  var num=$("#num").val();
+	  var warnNum=$("#warnNum").val();
 	  var totalMoney=$("#totalMoney").val();
-	  if(isNaN(num)|| !isDouble(totalMoney)){
-			noty({text:"库存量或总金额格式不对",layout:'topCenter',type:"error",timeout:3000})
+	  if(isNaN(num)|| !isDouble(totalMoney)||isNaN(warnNum)){
+			noty({text:"库存量或总金额,警告数量格式不对",layout:'topCenter',type:"error",timeout:3000})
 			return;
 	  }
 	  $.ajax({
 			url:"../basic/AddUserProduct",
 			type:"POST",
 			dataType:"json",
-			data:{"productId":productId,"num":num,"totalMoney":totalMoney},
+			data:{"productId":productId,"num":num,"totalMoney":totalMoney,"warnNum":warnNum},
 			success:function(data){
 				if(data!=null){
 					if(data.result==1){

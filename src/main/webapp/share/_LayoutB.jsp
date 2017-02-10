@@ -78,84 +78,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<i class="icon-bell"></i>
 						<span class="badge badge-danger">
-						4 </span>
+						0 </span>
 						</a>
 						<ul class="dropdown-menu">
 							<li class="external">
-								<h3>您有<span class="bold">7 条</span>库存警告</h3>
+								<h3>您有<span class="bold">0条</span>库存警告</h3>
 							</li>
 							<li>
 								<ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-									<li>
-										<a href="inbox.html?a=view">
-										<span class="photo">
-										<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar2.jpg" class="img-circle" alt="">
-										</span>
-										<span class="subject">
-										<span class="from">
-										Lisa Wong </span>
-										<span class="time">Just Now </span>
-										</span>
-										<span class="message">
-										Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-										</a>
-									</li>
-									<li>
-										<a href="inbox.html?a=view">
-										<span class="photo">
-										<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar3.jpg" class="img-circle" alt="">
-										</span>
-										<span class="subject">
-										<span class="from">
-										Richard Doe </span>
-										<span class="time">16 mins </span>
-										</span>
-										<span class="message">
-										Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-										</a>
-									</li>
-									<li>
-										<a href="inbox.html?a=view">
-										<span class="photo">
-										<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar1.jpg" class="img-circle" alt="">
-										</span>
-										<span class="subject">
-										<span class="from">
-										Bob Nilson </span>
-										<span class="time">2 hrs </span>
-										</span>
-										<span class="message">
-										Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-										</a>
-									</li>
-									<li>
-										<a href="inbox.html?a=view">
-										<span class="photo">
-										<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar2.jpg" class="img-circle" alt="">
-										</span>
-										<span class="subject">
-										<span class="from">
-										Lisa Wong </span>
-										<span class="time">40 mins </span>
-										</span>
-										<span class="message">
-										Vivamus sed auctor 40% nibh congue nibh... </span>
-										</a>
-									</li>
-									<li>
-										<a href="inbox.html?a=view">
-										<span class="photo">
-										<img src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar3.jpg" class="img-circle" alt="">
-										</span>
-										<span class="subject">
-										<span class="from">
-										Richard Doe </span>
-										<span class="time">46 mins </span>
-										</span>
-										<span class="message">
-										Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-										</a>
-									</li>
 								</ul>
 							</li>
 						</ul>
@@ -165,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<!-- BEGIN TODO DROPDOWN -->
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-					<li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_task_bar">
+					<li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_task_bar" style="display:none">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<i class="icon-bell"></i>
 						<span class="badge badge-primary">
@@ -483,7 +413,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </li>
                     </ul>
                 </li>
-                <li id="menupage7">
+                <li id="menupage7" style="display:none">
                     <a href="javascript:;">
                         <i class="fa fa-eye"></i>
                         <span class="title">系统管理</span>
@@ -544,6 +474,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<i class="icon-arrow-up"></i>
 	</div>
 </div>
+<jsp:include page="/WEB-INF/jsp/template/warnStockTemplate.jsp"></jsp:include> 
 <!-- <div id="coverdiv"> <div id="cover"> </div> 	</div> -->
 <script src="<%=request.getContextPath() %>/resources/global/plugins/jquery.min.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath() %>/resources/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
@@ -570,12 +501,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="<%=request.getContextPath() %>/resources/admin/layout4/scripts/demo.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath() %>/resources/admin/pages/scripts/table-managed.js"></script>
 <!-- beigin noty -->
- <script src="<%=request.getContextPath() %>/resources/admin/noty/jquery.noty.js" type="text/javascript"></script>
-    <script src="<%=request.getContextPath() %>/resources/admin/noty/packaged/jquery.noty.packaged.js" type="text/javascript"></script>
-     <script src="<%=request.getContextPath() %>/resources/admin/noty/layouts/topCenter.js" type="text/javascript"></script>
-     <script src="<%=request.getContextPath() %>/resources/admin/noty/themes/default.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/resources/admin/noty/jquery.noty.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/resources/admin/noty/packaged/jquery.noty.packaged.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/resources/admin/noty/layouts/topCenter.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/resources/admin/noty/themes/default.js" type="text/javascript"></script>
  <!-- end noty -->   
 <script src="<%=request.getContextPath() %>/resources/js/core/jquery.basic.tool.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/resources/js/template/template.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/my/home/warnStock.js"></script>
 <Layout:block name="MyScript"></Layout:block>
 <script>
 

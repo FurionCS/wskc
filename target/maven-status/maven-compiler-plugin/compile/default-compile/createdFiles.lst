@@ -59,8 +59,8 @@ com\wskc\service\ProductAllocationService.class
 com\wskc\dao\UserDao.class
 com\wskc\dao\UserBrandPUserDao.class
 com\wskc\dto\ProductAgentInfoDto.class
-com\wskc\config\IndustryUserConfig.class
 com\wskc\service\IndustryService.class
+com\wskc\config\IndustryUserConfig.class
 com\wskc\web\SystemContextFilter.class
 com\wskc\model\User.class
 com\wskc\service\impl\BrandServiceImpl.class

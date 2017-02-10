@@ -46,27 +46,16 @@
 										<label for="form_control_1">品牌名称</label>
 									</div>
 									<div class="form-group form-md-line-input has-warning">
-										<input type="text" class="form-control" id="size" placeholder="" value="${upd.size }" disabled>
-										<label for="form_control_1">产品规格</label>
-									</div>
-									<div class="form-group form-md-line-input has-warning">
-										<input type="text" class="form-control" id="unit" placeholder="" value="${upd.unit }" disabled>
-										<label for="form_control_1">产品单位</label>
-									</div>
-									<div class="form-group form-md-line-input has-warning">
 										<input type="text" class="form-control" id="num" placeholder="" value="${upd.num }" disabled>
 										<label for="form_control_1">产品库存</label>
 									</div>
 									<div class="form-group form-md-line-input has-warning">
-										<input type="text" class="form-control" id="totalMoney" placeholder="" value="${upd.totalMoney }" disabled>
-										<label for="form_control_1">产品库存金额</label>
-									</div>
-									<div class="form-group form-md-line-input has-warning">
-										<input type="text" class="form-control" id="createTime" placeholder="" value="${upd.createTime }" disabled>
-										<label for="form_control_1">产品创建时间</label>
+										<input type="text" class="form-control" id="warnNum" placeholder="" value="${upd.warnNum }" >
+										<label for="form_control_1">警告库存</label>
 									</div>
 								</div>
 								<div class="form-actions noborder">
+									<a href="javascript:void(0)" class="btn btn-lg blue" onclick="submitWarn()">修改</a>
 									<a href="../basic/productList?menuids=2_3" class="btn btn-lg default">返回</a>
 								</div>
 							</form>
@@ -75,8 +64,7 @@
 					<!-- END SAMPLE FORM PORTLET-->
 				</div>
 </div>
-<input type="hidden" id="brandId"/>
-<input type="hidden" id="brandName"/>
+<input type="hidden" id="stockId" value="${upd.stockId }"/>
 </Layout:overwrite>
 <Layout:overwrite name="MyScript">
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>

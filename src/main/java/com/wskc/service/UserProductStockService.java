@@ -7,6 +7,7 @@ import org.cs.basic.model.Pager;
 import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
+import com.wskc.dto.ProductStockWarnDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 
@@ -100,5 +101,19 @@ public interface UserProductStockService {
 	 * @return
 	 */
 	public List<ProductAgentTree> listProductAgentTree(int brandId,int userId,int productId);
+	/**
+	 * 展示警告库存信息
+	 * @param userId
+	 * @return
+	 */
+	public List<ProductStockWarnDto> listProductStockWarn(int userId);
+	
+	/**
+	 * 修改产品库存
+	 * @param stockId
+	 * @param warnNum
+	 * @return
+	 */
+	boolean updateProductStockWarn(int stockId,int warnNum);
 	
 }

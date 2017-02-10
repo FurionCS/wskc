@@ -17,6 +17,7 @@ public class UserProductStock {
 	private int productId;//产品id
 	private double totalMoney;//总金额
 	private int num;//数量
+	private int warnNum;//警告库存
 	private String brandName; //品牌名称
 	private String productName;//产品名称
 	private Date createTime;//创建时间
@@ -97,6 +98,14 @@ public class UserProductStock {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	
+	@Column(name="warn_num")
+	public int getWarnNum() {
+		return warnNum;
+	}
+	public void setWarnNum(int warnNum) {
+		this.warnNum = warnNum;
 	}
 	public UserProductStock() {
 		super();

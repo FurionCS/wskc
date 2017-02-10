@@ -64,6 +64,10 @@
 										<input type="text" class="form-control" id="totalMoney" placeholder="如100.0">
 										<label for="form_control_1">初始库存金额</label>
 									</div>
+									<div class="form-group form-md-line-input has-warning">
+										<input type="text" class="form-control" id="warnNum" placeholder="为整数,如1">
+										<label for="form_control_1">库存警告数量</label>
+									</div>
 								</div>
 								<div class="form-actions noborder">
 									<a href="javascript:void(0)" class="btn btn-lg blue" onclick="submitUserProduct()">提交</a>
