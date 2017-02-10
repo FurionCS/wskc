@@ -2,6 +2,7 @@ package com.wskc.service;
 
 import java.util.List;
 
+import com.wskc.dto.ProductDto;
 import com.wskc.model.Brand;
 import com.wskc.model.Product;
 
@@ -26,4 +27,11 @@ public interface ProductService {
 	 * @return
 	 */
 	public Product addProduct(Product product);
+	
+	/**
+	 * 根据产品id获得产品品牌相关信息
+	 * @param id
+	 * @return
+	 */
+	public ProductDto getProductDto(int id);
 }

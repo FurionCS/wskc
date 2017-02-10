@@ -36,4 +36,16 @@ public class ProductAllocationDaoImpl extends BaseDao<ProductAllocation> impleme
 		String hql="from ProductAllocation where allocationUserId=? and type=? and status=2 and (allocationNo like ? or productName like ?)";
 		return this.list(hql, new Object[]{userId,type,str+'%',str+'%'});
 	}
+
+	@Override
+	public void updateAllocationStatusByNo(String no, int status) {
+		String hql="update ProductAllocation set status=? where allocationNo=?";
+		 this.updateByHql(hql, new Object[]{status,no});
+	}
+
+	@Override
+	public Integer getAllocationStratusZ(int userId, int productId, String type) {
+		String sql="select sum(pa.num) from t_product_allocation pa where pa.allocation_user_id=? and pa.product_id=? and pa.type=? and pa.status=2";
+		return this.getCountSql(sql, new Object[]{userId,productId,type});
+	}
 }

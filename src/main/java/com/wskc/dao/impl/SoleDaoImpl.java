@@ -40,7 +40,13 @@ public class SoleDaoImpl extends BaseDao<Sole> implements SoleDao{
 
 	@Override
 	public Integer getUserProudctSoleStratusZ(int userId, int productId) {
-		String sql="select sum(si.num) from t_sole_info si where si.sole_user_id=? and si.product_id=? and si.`status`=1";
+		String sql="select sum(si.num) from t_sole_info si where si.sole_user_id=? and si.product_id=? and si.`status` =2";
 		return this.getCountSql(sql, new Object[]{userId,productId});
+	}
+
+	@Override
+	public void updateSoleStatusByNo(String no, int status) {
+		String hql="update Sole set status=? where soleNo=?";
+		this.updateByHql(hql, new Object[]{status,no});
 	}
 }

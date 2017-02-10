@@ -2,6 +2,7 @@ package org.cs.basic.test.dao;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 
 import org.cs.basic.test.util.AbstractDbUnitTestCase;
 import org.dbunit.DatabaseUnitException;
@@ -42,6 +43,12 @@ public class TestSoleDao extends AbstractDbUnitTestCase{
 	@Test
 	public void testGetUPSSZ(){
 		System.out.println(soleDao.getUserProudctSoleStratusZ(1, 3));
+	}
+	
+	@Test
+	public void testCode(){
+		String code=Long.toHexString(new Date().getTime());
+		System.out.println(code);
 	}
 
 	@After

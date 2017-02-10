@@ -7,11 +7,16 @@ import org.cs.basic.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wskc.dao.ProductAllocationDao;
 import com.wskc.dao.ProductDao;
 import com.wskc.dao.SoleDao;
 import com.wskc.dao.UserProductStockDao;
+import com.wskc.dto.ProductAgentDto;
+import com.wskc.dto.ProductAgentInfoDto;
+import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.ProductDto;
 import com.wskc.dto.UserProductDto;
+import com.wskc.model.BasicException;
 import com.wskc.model.UserProductStock;
 import com.wskc.service.UserProductStockService;
 
@@ -33,6 +38,9 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 	
 	@Autowired
 	private ProductDao productDao;
+	
+	@Autowired
+	private ProductAllocationDao productAllocationDao;
 
 	@Override
 	public Pager<UserProductDto> findUserProductStock(
@@ -79,7 +87,8 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 		List<UserProductDto> lupd=userProductStockDao.getUserProductByq(userId, str);
 		for(UserProductDto upd:lupd){
 			int soleNum=soleDao.getUserProudctSoleStratusZ(upd.getUserId(), upd.getProductId());
-			upd.setSoleNum(upd.getNum()-soleNum);
+			int allocationz=productAllocationDao.getAllocationStratusZ(upd.getUserId(), upd.getProductId(), "调出");
+			upd.setSoleNum(upd.getNum()-soleNum-allocationz);
 		}
 		return lupd;
 	}
@@ -90,7 +99,8 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 		Pager<UserProductDto> pupd=userProductStockDao.findUserProductStockForSerach(userId, str);
 		for(UserProductDto upd:pupd.getDatas()){
 			int soleNum=soleDao.getUserProudctSoleStratusZ(upd.getUserId(), upd.getProductId());
-			upd.setSoleNum(upd.getNum()-soleNum);
+			int allocationz=productAllocationDao.getAllocationStratusZ(upd.getUserId(), upd.getProductId(), "调出");
+			upd.setSoleNum(upd.getNum()-soleNum-allocationz);
 		}
 		return pupd;
 	}
@@ -98,6 +108,46 @@ public class UserProductStockServiceImpl implements UserProductStockService {
 	@Override
 	public UserProductStock getUserProductStock(int userId, int productId) {
 		return userProductStockDao.getUserProductStock(userId, productId);
+	}
+
+	@Override
+	public List<ProductAgentDto> getProductAgentDto(int brandId, int userId,
+			int productId) {
+		if(brandId<0||userId<1){
+			throw new BasicException("品牌id,用户id,不能为空");
+		}
+		return userProductStockDao.getProductAgentDto(brandId, userId, productId);
+	}
+
+	@Override
+	public Pager<ProductAgentInfoDto> findProductAgentInfoDto(int brandId,
+			int userId, int productId) {
+		if(brandId<1||userId<1||productId<1){
+			return null;
+		}else{
+			return userProductStockDao.findProductAgentInfoDto(brandId, userId, productId);
+		}
+	}
+
+	@Override
+	public List<ProductAgentTree> listProductAgentTree(int brandId, int userId,
+			int productId) {
+		if(brandId<1||userId<1||productId<1){
+			return null;
+		}else{
+			List<ProductAgentTree> lpat=userProductStockDao.listProductAgentTree(brandId, userId, productId);
+			for(ProductAgentTree pat:lpat){
+				pat.setPid(userId);
+				pat.setName(pat.getName()+"(库存:"+pat.getNum()+")");
+				if(pat.getAgentNum()>0){
+					pat.setIsParent("true");
+				}else{
+					pat.setIsParent("false");
+					pat.setIcon("../resources/css/tree/img/diy/11.png");
+				}
+			}
+			return lpat;
+		}
 	}
 
 }

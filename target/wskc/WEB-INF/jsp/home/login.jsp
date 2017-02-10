@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>登录</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta content="" name="description"/>
 <meta content="" name="author"/>
@@ -23,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="<%=request.getContextPath() %>/resources/global/plugins/select2/select2.css" rel="stylesheet" type="text/css"/>
-<link href="<%=request.getContextPath() %>/resources/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath() %>/resources/admin/pages/css/login-soft.css?v=1" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
 <link href="<%=request.getContextPath() %>/resources/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
@@ -49,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="checkLogin" method="post">
-		<h3 class="form-title">登录系统</h3>
+		<h3 class="form-title" style="text-align:center;">库存系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
@@ -71,21 +72,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 		<div class="form-actions">
-			<label class="checkbox">
-			<input type="checkbox" name="remember" value="1"/> 保存账号密码 </label>
-			<button type="submit" class="btn blue pull-right">
-			登录 <i class="m-icon-swapright m-icon-white"></i>
+			<button type="submit" class="btn blue col-md-12 col-xs-12">
+				登录 
 			</button>
 		</div>
 		<div class="forget-password">
-			<h4>忘记密码 ?</h4>
-			<p>
-				 别担心, 请点击 <a href="javascript:;" id="forget-password">
-				这里 </a>
-				重置您的密码。
-			</p>
+			<a id="forget-password"></a>
 		</div>
-	
 	</form>
 	<!-- END LOGIN FORM -->
 	<!-- BEGIN FORGOT PASSWORD FORM -->

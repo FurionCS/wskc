@@ -39,11 +39,11 @@
 								<div class="form-body">
 									<div class="form-group form-md-line-input has-success"> 
 									       <input type="hidden" value=${ubpu.id } id="id"/>
-					                        <input type="text" class="form-control" id="brand" value="${ubpu.brankName }" disabled>
+					                        <input type="text" class="form-control" id="brand" value="${ubpu.brandName }" disabled>
 					                        <label for="form_control_1">品牌名称</label>
 					                </div>
 					                <div class="form-group form-md-line-input has-success">
-										<input type="text" class="form-control" id="code" placeholder="授权码为8位" value="">
+										<input type="text" class="form-control" id="code" placeholder="授权码为11位" value="">
 										<label for="form_control_1">上家授权码</label>
 									</div>
 									<div class="form-group form-md-line-input has-warning">

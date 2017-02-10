@@ -7,7 +7,9 @@ import org.cs.basic.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wskc.dao.ProductAllocationDao;
 import com.wskc.dao.ProductLibraryDao;
+import com.wskc.dao.SoleDao;
 import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.ProductLibraryDto;
 import com.wskc.model.ProductLibrary;
@@ -28,6 +30,12 @@ public class ProductLibraryServiceImpl implements ProductLibraryService {
 	private ProductLibraryDao productLibraryDao;
 	@Autowired
 	private UserProductStockDao userProductStockDao;
+	
+	@Autowired
+	private SoleDao soleDao;
+	
+	@Autowired
+	private ProductAllocationDao productAllocationDao;
 
 	@Override
 	public Pager<ProductLibrary> findProductLibraryList(int userId, String str) {
@@ -57,6 +65,18 @@ public class ProductLibraryServiceImpl implements ProductLibraryService {
 			//如果是审核状态，更新用户产品库存信息
 			userProductStockDao.updateUserProductStock(productLibrary.getLibraryUserId(), productLibrary.getProductId(),-productLibrary.getNum(), -productLibrary.getNum()*productLibrary.getPrice());
 		}
+		//更新销售单状态
+		if(productLibrary.getType().equals("销售出库")&&productLibrary.getStatus()==1){
+			soleDao.updateSoleStatusByNo(productLibrary.getRelevanceNo(), 3);//待出库
+		}else if(productLibrary.getType().equals("销售出库")&&productLibrary.getStatus()==2){
+			soleDao.updateSoleStatusByNo(productLibrary.getRelevanceNo(), 4);//完成
+		}
+		//更新调拨单状态
+		if(productLibrary.getType().equals("调拨出库")&&productLibrary.getStatus()==1){
+			productAllocationDao.updateAllocationStatusByNo(productLibrary.getRelevanceNo(), 4);//待出库
+		}else if(productLibrary.getType().equals("调拨出库")&&productLibrary.getStatus()==2){
+			productAllocationDao.updateAllocationStatusByNo(productLibrary.getRelevanceNo(), 5);//完成
+		}
 		return productLibraryDao.add(productLibrary);
 	}
 
@@ -81,6 +101,12 @@ public class ProductLibraryServiceImpl implements ProductLibraryService {
 			if(productLibrary.getStatus()==2){
 				//如果是审核状态，更新用户产品库存信息
 				userProductStockDao.updateUserProductStock(productLibrary2.getLibraryUserId(), productLibrary2.getProductId(),-productLibrary.getNum(), -productLibrary.getNum()*productLibrary.getPrice());
+			}
+			if(productLibrary2.getType().equals("销售出库")&&productLibrary.getStatus()==2){
+				soleDao.updateSoleStatusByNo(productLibrary2.getRelevanceNo(), 4);//完成
+			}
+			if(productLibrary2.getType().equals("调拨出库")&&productLibrary.getStatus()==2){
+				productAllocationDao.updateAllocationStatusByNo(productLibrary2.getRelevanceNo(), 5);//完成
 			}
 			productLibraryDao.update(productLibrary2);
 			return true;

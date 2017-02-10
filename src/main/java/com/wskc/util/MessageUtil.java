@@ -46,7 +46,7 @@ public class MessageUtil {
     /** 
      * 请求消息类型：地理位置 
      */  
-    public static final String REQ_MESSAGE_TYPE_LOCATION = "location";  
+    public static final String REQ_MESSAGE_TYPE_LOCATION = "LOCATION";  
   
     /** 
      * 请求消息类型：音频 

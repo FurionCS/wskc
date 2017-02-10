@@ -26,7 +26,7 @@ import com.wskc.model.UserBrandPUser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
-public class TestUserBrandPUserDao extends AbstractDbUnitTestCase{
+public class TestUserBrandPUserDao{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -63,7 +63,10 @@ public class TestUserBrandPUserDao extends AbstractDbUnitTestCase{
 	public void testDeleteUBPU(){
 		userBrandPUserDao.deleteUBPUByUB(1, 1);
 	}
-	
+	@Test
+	public void testUpdateubpu(){
+		userBrandPUserDao.updateUBPUNum(2,5, -1);
+	}
 	@Test
 	public void testGetUBPUDByP(){
 		userBrandPUserDao.getUBPUDByP(1,"贴");

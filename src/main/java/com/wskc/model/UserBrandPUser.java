@@ -26,6 +26,7 @@ public class UserBrandPUser {
 	private Date creatTime;//创建时间
 	private String pUserRemark;//上家备注
 	private String brandName;//品牌名称
+	private int num;//代理数量
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -82,6 +83,12 @@ public class UserBrandPUser {
 	}
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public UserBrandPUser() {
 		super();

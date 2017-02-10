@@ -2,7 +2,10 @@ package org.cs.basic.test.dao;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
+
+
 
 import org.cs.basic.test.util.AbstractDbUnitTestCase;
 import org.dbunit.DatabaseUnitException;
@@ -23,7 +26,7 @@ import com.wskc.dao.BrandDao;
 import com.wskc.model.Brand;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration(locations = {"classpath:/applicationContext.xml","classpath:/applicationContext-redis.xml"})
 public class TestBrandDao extends AbstractDbUnitTestCase{
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -44,7 +47,12 @@ public class TestBrandDao extends AbstractDbUnitTestCase{
 		List<Brand> lb=brandDao.getBrandSerach("4,8", "贴");
 		Assert.assertNotNull(lb);
 	}
-
+	
+	@Test
+	public void testCode(){
+		String code=Long.toHexString(new Date().getTime());
+		System.out.println(code);
+	}
 	@After
 	public void tearDown() throws Exception {
 		SessionHolder holder = (SessionHolder) TransactionSynchronizationManager.getResource(sessionFactory);

@@ -57,7 +57,7 @@
 					                    </div>
 					                  </div>
 					                <div class="form-group form-md-line-input has-success">
-										<input type="text" class="form-control" id="code" placeholder="授权码为8位,可不填">
+										<input type="text" class="form-control" id="code" placeholder="授权码为11位,可不填">
 										<label for="form_control_1">上家授权码</label>
 									</div>
 									<div class="form-group form-md-line-input has-warning">

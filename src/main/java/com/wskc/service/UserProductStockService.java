@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.cs.basic.model.Pager;
 
+import com.wskc.dto.ProductAgentDto;
+import com.wskc.dto.ProductAgentInfoDto;
+import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 
@@ -69,5 +72,33 @@ public interface UserProductStockService {
 	 * @return
 	 */
 	public UserProductStock getUserProductStock(int userId,int productId);
-
+	
+	/**
+	 * 获得产品代理汇总信息
+	 * @param brandId
+	 * @param userId
+	 * @param productId
+	 * @return
+	 */
+	public List<ProductAgentDto> getProductAgentDto(int brandId,int userId,int productId);
+	
+	/**
+	 * 获得产品代理详细信息
+	 * @param brandId
+	 * @param userId
+	 * @param productId
+	 * @return
+	 */
+	public Pager<ProductAgentInfoDto> findProductAgentInfoDto(int brandId,int userId,int productId);
+	
+	
+	/**
+	 * 获得产品代理树
+	 * @param brandId
+	 * @param userId
+	 * @param productId
+	 * @return
+	 */
+	public List<ProductAgentTree> listProductAgentTree(int brandId,int userId,int productId);
+	
 }

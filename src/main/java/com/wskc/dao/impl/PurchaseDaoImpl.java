@@ -37,4 +37,10 @@ public class PurchaseDaoImpl extends BaseDao<Purchase> implements PurchaseDao{
 		String hql="from Purchase where userId=? and status=2 and (purchaseNo like ? or productName like ?)";
 		return this.list(hql, new Object[]{userId,str+'%',str+'%'});
 	}
+
+	@Override
+	public void updatePurchaseStatusByNo(String no, int status) {
+		String hql="update Purchase set status=? where purchaseNo=?";
+		this.updateByHql(hql, new Object[]{status,no});
+	}
 }

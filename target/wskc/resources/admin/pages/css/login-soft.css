@@ -161,8 +161,9 @@ Login page
   }
 
   .login .content {
+  	margin-top:50px;
     padding: 30px;
-    width: 222px;
+    width: 80%;
   }
 
   .login .content h3 {

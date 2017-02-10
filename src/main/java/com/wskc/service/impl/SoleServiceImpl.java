@@ -8,6 +8,7 @@ import org.cs.basic.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wskc.dao.ProductAllocationDao;
 import com.wskc.dao.SoleDao;
 import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.SoleDto;
@@ -30,13 +31,17 @@ public class SoleServiceImpl implements SoleService {
 
 	@Autowired
 	private UserProductStockDao userProductStockDao;
+	
+	@Autowired
+	private ProductAllocationDao productAllocationDao;
 
 	@Override
 	public Sole addSole(Sole sole) {
-		// 先判断下是数量是否已经不够，库存数量-未确定的销售订单数量-当前销售订单数量
+		// 先判断下是数量是否已经不够，库存数量-未完成的销售订单数量-当前销售订单数量-已审核的调拨出库单
 		UserProductStock userProductStock=userProductStockDao.getUserProductStock(sole.getSoleUserId(), sole.getProductId());
 		int solez=soleDao.getUserProudctSoleStratusZ(sole.getSoleUserId(), sole.getProductId());
-		if(userProductStock.getNum()-solez-sole.getNum()<0){
+		int allocationz=productAllocationDao.getAllocationStratusZ(sole.getSoleUserId(), sole.getProductId(), "调出");
+		if(userProductStock.getNum()-solez-sole.getNum()-allocationz<0){
 			return null;
 		}
 		sole.setModifyTime(sole.getCreateTime());
@@ -71,10 +76,11 @@ public class SoleServiceImpl implements SoleService {
 	@Override
 	public boolean editSole(Sole sole) {
 		Sole sole2=soleDao.load(sole.getId());
-		// 先判断下是数量是否已经不够，库存数量-未确定的销售订单数量-当前销售订单数量
-		UserProductStock userProductStock=userProductStockDao.getUserProductStock(sole.getSoleUserId(), sole.getProductId());
-		int solez=soleDao.getUserProudctSoleStratusZ(sole.getSoleUserId(), sole.getProductId());
-		if(sole2==null|| userProductStock.getNum()-solez-sole.getNum()<1){
+		// 先判断下是数量是否已经不够，库存数量-已审核的销售订单数量-当前销售订单数量-已审核的调拨出库单
+		UserProductStock userProductStock=userProductStockDao.getUserProductStock(sole2.getSoleUserId(), sole2.getProductId());
+		int solez=soleDao.getUserProudctSoleStratusZ(sole2.getSoleUserId(), sole2.getProductId());
+		int allocationz=productAllocationDao.getAllocationStratusZ(sole2.getSoleUserId(), sole2.getProductId(), "调出");
+		if(sole2==null|| userProductStock.getNum()-solez-sole.getNum()-allocationz<0){
 			return false;
 		}else{
 			sole2.setModifyTime(new Date());

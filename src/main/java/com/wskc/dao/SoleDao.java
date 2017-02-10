@@ -44,4 +44,11 @@ public interface SoleDao extends IBaseDao<Sole>{
 	 * @return
 	 */
 	public Integer getUserProudctSoleStratusZ(int userId,int productId);
+	
+	/**
+	 * 更新销售订单状态
+	 * @param no
+	 * @param status
+	 */
+	public void updateSoleStatusByNo(String no,int status);
 }

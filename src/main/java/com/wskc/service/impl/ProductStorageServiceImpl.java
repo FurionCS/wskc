@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.BrandDao;
+import com.wskc.dao.ProductAllocationDao;
 import com.wskc.dao.ProductStorageDao;
+import com.wskc.dao.PurchaseDao;
 import com.wskc.dao.UserProductStockDao;
 import com.wskc.dto.ProductStorageDto;
 import com.wskc.model.Brand;
@@ -30,6 +32,12 @@ public class ProductStorageServiceImpl implements ProductStorageService {
 	
 	@Autowired
 	private UserProductStockDao userProductStockDao;
+	
+	@Autowired
+	private PurchaseDao purchaseDao;
+	
+	@Autowired
+	private ProductAllocationDao productAllocationDao;
 	
 	@Autowired
 	private BrandDao brandDao;
@@ -63,6 +71,19 @@ public class ProductStorageServiceImpl implements ProductStorageService {
 			//如果是审核状态，更新用户产品库存信息
 			userProductStockDao.updateUserProductStock(productStorage.getUserId(), productStorage.getProductId(), productStorage.getNum(), productStorage.getNum()*productStorage.getPrice());
 		}
+		//更新关联订单状态
+		if(productStorage.getType().equals("采购入库")&&productStorage.getStatus()==1){
+			purchaseDao.updatePurchaseStatusByNo(productStorage.getRelevanceNo(), 3);//待入库
+		}else if(productStorage.getType().equals("采购入库")&&productStorage.getStatus()==2){
+			purchaseDao.updatePurchaseStatusByNo(productStorage.getRelevanceNo(), 4);//完成
+		}
+		
+		//更新关联订单状态
+		if(productStorage.getType().equals("调拨入库")&&productStorage.getStatus()==1){
+			productAllocationDao.updateAllocationStatusByNo(productStorage.getRelevanceNo(), 3);//待入库
+		}else if(productStorage.getType().equals("调拨入库")&&productStorage.getStatus()==2){
+			productAllocationDao.updateAllocationStatusByNo(productStorage.getRelevanceNo(), 5);//完成
+		}
 		return productStorageDao.add(productStorage);
 	}
 
@@ -91,6 +112,12 @@ public class ProductStorageServiceImpl implements ProductStorageService {
 			if(productStorage.getStatus()==2){
 				//如果是审核状态，更新用户产品库存信息
 				userProductStockDao.updateUserProductStock(productStorage2.getUserId(), productStorage2.getProductId(), productStorage.getNum(), productStorage.getNum()*productStorage.getPrice());
+			} 
+			if(productStorage2.getType().equals("采购入库")&&productStorage.getStatus()==2){
+				purchaseDao.updatePurchaseStatusByNo(productStorage2.getRelevanceNo(), 4);//完成
+			}
+			if(productStorage2.getType().equals("调拨入库")&&productStorage.getStatus()==2){
+				productAllocationDao.updateAllocationStatusByNo(productStorage2.getRelevanceNo(), 5);//完成
 			}
 			productStorageDao.update(productStorage2);
 			return true;

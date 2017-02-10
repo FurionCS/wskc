@@ -7,6 +7,9 @@ import org.cs.basic.model.Pager;
 import org.springframework.stereotype.Repository;
 
 import com.wskc.dao.UserProductStockDao;
+import com.wskc.dto.ProductAgentDto;
+import com.wskc.dto.ProductAgentInfoDto;
+import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 
@@ -86,5 +89,31 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 	public UserProductStock getUserProductStock(int userId, int productId) {
 		String hql="from UserProductStock where userId=? and productId=?";
 		return (UserProductStock) this.queryObject(hql, new Object[]{userId,productId});
+	}
+
+	@Override
+	public List<ProductAgentDto> getProductAgentDto(int brandId, int userId,
+			int productId) {
+		if(productId==-1){
+			String sql=" select sum(ups.num) as 'totalNum',min(ups.num) as 'minNum',max(ups.num) as 'maxNum',ups.product_id as 'productId',ups.brand_id as 'brandId',pi.`name` as 'productName',ups.brand_name as 'brandName',pi.`code`,pi.size from t_user_product_stock ups,t_product_info pi where pi.id=ups.product_id and  ups.user_id in (select ubp.user_id from t_user_brand_puser ubp where ubp.puser_id=? and ubp.brand_id=?) and ups.brand_id=?  group by ups.product_id";
+			return this.listBySql(sql, new Object[]{userId, brandId, brandId }, ProductAgentDto.class, false);
+		}else{
+			String sql=" select sum(ups.num) as 'totalNum',min(ups.num) as 'minNum',max(ups.num) as 'maxNum',ups.product_id as 'productId',ups.brand_id as 'brandId',pi.`name` as 'productName',ups.brand_name as 'brandName',pi.`code`,pi.size from t_user_product_stock ups,t_product_info pi where pi.id=ups.product_id and  ups.user_id in (select ubp.user_id from t_user_brand_puser ubp where ubp.puser_id=? and ubp.brand_id=?) and ups.product_id=?";
+			return this.listBySql(sql, new Object[]{userId, brandId, productId }, ProductAgentDto.class, false);
+		}
+	}
+
+	@Override
+	public Pager<ProductAgentInfoDto> findProductAgentInfoDto(int brandId,
+			int userId, int productId) {
+		String sql="select ups.product_id as 'productId' ,ups.product_name as 'productName',ups.num,ups.modify_time as 'modifyTime',ui.user_nike as 'userNike' from t_user_product_stock ups,t_user_info ui where ups.user_id=ui.id  and ups.user_id in (select ubp.user_id from t_user_brand_puser ubp where ubp.puser_id=? and ubp.brand_id=?) and ups.product_id=?";
+		return this.findBySql(sql, new Object[]{userId,brandId,productId}, ProductAgentInfoDto.class, false);
+	}
+
+	@Override
+	public List<ProductAgentTree> listProductAgentTree(int brandId, int userId,
+			int productId) {
+		String sql="select  ups.num,ui.user_nike as 'name',ups.user_id as 'id',ubp.num as 'agentNum' from t_user_product_stock ups,t_user_info ui,(select ubp.user_id,ubp.num from t_user_brand_puser ubp where ubp.puser_id=? and ubp.brand_id=?) ubp where ups.user_id=ui.id  and ubp.user_id=ups.user_id  and ups.product_id=?";
+		return this.listBySql(sql, new Object[]{userId,brandId,productId},ProductAgentTree.class, false);
 	}
 }

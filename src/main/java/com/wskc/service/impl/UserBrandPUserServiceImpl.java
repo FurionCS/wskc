@@ -69,6 +69,9 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 			UserBrandPUser ubpu3=userBrandPUserDao.getUBPUByCode(ubpu.getAuthCode());
 			if(ubpu3!=null){
 				ubpu.setPuserId(ubpu3.getUserId());
+				//更新代理数量
+				ubpu3.setNum(ubpu3.getNum()+1);
+				userBrandPUserDao.update(ubpu3);
 			}else{
 				return -2;
 			}
@@ -92,6 +95,11 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 		}else{
 			//删除品牌
 			userBrandPUserDao.deleteUBPUByUB(userId, brandId);
+			//更新原来的上级代理数量
+			UserBrandPUser ubpu=userBrandPUserDao.getUBPUByUB(userId, brandId);
+			UserBrandPUser ubpu4=userBrandPUserDao.getUBPUByUB(ubpu.getPuserId(), ubpu.getBrandId());
+			ubpu4.setNum(ubpu4.getNum()-1);
+			userBrandPUserDao.update(ubpu4);
 			return true;
 		}
 	}
@@ -101,13 +109,21 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 	}
 	@Override
 	public boolean updateUBPU(UserBrandPUser ubpu) {
-		if(ubpu.getId()<1||StringUtils.isNotEmpty(ubpu.getAuthCode()) || StringUtils.isNotEmpty(ubpu.getpUserRemark())){
-			throw new BasicException("id,授权码,备注不能为空");
+		if(ubpu.getId()<1|| !StringUtils.isNotEmpty(ubpu.getAuthCode()) || !StringUtils.isNotEmpty(ubpu.getpUserRemark())){
+			return false;
 		}
 		UserBrandPUser ubpu2=userBrandPUserDao.load(ubpu.getId());
 		UserBrandPUser ubpu3=userBrandPUserDao.getUBPUByCode(ubpu.getAuthCode());
+		UserBrandPUser ubpu4=userBrandPUserDao.getUBPUByUB(ubpu2.getPuserId(), ubpu2.getBrandId());
+		////更新原来的上级代理数量
+		ubpu4.setNum(ubpu4.getNum()-1);
+		userBrandPUserDao.update(ubpu4);
+		//更新上级代理
 		ubpu2.setPuserId(ubpu3.getUserId());
 		ubpu2.setpUserRemark(ubpu.getpUserRemark());
+		//更新现上级代理数量
+		ubpu3.setNum(ubpu3.getNum()+1);
+		userBrandPUserDao.update(ubpu3);
 		userBrandPUserDao.update(ubpu2);
 		return true;
 	}

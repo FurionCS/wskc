@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.ProductDao;
+import com.wskc.dto.ProductDto;
 import com.wskc.model.Product;
 import com.wskc.service.ProductService;
 
@@ -31,6 +32,14 @@ public class ProductServiceImpl implements ProductService {
 		product.setCreateTime(new Date());
 		product.setLeastTime(new Date());
 		return productDao.add(product);
+	}
+	@Override
+	public ProductDto getProductDto(int id) {
+		if(id>0){
+			return productDao.getProductDto(id);
+		}else{
+			return null;
+		}
 	}
 
 }

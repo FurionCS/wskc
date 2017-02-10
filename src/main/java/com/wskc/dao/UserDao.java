@@ -24,4 +24,10 @@ public interface UserDao extends IBaseDao<User>{
 	 * @return
 	 */
 	User loadByUserName(String userName);
+	/**
+	 * 通过openid获得登入
+	 * @param openid
+	 * @return
+	 */
+	User weixinLogin(String openid);
 }

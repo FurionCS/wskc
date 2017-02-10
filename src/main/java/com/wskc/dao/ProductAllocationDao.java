@@ -40,6 +40,19 @@ public interface ProductAllocationDao extends IBaseDao<ProductAllocation>{
 	 */
 	List<ProductAllocation> getProductAllocation(int userId,String str,String type);
 	
+	/**
+	 * 更新调拨单状态
+	 * @param no
+	 * @param status
+	 */
+	void updateAllocationStatusByNo(String no,int status);
 	
+	/**
+	 * 获得调拨单
+	 * @param userId
+	 * @param productId
+	 * @return
+	 */
+	 Integer getAllocationStratusZ(int userId, int productId,String type);
 	
 }

@@ -55,8 +55,8 @@ function submitBrand(){
 	}
 	var code=$("#code").val().trim();
 	var remark=$("#remark").val().trim();
-	if(code.length>0&&code.length!=8){
-		noty({text:"授权码为8位",layout:'topCenter',type:"error",timeout:3000})
+	if(code.length>0&&code.length!=11){
+		noty({text:"授权码为11位",layout:'topCenter',type:"error",timeout:3000})
 		return;
 	}
 	$.ajax({
@@ -125,8 +125,8 @@ function submitModifyBrand(){
 	}
 	var code=$("#code").val().trim();
 	var remark=$("#remark").val().trim();
-	if(code.length>0&&code.length!=8){
-		noty({text:"授权码为8位",layout:'topCenter',type:"error",timeout:3000})
+	if(code.length>0&&code.length!=11){
+		noty({text:"授权码为11位",layout:'topCenter',type:"error",timeout:3000})
 		return;
 	}
 	if(remark==""){

@@ -60,4 +60,17 @@ public class UserBrandPUserDaoImpl extends BaseDao<UserBrandPUser> implements Us
 		return this.list(hql, new Object[]{userId,str+'%'});
 	}
 
+	@Override
+	public void updateUBPUNum(String authCode, int num) {
+		System.out.println("authCode:"+authCode+"/num:"+num);
+		String sql="update t_user_brand_puser set num=num+? where auth_code=?";
+		this.updateBySql(sql, new Object[]{num,authCode});
+	}
+
+	@Override
+	public void updateUBPUNum(int pid, int brandId, int num) {
+		System.out.println(pid+"/"+brandId+"/"+num);
+		String sql="update t_user_brand_puser set num=num+? where user_id=? and brand_id=?";
+		this.updateBySql(sql, new Object[]{num,pid,brandId});
+	}
 }

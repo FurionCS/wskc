@@ -37,5 +37,13 @@ public interface PurchaseDao extends IBaseDao<Purchase>{
 	 * @return
 	 */
 	public List<Purchase> getPurchaseList(int userId,String str);
+	
+
+	/**
+	 * 更新采购订单状态
+	 * @param no
+	 * @param status
+	 */
+	public void updatePurchaseStatusByNo(String no,int status);
 
 }

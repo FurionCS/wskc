@@ -26,5 +26,29 @@ public interface UserService {
 	 */
 	List<Resource> listAllResource(int uid);
 	
+	/**
+	 * 通过openid获得用户
+	 * @param openid
+	 * @return
+	 */
+	User weixinLogin(String openid);
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+	User addUserWx(User user);	
+	/**
+	 * 更新用户
+	 * @param user
+	 */
+	User updateUser(User user);
+	/**
+	 * 修改密码
+	 * @param user
+	 * @param password
+	 * @return
+	 */
+	boolean updatePassword(User user,String password);
 	
 }

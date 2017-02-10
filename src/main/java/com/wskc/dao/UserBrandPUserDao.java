@@ -65,4 +65,17 @@ public interface UserBrandPUserDao extends IBaseDao<UserBrandPUser>{
 	 * @param brandId
 	 */
 	public void deleteUBPUByUB(int userId,int brandId);
+	/**
+	 * 更新用户品牌代理数量
+	 * @param authCode
+	 * @param num
+	 */
+	public void updateUBPUNum(String authCode,int num);
+	/**
+	 * 更新用户品牌代理数量
+	 * @param authCode
+	 * @param num
+	 */
+	public void updateUBPUNum(int pid,int brandId,int num);
+	
 }

@@ -17,6 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="" name="description"/>
 <meta content="" name="author"/>
+<!-- UC强制全屏 -->
+<meta name="full-screen" content="yes">
+<!-- QQ强制全屏 -->
+<meta name="x5-fullscreen" content="true">
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="<%=request.getContextPath() %>/resources/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="<%=request.getContextPath() %>/resources/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
@@ -59,136 +63,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		<!-- BEGIN PAGE TOP -->
 		<div class="page-top">
-		
+			
 			<!-- BEGIN TOP NAVIGATION MENU -->
 			<div class="top-menu">
 				<ul class="nav navbar-nav pull-right">
 					<li class="separator hide">
 					</li>
 					<!-- BEGIN NOTIFICATION DROPDOWN -->
-					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-					<li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<i class="icon-bell"></i>
-						<span class="badge badge-success">
-						7 </span>
-						</a>
-						<ul class="dropdown-menu">
-							<li class="external">
-								<h3><span class="bold">12 pending</span> notifications</h3>
-								<a href="extra_profile.html">view all</a>
-							</li>
-							<li>
-								<ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-									<li>
-										<a href="javascript:;">
-										<span class="time">just now</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-success">
-										<i class="fa fa-plus"></i>
-										</span>
-										New user registered. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">3 mins</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-danger">
-										<i class="fa fa-bolt"></i>
-										</span>
-										Server #12 overloaded. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">10 mins</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-warning">
-										<i class="fa fa-bell-o"></i>
-										</span>
-										Server #2 not responding. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">14 hrs</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-info">
-										<i class="fa fa-bullhorn"></i>
-										</span>
-										Application error. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">2 days</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-danger">
-										<i class="fa fa-bolt"></i>
-										</span>
-										Database overloaded 68%. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">3 days</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-danger">
-										<i class="fa fa-bolt"></i>
-										</span>
-										A user IP blocked. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">4 days</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-warning">
-										<i class="fa fa-bell-o"></i>
-										</span>
-										Storage Server #4 not responding dfdfdfd. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">5 days</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-info">
-										<i class="fa fa-bullhorn"></i>
-										</span>
-										System Error. </span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="time">9 days</span>
-										<span class="details">
-										<span class="label label-sm label-icon label-danger">
-										<i class="fa fa-bolt"></i>
-										</span>
-										Storage server failed. </span>
-										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<!-- END NOTIFICATION DROPDOWN -->
 					<li class="separator hide">
 					</li>
 					<!-- BEGIN INBOX DROPDOWN -->
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 					<li class="dropdown dropdown-extended dropdown-inbox dropdown-dark" id="header_inbox_bar">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<i class="icon-envelope-open"></i>
+						<i class="icon-bell"></i>
 						<span class="badge badge-danger">
 						4 </span>
 						</a>
 						<ul class="dropdown-menu">
 							<li class="external">
-								<h3>You have <span class="bold">7 New</span> Messages</h3>
-								<a href="inbox.html">view all</a>
+								<h3>您有<span class="bold">7 条</span>库存警告</h3>
 							</li>
 							<li>
 								<ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
@@ -273,14 +167,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 					<li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_task_bar">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<i class="icon-calendar"></i>
+						<i class="icon-bell"></i>
 						<span class="badge badge-primary">
 						3 </span>
 						</a>
 						<ul class="dropdown-menu extended tasks">
 							<li class="external">
-								<h3>You have <span class="bold">12 pending</span> tasks</h3>
-								<a href="page_todo.html">view all</a>
+								<h3>您有<span class="bold">12 条</span> 待处理业务</h3>
 							</li>
 							<li>
 								<ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
@@ -371,42 +264,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="dropdown dropdown-user dropdown-dark">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<span class="username username-hide-on-mobile">
-						<s:property value="#session.admin.username"/> </span>
+						您好！${loginer.userNike }
+						</span>
 						<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-						<img alt="" class="img-circle" src="<%=request.getContextPath() %>/resources/admin/layout4/img/avatar9.jpg"/>
+						<img alt="" class="img-circle" src="${loginer.url }"/>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
 							<li>
-								<a href="extra_profile.html">
-								<i class="icon-user"></i> My Profile </a>
+								<a href="../home/ShowUser">
+								<i class="icon-user"></i>个人信息</a>
 							</li>
 							<li>
-								<a href="page_calendar.html">
-								<i class="icon-calendar"></i> My Calendar </a>
+								<a href="../home/updatePassword">
+								<i class="icon-key"></i>更改密码</a>
 							</li>
 							<li>
-								<a href="inbox.html">
-								<i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">
-								3 </span>
-								</a>
+								<a href="../home/login">
+								<i class="fa fa-location-arrow"></i>退出</a>
 							</li>
-							<li>
-								<a href="page_todo.html">
-								<i class="icon-rocket"></i> My Tasks <span class="badge badge-success">
-								7 </span>
-								</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								<a href="../home/lock">
-								<i class="icon-lock"></i>锁屏</a>
-							</li>
-							<li>
-								<a href="../home/logout">
-								<i class="icon-key"></i> 退出 </a>
-							</li>
-						</ul>
+ 						</ul>
 					</li>
 					<!-- END USER LOGIN DROPDOWN -->
 				</ul>
@@ -431,10 +307,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="page-sidebar navbar-collapse collapse">
 			<ul class="page-sidebar-menu " id="menuall" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 				<li class="start active">
-					<a href="admin">
+					<a href="../home/index">
 					<i class="icon-home"></i>
-					<span  class="title selected">首页</span>
-					 <span class="arrow"></span>
+					<span  class="title">首页</span>
 					</a>
 				</li>
 				 <li id="menupage2">
@@ -450,8 +325,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <li id="menupage2_2">
                             <a href="../basic/brandList?menuids=2_2&industryId=0"> <i class="fa fa-circle-o-notch"></i>拥有品牌</a>
                         </li>
-                        <li id="menupage2_1">
-                            <a href="../Commodity/CommodityClassList.jsp?active=menupage2_1"><i class="fa fa-turkish-lira"></i>旗下产品</a>
+                        <li id="menupage2_3">
+                            <a href="../basic/productList?menuids=2_3"><i class="fa fa-turkish-lira"></i>旗下产品</a>
                         </li>
                     </ul>
                 </li>
@@ -462,26 +337,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <span class="arrow "></span>
                     </a>
                      <ul class="sub-menu">
-                        <li id="menupage3_0">
-                            <a href="../Order/OrderList.jsp?active=menupage3_0"><i class="fa  fa-list-ul"></i>采购<span class="badge badge-roundless badge-danger">new</span></a>
+                        <li id="menupage3_1">
+                            <a href="../purchase/AddPurchase?menuids=3_1"><i class="fa  fa-list-ul"></i>采购</a>
                         </li>
-                        <li id="menupage3_0">
-                            <a href="../Order/OrderList.jsp?active=menupage3_0"><i class="fa   fa-align-justify"></i>采购列表</a>
-                        </li>
-                    </ul>
-                </li>
-                <li id="menupage4">
-                    <a href="javascript:;">
-                        <i class="fa fa-table"></i>
-                        <span class="title">销售管理</span>
-                        <span class="arrow "></span>
-                    </a>
-                     <ul class="sub-menu">
-                        <li id="menupage4_0">
-                            <a href="../User/UserList.jsp?active=menupage4_0"><i class="fa fa-th"></i>销售</a>
-                        </li>
-                        <li id="menupage4_1">
-                            <a href="../User/AddUser.jsp?active=menupage4_1"><i class="fa fa-th"></i>销售列表</a>
+                        <li id="menupage3_2">
+                            <a href="../purchase/PurchaseList?menuids=3_2"><i class="fa   fa-align-justify"></i>采购列表</a>
                         </li>
                     </ul>
                 </li>
@@ -493,24 +353,80 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                      <ul class="sub-menu">
                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"> <i class="fa  fa-circle-o"></i>调拨单</a>
+                            <a href="javascript:void(0)"> <i class="fa  fa-circle-o"></i>调拨单 <span class="arrow "></span></a>
+                            <ul class="sub-menu">
+								<li id="menupage5_0_1">
+									<a href="../allocation/AllocationList?menuids=5_0">
+									<i class="icon-user"></i>
+									调拨单列表
+									</a>
+								</li>
+								<li id="menupage5_0_2">
+									<a href="../allocation/AddAllocation?menuids=5_0">
+									<i class="icon-user"></i>
+									添加调拨单
+									</a>
+								</li>
+							</ul>
                         </li>
-                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-signal"></i>其他入库单</a>
+                         <li id="menupage5_1">
+                            <a href="javascript:void(0)"><i class="fa fa-signal"></i>入库单 <span class="arrow "></span></a>
+                             <ul class="sub-menu">
+								<li id="menupage5_1_1">
+									<a href="../storage/StorageList?menuids=5_1">
+									<i class="icon-user"></i>
+									入库单列表
+									</a>
+								</li>
+								<li id="menupage5_1_2">
+									<a href="../storage/AddStorage?menuids=5_1">
+									<i class="icon-user"></i>
+									添加入库单
+									</a>
+								</li>
+							</ul>
                         </li>
-                         <li id="menupage5_0">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-bar-chart-o"></i>其他出库单</a>
+                         <li id="menupage5_2">
+                            <a href="javascript:void(0)"><i class="fa fa-bar-chart-o"></i>出库单<span class="arrow "></span></a>
+                             <ul class="sub-menu">
+								<li id="menupage5_2_1">
+									<a href="../library/LibraryList?menuids=5_2">
+									<i class="icon-user"></i>
+									出库单列表
+									</a>
+								</li>
+								<li id="menupage5_2_2">
+									<a href="../library/AddLibrary?menuids=5_2">
+									<i class="icon-user"></i>
+									添加出库单
+									</a>
+								</li>
+							</ul>
                         </li>
-                        <li id="menupage5_1">
-                            <a href="../test/test2.jsp?active=menupage5_0"><i class="fa fa-tachometer"></i>库存量查询</a>
+                        <li id="menupage5_3">
+                            <a href="../stock/StockList?menuids=5_3"><i class="fa fa-tachometer"></i>库存量查询</a>
                         </li>
-                         
+                    </ul>
+                </li>
+                 <li id="menupage4">
+                    <a href="javascript:;">
+                        <i class="fa fa-table"></i>
+                        <span class="title">销售管理</span>
+                        <span class="arrow "></span>
+                    </a>
+                     <ul class="sub-menu">
+                        <li id="menupage4_0">
+                            <a href="../sole/AddSole?menuids=4_0"><i class="fa fa-th"></i>销售</a>
+                        </li>
+                        <li id="menupage4_1">
+                            <a href="../sole/SoleList?menuids=4_1"><i class="fa fa-th"></i>销售列表</a>
+                        </li>
                     </ul>
                 </li>
                 <li id="menupage6">
                     <a href="javascript:;">
                         <i class="fa fa-mortar-board"></i>
-                        <span class="title">报表查询</span>
+                        <span class="title">查询</span>
                         <span class="arrow "></span>
                     </a>
                      <ul class="sub-menu">
@@ -549,24 +465,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</ul>
                         </li>
                         <li id="menupage6_2">
-                            <a href="javascript:void(0)"><i class="fa fa-users"></i>组别 <span class="arrow "></a>
+                            <a href="javascript:void(0)"><i class="fa fa-users"></i>代理库存查询<span class="arrow "></span></a>
                             <ul class="sub-menu">
 								<li id="menupage6_2">
-									<a href="../group/add?menuids=6_2">
+									<a href="../stock/AgentKc?menuids=6_2">
 									<i class="icon-user"></i>
-									添加组别
+									直属代理
 									</a>
 								</li>
-								<li id="menupage6_2_1">
-									<a href="../group/groups?menuids=6_2">
+								<li id="menupage6_2">
+									<a href="../stock/AgentKcTree?menuids=6_2">
 									<i class="icon-user"></i>
-									组别列表
+									代理库存树
 									</a>
 								</li>
 							</ul>
-                        </li>
-                        <li id="menupage6_3">
-                            <a href="../resource/list?menuids=6_3"><i class="fa  fa-graduation-cap"></i>权限</a>
                         </li>
                     </ul>
                 </li>

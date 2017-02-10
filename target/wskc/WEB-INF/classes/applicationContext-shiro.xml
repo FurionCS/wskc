@@ -52,11 +52,16 @@
 	    </property> -->
 	    <property name="filterChainDefinitions">
 	        <value>
-	        	/home/**=anon
-	        	/home/logout=logout
 	        	/home/index=authc
+	        	/home/logout=logout
 	        	<!-- /admin/**=authc,resourceCheckFilter -->
 	        	/basic/**=authc
+	        	/purchase/**=authc
+	        	/storage/**=authc
+	        	/allocation/**=authc
+	        	/library/**=authc
+	        	/stock/**=authc
+	        	/sole/**=authc
 	        </value>
 	    </property>
 	</bean>

@@ -141,6 +141,7 @@
 </Layout:overwrite>
  <Layout:overwrite name="MyScript">
  <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
+ <script type="text/javascript" src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
   <script src="<%=request.getContextPath() %>/resources/js/my/Brand.js"></script>
  <script src="<%=request.getContextPath() %>/resources/js/my/public.js"></script>
  </Layout:overwrite> 

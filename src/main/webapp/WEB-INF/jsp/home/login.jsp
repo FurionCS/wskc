@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="checkLogin" method="post">
-		<h3 class="form-title" style="text-align:center;">登录系统</h3>
+		<h3 class="form-title" style="text-align:center;">库存系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</button>
 		</div>
 		<div class="forget-password">
-			<a id="forget-password">忘记密码 ?</a>
+			<a id="forget-password"></a>
 		</div>
 	</form>
 	<!-- END LOGIN FORM -->

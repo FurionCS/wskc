@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("<div class=\"content\">\r\n");
       out.write("\t<!-- BEGIN LOGIN FORM -->\r\n");
       out.write("\t<form class=\"login-form\" action=\"checkLogin\" method=\"post\">\r\n");
-      out.write("\t\t<h3 class=\"form-title\" style=\"text-align:center;\">登录系统</h3>\r\n");
+      out.write("\t\t<h3 class=\"form-title\" style=\"text-align:center;\">库存系统</h3>\r\n");
       out.write("\t\t<div class=\"alert alert-danger display-hide\">\r\n");
       out.write("\t\t\t<button class=\"close\" data-close=\"alert\"></button>\r\n");
       out.write("\t\t\t<span>\r\n");
@@ -150,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\t\t\t</button>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t<div class=\"forget-password\">\r\n");
-      out.write("\t\t\t<a id=\"forget-password\">忘记密码 ?</a>\r\n");
+      out.write("\t\t\t<a id=\"forget-password\"></a>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</form>\r\n");
       out.write("\t<!-- END LOGIN FORM -->\r\n");

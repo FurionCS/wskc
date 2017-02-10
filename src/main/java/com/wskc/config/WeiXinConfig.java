@@ -15,5 +15,7 @@ public class WeiXinConfig {
 	public static final String SECRET="f6fc6b4f3b57bde35bdf02e85f74c5a6";
 	
 	public static final String REDIRECT_URI="http://www.believeyou.top/wskc/weixin/handleAuth";
+	
+	public static final String REDIRECTGZ_URI="http://www.believeyou.top/wskc/weixin/handleAuthGz";
 
 }

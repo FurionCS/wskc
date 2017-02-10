@@ -22,9 +22,10 @@ public class User {
 	private String openid;   //微信openid
 	private String userName; //用户名
 	private String userPassword;//用户密码
+	private String userNike;//用户姓名
 	private String url;  //头像链接
 	private String email;//email
-	private int gender; //性别 1:男2:女3:保密
+	private String gender; //性别 1:男2:女3:保密
 	private String city;//城市
 	private int status;//状态
 	private Date createTime;//创建时间
@@ -69,10 +70,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getGender() {
+	
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public String getCity() {
@@ -101,6 +103,13 @@ public class User {
 	}
 	public void setLeastTime(Date leastTime) {
 		this.leastTime = leastTime;
+	}
+	@Column(name="user_nike")
+	public String getUserNike() {
+		return userNike;
+	}
+	public void setUserNike(String userNike) {
+		this.userNike = userNike;
 	}
 	public User() {
 		super();

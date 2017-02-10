@@ -9,6 +9,7 @@ import java.util.Set;
 
 
 
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -20,6 +21,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.cs.baisc.shiro.kit.ShiroKit;
 import org.jboss.logging.Logger;
 
 import com.wskc.model.Resource;
@@ -66,11 +68,18 @@ public class AdminRealm extends AuthorizingRealm {
 		String adminname = token.getPrincipal().toString();
 		String password = new String((char[])token.getCredentials());
 		User user = adminService.login(adminname, password);
-		
-		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getUserPassword(),this.getName());
-		//设置盐值
-		info.setCredentialsSalt(ByteSource.Util.bytes(user.getUserName()));
-		return info;
+		if(password.equals("wx")){
+			//TODO暂时先这么写，这里应该不能怎么写，是否有免密认证？
+			String wxpassword=ShiroKit.md5(password,adminname);
+			SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, wxpassword,this.getName());
+			info.setCredentialsSalt(ByteSource.Util.bytes(user.getUserName()));
+			return info;
+		}else{
+			SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getUserPassword(),this.getName());
+			//设置盐值
+			info.setCredentialsSalt(ByteSource.Util.bytes(user.getUserName()));
+			return info;
+		}
 	}
 
 
@@ -97,7 +106,4 @@ public class AdminRealm extends AuthorizingRealm {
 		SimplePrincipalCollection spc = new SimplePrincipalCollection(admin.getUserName(), getName());
 		super.clearCachedAuthenticationInfo(spc);
 	}
-	
-	
-
 }
