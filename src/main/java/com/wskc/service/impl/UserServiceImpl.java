@@ -10,6 +10,7 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.cs.baisc.shiro.kit.ShiroKit;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.UserDao;

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
 import com.wskc.model.User;
+import com.wskc.service.SoleService;
 import com.wskc.service.UserService;
 @Controller
 @RequestMapping("/home")
@@ -24,8 +25,13 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private SoleService soleService;
+	
 	@RequestMapping(value="/index",method=RequestMethod.GET)
-	public String index(Model model){
+	public String index(Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("total", soleService.getShowTotal(user.getId()));
 		return "home/index";
 	}
 	@RequestMapping(value="/login",method=RequestMethod.GET)

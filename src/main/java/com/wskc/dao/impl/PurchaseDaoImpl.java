@@ -1,13 +1,18 @@
 package com.wskc.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.cs.basic.dao.BaseDao;
 import org.cs.basic.model.Pager;
+import org.cs.basic.util.DateUtils;
 import org.springframework.stereotype.Repository;
 
 import com.wskc.dao.PurchaseDao;
+import com.wskc.dto.BrandPurchaseChartDto;
+import com.wskc.dto.BrandSoleChartDto;
 import com.wskc.dto.PurchaseDto;
+import com.wskc.dto.ShowTotalDto;
 import com.wskc.model.Purchase;
 /**
  * 
@@ -42,5 +47,30 @@ public class PurchaseDaoImpl extends BaseDao<Purchase> implements PurchaseDao{
 	public void updatePurchaseStatusByNo(String no, int status) {
 		String hql="update Purchase set status=? where purchaseNo=?";
 		this.updateByHql(hql, new Object[]{status,no});
+	}
+
+	@Override
+	public ShowTotalDto getTotalPurchaseMoney(int userId) {
+		String sql="select sum(pi.price*pi.num+pi.other_fee+pi.delivery_fee) as 'purchaseTotalMoeny' from t_purchase_info pi where pi.user_id=? and pi.create_time>=?";
+		return (ShowTotalDto) this.sqlObject(sql, new Object[]{userId,DateUtils.format("YYYY-MM", new Date())}, ShowTotalDto.class,false);
+	}
+
+	@Override
+	public List<BrandPurchaseChartDto> listBrandPurchaseChartDto(int brandId,
+			int userId) {
+		String sql="select pi.product_id as 'productId', CONCAT(MONTH(pi.modify_time),'月') as 'month', sum(pi.num) as 'num',sum(pi.num*pi.price+pi.other_fee+pi.delivery_fee) as 'totalMoney' from t_purchase_info pi where  pi.user_id=? and pi.brand_id=? and pi.`status`=4 and pi.modify_time>? GROUP BY pi.product_id ,MONTH(pi.modify_time) ORDER BY pi.product_id";
+		return this.listBySql(sql, new Object[]{userId,brandId,DateUtils.format("YYYY", new Date())}, BrandPurchaseChartDto.class, false);
+	}
+
+	@Override
+	public List<String> listProductName(int brandId, int userId) {
+		String sql="select CONCAT(pi.`name`,'(',pi.size,',',pi.unit,')')  from t_product_info pi ,(select distinct ppi.product_id  from t_purchase_info ppi where ppi.user_id=? and ppi.brand_id=? and ppi.`status`=4 and ppi.modify_time>?) ppit where pi.id=ppit.product_id  order by pi.id";
+		return this.getListStringBySql(sql, new Object[]{userId,brandId,DateUtils.format("YYYY", new Date())});
+	}
+
+	@Override
+	public List<String> listMonth(int brandId, int userId) {
+		String sql="select DISTINCT CONCAT(MONTH(pi.modify_time),'月') as 'month' from t_purchase_info pi where pi.user_id =? and pi.brand_id=? and pi.`status`=4 and pi.modify_time>? order by pi.modify_time";
+		return this.getListStringBySql(sql, new Object[]{userId,brandId,DateUtils.format("YYYY", new Date())});
 	}
 }

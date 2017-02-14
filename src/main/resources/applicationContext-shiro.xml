@@ -54,6 +54,8 @@
 	        <value>
 	        	/home/index=authc
 	        	/home/logout=logout
+	        	/home/ShowUser=authc
+	        	/home/updatePassword=authc
 	        	<!-- /admin/**=authc,resourceCheckFilter -->
 	        	/basic/**=authc
 	        	/purchase/**=authc

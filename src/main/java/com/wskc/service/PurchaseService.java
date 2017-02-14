@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.cs.basic.model.Pager;
 
+import com.wskc.dto.PurchaseChartVO;
 import com.wskc.dto.PurchaseDto;
+import com.wskc.dto.SoleChartVO;
 import com.wskc.model.Purchase;
 
 /**
@@ -52,4 +54,11 @@ public interface PurchaseService {
 	 * @return
 	 */
 	public List<Purchase> getPurchaseList(int userId,String str);
+	/**
+	 * 获得本年每月销采购金额，数量
+	 * @param userId
+	 * @param brandId
+	 * @return
+	 */
+	public PurchaseChartVO getPurchaseChartVO(int userId,int brandId);
 }

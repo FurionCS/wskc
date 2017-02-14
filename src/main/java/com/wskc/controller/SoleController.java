@@ -1,6 +1,7 @@
 package com.wskc.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
+import com.wskc.dto.SoleChartVO;
 import com.wskc.dto.SoleDto;
+import com.wskc.dto.SoleNetChartVO;
+import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.PurchaseStatus;
 import com.wskc.model.Sole;
 import com.wskc.model.SoleStatus;
@@ -225,6 +229,83 @@ public class SoleController {
 		}
 		return ajaxObj;
 	}
-	
+	/**
+	 * 销售报表
+	 * @param menuids
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/SoleChart",method=RequestMethod.GET)
+	public String soleChartView(@RequestParam("menuids") String menuids,Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		List<UserBrandPUserDto> lubpud=userBrandPUserService.getUBPUDAll(user.getId());
+		model.addAttribute("lubpud", lubpud);
+		return "sole/SoleChart";
+	}
+   /**
+    * 获得销售表报信息
+    * @param brandId
+    * @param session
+    * @return
+    */
+	@RequestMapping(value="/SoleChart",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj soleChart(@RequestParam("brandId") int brandId,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		if(brandId<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不对");
+		}else{
+			SoleChartVO soleChartVo=soleService.getSoleChartVO(user.getId(), brandId);
+			if(soleChartVo.getProductName().size()<1){
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("暂无记录");
+			}else{
+				ajaxObj.setResult(1);
+				ajaxObj.setObj(soleChartVo);
+			}
+		}
+		return ajaxObj;
+	}
+	/**
+	 * 销售报表
+	 * @param menuids
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/SoleNetChart",method=RequestMethod.GET)
+	public String soleNetView(@RequestParam("menuids") String menuids,Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		List<UserBrandPUserDto> lubpud=userBrandPUserService.getUBPUDAll(user.getId());
+		model.addAttribute("lubpud", lubpud);
+		return "sole/SoleNetChart";
+	}
+	/**
+    * 获得销售利润信息
+    * @param brandId
+    * @param session
+    * @return
+    */
+	@RequestMapping(value="/SoleNetChart",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj soleNetChart(@RequestParam("brandId") int brandId,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		if(brandId<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不对");
+		}else{
+			SoleNetChartVO soleNetChartVO=soleService.getSoleNetChartVO(user.getId(), brandId);
+			if(soleNetChartVO.getProductName().size()<1){
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("暂无记录");
+			}else{
+				ajaxObj.setResult(1);
+				ajaxObj.setObj(soleNetChartVO);
+			}
+		}
+		return ajaxObj;
+	}
 
 }

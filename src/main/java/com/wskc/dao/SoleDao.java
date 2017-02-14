@@ -5,6 +5,8 @@ import java.util.List;
 import org.cs.basic.dao.IBaseDao;
 import org.cs.basic.model.Pager;
 
+import com.wskc.dto.BrandSoleChartDto;
+import com.wskc.dto.ShowTotalDto;
 import com.wskc.dto.SoleDto;
 import com.wskc.model.Sole;
 /**
@@ -51,4 +53,45 @@ public interface SoleDao extends IBaseDao<Sole>{
 	 * @param status
 	 */
 	public void updateSoleStatusByNo(String no,int status);
+	
+	/**
+	 * 获得产品本月销售总金额
+	 * @param userId
+	 * @return
+	 */
+	public ShowTotalDto getSoleTotalMoney(int userId);
+	/**
+	 * 获得本月销售近利润
+	 * @param userId
+	 * @return
+	 */
+	public ShowTotalDto getNet(int userId);
+	/**
+	 * 获得品牌今年每月销售情况
+	 * @param brandId
+	 * @param userId
+	 * @return
+	 */
+	public List<BrandSoleChartDto> listBrandSoleChartDto(int brandId,int userId);
+	/**
+	 * 获得品牌今年每月销售利润情况
+	 * @param brandId
+	 * @param userId
+	 * @return
+	 */
+	public List<BrandSoleChartDto> listBrandSoleNetChartDto(int brandId,int userId);
+	/**
+	 * 获得产品名称列表
+	 * @param brandId
+	 * @param userId
+	 * @return
+	 */
+	public List<String> listProductName(int brandId,int userId);
+	/**
+	 * 获得产品月份
+	 * @param brandId
+	 * @param userId
+	 * @return
+	 */
+	public List<String> listMonth(int brandId,int userId);
 }

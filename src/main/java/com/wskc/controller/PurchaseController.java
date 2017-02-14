@@ -1,6 +1,7 @@
 package com.wskc.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wskc.dto.AjaxObj;
+import com.wskc.dto.PurchaseChartVO;
 import com.wskc.dto.PurchaseDto;
+import com.wskc.dto.SoleNetChartVO;
+import com.wskc.dto.UserBrandPUserDto;
 import com.wskc.model.Purchase;
 import com.wskc.model.PurchaseStatus;
 import com.wskc.model.User;
@@ -216,6 +220,47 @@ public class PurchaseController {
 			ajaxObj.setObj(purchaseService.getPurchaseList(user.getId(), q));
 		}else{
 			ajaxObj.setResult(0);
+		}
+		return ajaxObj;
+	}
+	
+	
+	/**
+	 * 采购报表
+	 * @param menuids
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/PurchaseChart",method=RequestMethod.GET)
+	public String soleNetView(@RequestParam("menuids") String menuids,Model model,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		model.addAttribute("menuids", menuids);
+		List<UserBrandPUserDto> lubpud=userBrandPUserService.getUBPUDAll(user.getId());
+		model.addAttribute("lubpud", lubpud);
+		return "purchase/PurchaseChart";
+	}
+	/**
+    * 获得采购金额信息
+    * @param brandId
+    * @param session
+    * @return
+    */
+	@RequestMapping(value="/PurchaseChart",method=RequestMethod.POST)
+	public @ResponseBody AjaxObj soleNetChart(@RequestParam("brandId") int brandId,HttpSession session){
+		User user=(User) session.getAttribute("loginer");
+		AjaxObj ajaxObj=new AjaxObj();
+		if(brandId<1){
+			ajaxObj.setResult(0);
+			ajaxObj.setMsg("参数不对");
+		}else{
+			PurchaseChartVO purchaseChartVO=purchaseService.getPurchaseChartVO(user.getId(), brandId);
+			if(purchaseChartVO.getProductName().size()<1){
+				ajaxObj.setResult(0);
+				ajaxObj.setMsg("暂无记录");
+			}else{
+				ajaxObj.setResult(1);
+				ajaxObj.setObj(purchaseChartVO);
+			}
 		}
 		return ajaxObj;
 	}

@@ -1,17 +1,24 @@
 package com.wskc.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.cs.basic.model.Pager;
 import org.cs.basic.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.ProductAllocationDao;
+import com.wskc.dao.PurchaseDao;
 import com.wskc.dao.SoleDao;
 import com.wskc.dao.UserProductStockDao;
+import com.wskc.dto.BrandSoleChartDto;
+import com.wskc.dto.ShowTotalDto;
+import com.wskc.dto.SoleChartVO;
 import com.wskc.dto.SoleDto;
+import com.wskc.dto.SoleNetChartVO;
 import com.wskc.model.Sole;
 import com.wskc.model.UserProductStock;
 import com.wskc.service.SoleService;
@@ -34,6 +41,9 @@ public class SoleServiceImpl implements SoleService {
 	
 	@Autowired
 	private ProductAllocationDao productAllocationDao;
+	
+	@Autowired
+	private PurchaseDao purchaseDao;
 
 	@Override
 	public Sole addSole(Sole sole) {
@@ -100,4 +110,141 @@ public class SoleServiceImpl implements SoleService {
 		return soleDao.getSoleList(userId, str);
 	}
 
+	@Override
+	public ShowTotalDto getShowTotal(int userId) {
+		if(userId<1){
+			return null;
+		}else{
+			ShowTotalDto std=new ShowTotalDto();
+			ShowTotalDto std1=soleDao.getSoleTotalMoney(userId);
+			ShowTotalDto std2=soleDao.getNet(userId);
+			ShowTotalDto std3=userProductStockDao.getProductStockTotalMoney(userId);
+			ShowTotalDto std4=purchaseDao.getTotalPurchaseMoney(userId);
+			if(std1!=null){
+				std.setSoleTotalMoney(std1.getSoleTotalMoney());
+			}
+			if(std2!=null){
+				std.setNetMoeny(std2.getNetMoeny());
+			}
+			if(std3!=null){
+				std.setKcTotalMoney(std3.getKcTotalMoney());
+			}
+			if(std4!=null){
+				std.setPurchaseTotalMoeny(std4.getPurchaseTotalMoeny());
+			}
+			return std;
+		}
+	}
+
+	@Override
+	public SoleChartVO getSoleChartVO(int userId, int brandId) {
+		SoleChartVO soleChartVO=new SoleChartVO();
+		List<BrandSoleChartDto> lbscd=soleDao.listBrandSoleChartDto(brandId, userId);
+		List<String> lmonth=soleDao.listMonth(brandId, userId);
+		List<String> lproduct= soleDao.listProductName(brandId, userId);
+		soleChartVO.setMonth(lmonth);
+		soleChartVO.setProductName(lproduct);
+		List<List<Integer>> lint=new ArrayList<List<Integer>>();
+		List<List<Double>> ldouble=new ArrayList<List<Double>>();
+		List<Integer> lnum=new ArrayList<Integer>();
+		List<Double> ltotal=new ArrayList<Double>();
+		boolean ischange=false;
+		int j=0;
+		for(int i=0;i<lbscd.size();i++){
+				if(ischange){
+					if(j<(lmonth.size()-1)){
+						while(j==(lmonth.size()-1)){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}
+					j=0;
+					lint.add(lnum);
+					ldouble.add(ltotal);
+					lnum=new ArrayList<Integer>();
+					ltotal=new ArrayList<Double>();
+				}
+				if(i<(lbscd.size()-1)){
+					if(lbscd.get(i).getProductId().equals(lbscd.get(i+1).getProductId())){
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=false;
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=true;
+					}
+				}else{
+					lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+					ltotal.add(lbscd.get(i).getTotalMoney());
+					lint.add(lnum);
+					ldouble.add(ltotal);
+				}
+				
+		}
+		soleChartVO.setNum(lint);
+		soleChartVO.setTotalMoney(ldouble);
+		return soleChartVO;
+	}
+
+	@Override
+	public SoleNetChartVO getSoleNetChartVO(int userId, int brandId) {
+		SoleNetChartVO soleNetChartVO=new SoleNetChartVO();
+		List<BrandSoleChartDto> lbscd=soleDao.listBrandSoleNetChartDto(brandId, userId);
+		List<String> lmonth=soleDao.listMonth(brandId, userId);
+		List<String> lproduct= soleDao.listProductName(brandId, userId);
+		soleNetChartVO.setMonth(lmonth);
+		soleNetChartVO.setProductName(lproduct);
+		List<List<Double>> ldouble=new ArrayList<List<Double>>();
+		List<Double> ltotal=new ArrayList<Double>();
+		boolean ischange=false;
+		int j=0;
+		for(int i=0;i<lbscd.size();i++){
+				if(ischange){
+					if(j<(lmonth.size()-1)){
+						while(j==(lmonth.size()-1)){
+							ltotal.add(null);
+							j++;
+						}
+					}
+					j=0;
+					ldouble.add(ltotal);
+					ltotal=new ArrayList<Double>();
+				}
+				if(i<(lbscd.size()-1)){
+					if(lbscd.get(i).getProductId().equals(lbscd.get(i+1).getProductId())){
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							ltotal.add(null);
+							j++;
+						}
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=false;
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							ltotal.add(null);
+							j++;
+						}
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=true;
+					}
+				}else{
+					ltotal.add(lbscd.get(i).getTotalMoney());
+					ldouble.add(ltotal);
+				}
+				
+		}
+		soleNetChartVO.setTotalMoney(ldouble);
+		return soleNetChartVO;
+	}
 }

@@ -74,13 +74,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<!-- BEGIN INBOX DROPDOWN -->
 					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-					<li class="dropdown dropdown-extended dropdown-inbox dropdown-dark" id="header_inbox_bar">
+					<li class="dropdown dropdown-extended dropdown-tasks dropdown-dark" id="header_inbox_bar">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<i class="icon-bell"></i>
 						<span class="badge badge-danger">
 						0 </span>
 						</a>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-menu extended tasks">
 							<li class="external">
 								<h3>您有<span class="bold">0条</span>库存警告</h3>
 							</li>
@@ -115,72 +115,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</span>
 										<span class="progress">
 										<span style="width: 40%;" class="progress-bar progress-bar-success" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">40% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">Application deployment</span>
-										<span class="percent">65%</span>
-										</span>
-										<span class="progress">
-										<span style="width: 65%;" class="progress-bar progress-bar-danger" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">65% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">Mobile app release</span>
-										<span class="percent">98%</span>
-										</span>
-										<span class="progress">
-										<span style="width: 98%;" class="progress-bar progress-bar-success" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">98% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">Database migration</span>
-										<span class="percent">10%</span>
-										</span>
-										<span class="progress">
-										<span style="width: 10%;" class="progress-bar progress-bar-warning" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">10% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">Web server upgrade</span>
-										<span class="percent">58%</span>
-										</span>
-										<span class="progress">
-										<span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">58% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">Mobile development</span>
-										<span class="percent">85%</span>
-										</span>
-										<span class="progress">
-										<span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">85% Complete</span></span>
-										</span>
-										</a>
-									</li>
-									<li>
-										<a href="javascript:;">
-										<span class="task">
-										<span class="desc">New UI release</span>
-										<span class="percent">38%</span>
-										</span>
-										<span class="progress progress-striped">
-										<span style="width: 38%;" class="progress-bar progress-bar-important" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"><span class="sr-only">38% Complete</span></span>
 										</span>
 										</a>
 									</li>
@@ -361,35 +295,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                      <ul class="sub-menu">
                         <li id="menupage6_0">
-                            <a href="javascript:void(0)"><i class="fa fa-male"></i>采购报表<span class="arrow "></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-male"></i>采购图表<span class="arrow "></span></a>
                             <ul class="sub-menu">
 								<li id="menupage6_0">
-									<a href="../admin/add?menuids=6_0">
+									<a href="../purchase/PurchaseChart?menuids=6_0">
 									<i class="icon-user"></i>
-									采购统计表
-									</a>
-								</li>
-								<li id="menupage6_0_1">
-									<a href="../admin/list?menuids=6_0">
-									<i class="icon-user"></i>
-										采购明细表
+									采购统计图表
 									</a>
 								</li>
 							</ul>
                         </li>
                         <li id="menupage6_1">
-                            <a href="javascript:void(0)"><i class="fa fa-user"></i>销售报表 <span class="arrow "></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-user"></i>销售图表<span class="arrow "></span></a>
                             <ul class="sub-menu">
 								<li id="menupage6_1">
-									<a href="../role/add?menuids=6_1">
+									<a href="../sole/SoleChart?menuids=6_1">
 									<i class="icon-user"></i>
-									销售统计表
+									销售统计图表
 									</a>
 								</li>
 								<li id="menupage6_1_1">
-									<a href="../role/roles?menuids=6_1">
+									<a href="../sole/SoleNetChart?menuids=6_1">
 									<i class="icon-user"></i>
-									销售毛利统计表
+									销售净利润图表
 									</a>
 								</li>
 							</ul>

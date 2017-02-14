@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
 <%@ taglib uri="Mytag" prefix="Layout"%>
 <%-- <Layout:overwrite name="import"></Layout:overwrite> --%>
 <Layout:overwrite name="title">
@@ -11,7 +12,7 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-green-sharp">0<small class="font-green-sharp">$</small></h3>
+								<h3 class="font-green-sharp"><fmt:formatNumber type="number" value="${total.kcTotalMoney }" pattern="0.00" maxFractionDigits="2"/> </h3>
 								<small>库存总金额</small>
 							</div>
 							<div class="icon">
@@ -24,8 +25,8 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-red-haze">0</h3>
-								<small>本年销售总金额</small>
+								<h3 class="font-red-haze"><fmt:formatNumber type="number" value="${total.soleTotalMoney }" pattern="0.00" maxFractionDigits="2"/></h3>
+								<small>本月销售总金额</small>
 							</div>
 							<div class="icon">
 								<i class="icon-like"></i>
@@ -38,8 +39,8 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-blue-sharp">0</h3>
-								<small>本年进货总金额</small>
+								<h3 class="font-blue-sharp"><fmt:formatNumber type="number" value="${total.purchaseTotalMoeny }" pattern="0.00" maxFractionDigits="2"/></h3>
+								<small>本月进货总金额</small>
 							</div>
 							<div class="icon">
 								<i class="icon-basket"></i>
@@ -51,8 +52,8 @@
 					<div class="dashboard-stat2">
 						<div class="display">
 							<div class="number">
-								<h3 class="font-purple-soft">0</h3>
-								<small>本年净利润</small>
+								<h3 class="font-purple-soft"><fmt:formatNumber type="number" value="${total.netMoeny }" pattern="0.00" maxFractionDigits="2"/></h3>
+								<small>本月净利润</small>
 							</div>
 							<div class="icon">
 								<i class="icon-user"></i>

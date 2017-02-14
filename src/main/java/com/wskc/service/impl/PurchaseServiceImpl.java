@@ -1,5 +1,6 @@
 package com.wskc.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wskc.dao.PurchaseDao;
+import com.wskc.dto.BrandPurchaseChartDto;
+import com.wskc.dto.BrandSoleChartDto;
+import com.wskc.dto.PurchaseChartVO;
 import com.wskc.dto.PurchaseDto;
+import com.wskc.dto.SoleChartVO;
 import com.wskc.model.Purchase;
 import com.wskc.service.PurchaseService;
 
@@ -75,5 +80,66 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public List<Purchase> getPurchaseList(int userId, String str) {
 		return purchaseDao.getPurchaseList(userId, str);
+	}
+	@Override
+	public PurchaseChartVO getPurchaseChartVO(int userId, int brandId) {
+		PurchaseChartVO purchaseChartVO=new PurchaseChartVO();
+		List<BrandPurchaseChartDto> lbscd=purchaseDao.listBrandPurchaseChartDto(brandId, userId);
+		List<String> lmonth=purchaseDao.listMonth(brandId, userId);
+		List<String> lproduct= purchaseDao.listProductName(brandId, userId);
+		purchaseChartVO.setMonth(lmonth);
+		purchaseChartVO.setProductName(lproduct);
+		List<List<Integer>> lint=new ArrayList<List<Integer>>();
+		List<List<Double>> ldouble=new ArrayList<List<Double>>();
+		List<Integer> lnum=new ArrayList<Integer>();
+		List<Double> ltotal=new ArrayList<Double>();
+		boolean ischange=false;
+		int j=0;
+		for(int i=0;i<lbscd.size();i++){
+				if(ischange){
+					if(j<(lmonth.size()-1)){
+						while(j==(lmonth.size()-1)){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}
+					j=0;
+					lint.add(lnum);
+					ldouble.add(ltotal);
+					lnum=new ArrayList<Integer>();
+					ltotal=new ArrayList<Double>();
+				}
+				if(i<(lbscd.size()-1)){
+					if(lbscd.get(i).getProductId().equals(lbscd.get(i+1).getProductId())){
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=false;
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						ischange=true;
+					}
+				}else{
+					lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+					ltotal.add(lbscd.get(i).getTotalMoney());
+					lint.add(lnum);
+					ldouble.add(ltotal);
+				}
+				
+		}
+		purchaseChartVO.setNum(lint);
+		purchaseChartVO.setTotalMoney(ldouble);
+		return purchaseChartVO;
 	}
 }

@@ -15,10 +15,10 @@
 									<li>
 										<a href="javascript:void(0)">
 										<span class="photo">
-											{{$value.brandName}}
+											{{$value.brandName}}:
 										</span>
 										<span class="subject">
-										<span class="from">
+										<span class="from font-green ">
 										{{$value.productName}}</span><br>
 										<span class="">
 										库存：{{$value.num}},库存不足,警告值：{{$value.warnNum}}</span><br>

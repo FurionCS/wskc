@@ -133,7 +133,7 @@
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/my/public.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/my/sole/AddSole.js?v=1"></script>
+<script src="<%=request.getContextPath() %>/resources/js/my/sole/AddSole.js?v=8"></script>
 </Layout:overwrite> 
 
 <%@ include file="/share/_LayoutB.jsp"%>

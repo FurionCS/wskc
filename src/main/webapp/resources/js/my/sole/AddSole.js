@@ -91,7 +91,8 @@ function submitSole(){
 			flag=false;
 			return;
 		}
-		if(num>$("#kcnum").val()){
+		var kcnum=$("#kcnum").val().trim();
+		if(num-kcnum>0){
 			noty({text:"您填写的数量大于可售库存数量",layout:'topCenter',type:"error",timeout:3000});
 			flag=false;
 			return;
@@ -119,6 +120,14 @@ function submitSole(){
 		}else{
 			var regEx = new RegExp("\\-","gi"); 
 			createTime=createTime.replace(regEx,"/"); 
+		}
+		if(status==""||status<0){
+			noty({text:"选择状态",layout:'topCenter',type:"error",timeout:3000});
+			flag=false;
+			return;
+		}
+		if(remark==""){
+			remark="无备注";
 		}
 		$.ajax({
 			url:"../sole/AddSole",

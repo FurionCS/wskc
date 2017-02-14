@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.cs.basic.model.Pager;
 
+import com.wskc.dto.ShowTotalDto;
+import com.wskc.dto.SoleChartVO;
 import com.wskc.dto.SoleDto;
+import com.wskc.dto.SoleNetChartVO;
 import com.wskc.model.Sole;
 
 /**
@@ -51,4 +54,25 @@ public interface SoleService {
 	 * @return
 	 */
 	public List<Sole> getSoleList(int userId,String str);
+	
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public ShowTotalDto getShowTotal(int userId);
+	/**
+	 * 获得本年每月销售金额，数量
+	 * @param userId
+	 * @param brandId
+	 * @return
+	 */
+	public SoleChartVO getSoleChartVO(int userId,int brandId);
+	/**
+	 * 获得本年每月销售利润
+	 * @param userId
+	 * @param brandId
+	 * @return
+	 */
+	public SoleNetChartVO getSoleNetChartVO(int userId,int brandId);
 }

@@ -9,6 +9,7 @@ import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.ProductStockWarnDto;
+import com.wskc.dto.ShowTotalDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 /**
@@ -116,4 +117,10 @@ public interface UserProductStockDao extends IBaseDao<UserProductStock>{
 	 * @return
 	 */
 	public List<ProductStockWarnDto> listProductStockWarn(int userId);
+	/**
+	 * 获得产品库存总金额
+	 * @param userId
+	 * @return
+	 */
+	public ShowTotalDto getProductStockTotalMoney(int userId);
 }

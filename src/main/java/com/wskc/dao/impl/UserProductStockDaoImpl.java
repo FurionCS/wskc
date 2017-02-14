@@ -11,6 +11,7 @@ import com.wskc.dto.ProductAgentDto;
 import com.wskc.dto.ProductAgentInfoDto;
 import com.wskc.dto.ProductAgentTree;
 import com.wskc.dto.ProductStockWarnDto;
+import com.wskc.dto.ShowTotalDto;
 import com.wskc.dto.UserProductDto;
 import com.wskc.model.UserProductStock;
 
@@ -122,5 +123,11 @@ public class UserProductStockDaoImpl extends BaseDao<UserProductStock> implement
 	public List<ProductStockWarnDto> listProductStockWarn(int userId) {
 		String sql="select ups.brand_id as 'brandId',ups.product_id as 'productId',ups.brand_name as 'brandName',ups.product_name as 'productName',ups.num,ups.modify_time as 'modifyTime',ups.warn_num as 'warnNum' from t_user_product_stock ups where  ups.user_id=? and ups.`status`=1 and ups.num<=ups.warn_num";
 		return this.listBySql(sql, userId, ProductStockWarnDto.class, false);
+	}
+
+	@Override
+	public ShowTotalDto getProductStockTotalMoney(int userId) {
+		String sql="select sum(ups.total_money) as 'kcTotalMoney' from t_user_product_stock  ups where ups.user_id=?";
+		return (ShowTotalDto) this.sqlObject(sql, userId, ShowTotalDto.class, false);
 	}
 }
