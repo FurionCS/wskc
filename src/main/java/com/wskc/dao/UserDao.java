@@ -30,4 +30,10 @@ public interface UserDao extends IBaseDao<User>{
 	 * @return
 	 */
 	User weixinLogin(String openid);
+	/**
+	 * 通过id获得用户信息
+	 * @param id
+	 * @return
+	 */
+	User getUserById(int id);
 }

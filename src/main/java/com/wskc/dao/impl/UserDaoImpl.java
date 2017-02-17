@@ -34,4 +34,10 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao{
 		return (User) this.queryObject(hql, openid);
 	}
 
+	@Override
+	public User getUserById(int id) {
+		String hql="from User where id=?";
+		return (User) this.queryObject(hql, id);
+	}
+
 }

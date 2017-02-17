@@ -341,7 +341,7 @@ public class BasicController {
 			brand.setCreaterId(user.getId());
 			brand.setCreateTime(new Date());
 			brand.setLeastTime(new Date());
-			brand.setStatus(2);
+			brand.setStatus(1);//TODO 以后能是
 			int i=brandService.addBrandToPublic(brand);
 			if(i==-1){
 				ajaxObj.setResult(0);

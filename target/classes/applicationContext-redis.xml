@@ -55,9 +55,5 @@
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
 	</bean>
-		 <!-- 开启缓存 -->  
-    <cache:annotation-driven/>  
-  	<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
-    	<constructor-arg name="redisOperations" ref="stringRedisTemplate" /> 
-    </bean> 
+	
 </beans>

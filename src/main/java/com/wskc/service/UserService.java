@@ -50,5 +50,11 @@ public interface UserService {
 	 * @return
 	 */
 	boolean updatePassword(User user,String password);
+	/**
+	 * 通过id获得用户信息
+	 * @param id
+	 * @return
+	 */
+	User getUserById(int id);
 	
 }

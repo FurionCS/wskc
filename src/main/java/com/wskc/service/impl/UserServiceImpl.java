@@ -97,4 +97,10 @@ public class UserServiceImpl implements UserService{
 		userDao.update(user2);
 		return true;
 	}
+	@Override
+	@Cacheable(value="wskc",key="'wskc_user_'+#id")
+	public User getUserById(int id){
+		System.out.println("我进来了咯");
+		return userDao.getUserById(id);
+	}
 }
