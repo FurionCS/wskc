@@ -13,7 +13,8 @@
 	
 	
 	<!-- 导入资源文件 -->
-	<context:property-placeholder location="classpath:*.properties"/>
+<!-- 	<context:property-placeholder location="classpath:*.properties"/> -->
+	<context:property-placeholder location="file:///D:/wskcConfig/*.properties"/> 
 	<!--数据源加密操作-->
     <bean id="dbPasswordCallback" class="com.wskc.config.DBPasswordCallback" lazy-init="true"/>
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" lazy-init="true">
@@ -21,9 +22,9 @@
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-<!-- 		<property name="connectionProperties" value="password=${jdbc.password}"/>  -->
-		<property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${jdbc.publickey}" /> 
-		<property name="passwordCallback" ref="dbPasswordCallback"/> 
+<!--  		<property name="connectionProperties" value="password=${jdbc.password}"/>  -->
+		<property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${jdbc.publickey}" />
+<!-- 		<property name="passwordCallback" ref="dbPasswordCallback"/>  -->
 		<!-- 配置连接池的初始值 -->
 		<property name="initialSize" value="1" />
 		<!-- 连接池的最大值 -->
