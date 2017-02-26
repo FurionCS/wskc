@@ -1,5 +1,6 @@
 D:\workspace\wskc\src\main\java\com\wskc\controller\StorageController.java
 D:\workspace\wskc\src\main\java\com\wskc\service\SoleService.java
+D:\workspace\wskc\src\main\java\com\wskc\swagger\SwaggerConfig.java
 D:\workspace\wskc\src\main\java\com\wskc\service\ProductAllocationService.java
 D:\workspace\wskc\src\main\java\com\wskc\service\impl\ProductAllocationServiceImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\model\Industry.java
@@ -60,6 +61,8 @@ D:\workspace\wskc\src\main\java\com\wskc\model\Resource.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\impl\ProductAllocationDaoImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\impl\BrandDaoImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\service\IndustryService.java
+D:\workspace\wskc\src\main\java\com\wskc\redis\util\RedisUtil.java
+D:\workspace\wskc\src\main\java\com\wskc\config\DBPasswordCallback.java
 D:\workspace\wskc\src\main\java\com\wskc\model\SoleReturn.java
 D:\workspace\wskc\src\main\java\com\wskc\util\MessageUtil.java
 D:\workspace\wskc\src\main\java\com\wskc\web\SystemContextFilter.java
@@ -76,8 +79,8 @@ D:\workspace\wskc\src\main\java\com\wskc\model\UserProductStock.java
 D:\workspace\wskc\src\main\java\com\wskc\service\PurchaseService.java
 D:\workspace\wskc\src\main\java\com\wskc\dto\ProductDto.java
 D:\workspace\wskc\src\main\java\com\wskc\dto\UserBrandPUserDto.java
-D:\workspace\wskc\src\main\java\com\wskc\dao\ProductDao.java
 D:\workspace\wskc\src\main\java\com\wskc\service\impl\PurchaseServiceImpl.java
+D:\workspace\wskc\src\main\java\com\wskc\dao\ProductDao.java
 D:\workspace\wskc\src\main\java\com\wskc\dto\PurchaseChartVO.java
 D:\workspace\wskc\src\main\java\com\wskc\model\ProductLibraryStatus.java
 D:\workspace\wskc\src\main\java\com\wskc\model\ProductLibraryType.java
@@ -90,8 +93,8 @@ D:\workspace\wskc\src\main\java\com\wskc\dao\UserProductStockDao.java
 D:\workspace\wskc\src\main\java\com\wskc\model\BasicException.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\IndustryDao.java
 D:\workspace\wskc\src\main\java\com\wskc\controller\UserController.java
-D:\workspace\wskc\src\main\java\com\wskc\controller\StockController.java
 D:\workspace\wskc\src\main\java\com\wskc\model\RoleType.java
+D:\workspace\wskc\src\main\java\com\wskc\controller\StockController.java
 D:\workspace\wskc\src\main\java\com\wskc\service\impl\SoleServiceImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\dto\ProductAgentDto.java
 D:\workspace\wskc\src\main\java\com\wskc\dto\SoleChartVO.java

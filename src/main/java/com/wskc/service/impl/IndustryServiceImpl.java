@@ -26,10 +26,12 @@ public class IndustryServiceImpl implements IndustryService{
 	 * TODO 从缓存中读取
 	 */
 	@Override
+	@Cacheable(value="wskc_industry",key="'wskc_industryList'")
 	public List<Industry> getIndustryList() {
-			return industryDao.getIndustryList();
+		return industryDao.getIndustryList();
 	}
 	@Override
+	@Cacheable(value="wskc_industry_id",key="'wskc_industry_'+#id")
 	public Industry getIndustryById(int id) {
 		return industryDao.load(id);
 	}

@@ -13,13 +13,17 @@
 	
 	
 	<!-- 导入资源文件 -->
-	<context:property-placeholder location="classpath:jdbc.properties"/>
-	
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-	<property name="driverClassName" value="${jdbc.driverClassName}" />
+	<context:property-placeholder location="classpath:*.properties"/>
+	<!--数据源加密操作-->
+    <bean id="dbPasswordCallback" class="com.wskc.config.DBPasswordCallback" lazy-init="true"/>
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" lazy-init="true">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
+<!-- 		<property name="connectionProperties" value="password=${jdbc.password}"/>  -->
+		<property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${jdbc.publickey}" /> 
+		<property name="passwordCallback" ref="dbPasswordCallback"/> 
 		<!-- 配置连接池的初始值 -->
 		<property name="initialSize" value="1" />
 		<!-- 连接池的最大值 -->
@@ -49,7 +53,7 @@
         <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
  
         <!-- 配置监控统计拦截的filters -->
-        <property name="filters" value="stat" />
+        <property name="filters" value="config" />
 	</bean>
 	<!-- 配置sessionFactory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">

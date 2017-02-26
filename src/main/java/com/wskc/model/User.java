@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
+
 /**
  * 
  * <p>Title:</p>
@@ -16,16 +19,19 @@ import javax.persistence.Table;
  * @author Mr.Cheng
  * @date 2017年1月19日 下午8:12:43
  */
+@ApiModel(value="用户对象",description="user")
 @Entity
 @Table(name="t_user_info")
-public class User implements Serializable{
+public class User  implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String openid;   //微信openid
+	@ApiModelProperty(value="用户姓名",required=true)
 	private String userName; //用户名
+	@ApiModelProperty(value="用户密码",required=true)
 	private String userPassword;//用户密码
 	private String userNike;//用户姓名
 	private String url;  //头像链接

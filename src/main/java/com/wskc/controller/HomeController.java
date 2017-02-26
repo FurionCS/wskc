@@ -8,6 +8,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.cs.baisc.shiro.kit.ShiroKit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiImplicitParam;
+import com.wordnik.swagger.annotations.ApiOperation;
 import com.wskc.dto.AjaxObj;
 import com.wskc.model.User;
 import com.wskc.service.SoleService;
 import com.wskc.service.UserService;
+
+@Api(value="home",description="首页管理",produces=MediaType.APPLICATION_JSON_VALUE)
 @Controller
 @RequestMapping("/home")
 public class HomeController {
@@ -27,6 +33,7 @@ public class HomeController {
 	
 	@Autowired
 	private SoleService soleService;
+	
 	
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(Model model,HttpSession session){
@@ -41,6 +48,7 @@ public class HomeController {
 		subject.logout();
 		return "home/login";
 	}
+	@ApiOperation(value="检查登录",notes="登入系统检查",httpMethod="POST",produces=MediaType.APPLICATION_JSON_VALUE)
 	@RequestMapping(value="/checkLogin",method=RequestMethod.POST)
 	public String checkLogin(User user,Model model){
 		Subject subject = SecurityUtils.getSubject();
