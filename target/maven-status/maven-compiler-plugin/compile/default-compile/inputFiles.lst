@@ -106,6 +106,7 @@ D:\workspace\wskc\src\main\java\com\wskc\dao\impl\UserProductStockDaoImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\service\impl\ProductServiceImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\model\ProductAllocation.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\impl\UserBrandPUserDaoImpl.java
+D:\workspace\wskc\src\main\java\com\wskc\dto\TemplateDate.java
 D:\workspace\wskc\src\main\java\com\wskc\controller\WeiXinController.java
 D:\workspace\wskc\src\main\java\com\wskc\model\ProductStorageType.java
 D:\workspace\wskc\src\main\java\com\wskc\shiro\realm\AdminRealm.java
@@ -117,3 +118,4 @@ D:\workspace\wskc\src\main\java\com\wskc\service\IndustryUserService.java
 D:\workspace\wskc\src\main\java\com\wskc\service\impl\IndustryUserServiceImpl.java
 D:\workspace\wskc\src\main\java\com\wskc\dao\BrandDao.java
 D:\workspace\wskc\src\main\java\com\wskc\model\IndustryUser.java
+D:\workspace\wskc\src\main\java\com\wskc\dto\TemplateSendModel.java

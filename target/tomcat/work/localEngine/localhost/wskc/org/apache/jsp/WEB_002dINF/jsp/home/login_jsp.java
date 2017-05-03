@@ -122,7 +122,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("<!-- BEGIN LOGIN -->\r\n");
       out.write("<div class=\"content\">\r\n");
       out.write("\t<!-- BEGIN LOGIN FORM -->\r\n");
-      out.write("\t<form class=\"login-form\" action=\"../home/checkLogin\" method=\"post\">\r\n");
+      out.write("\t<form class=\"login-form\" action=\"checkLogin\" method=\"post\">\r\n");
       out.write("\t\t<h3 class=\"form-title\" style=\"text-align:center;\">库存系统</h3>\r\n");
       out.write("\t\t<div class=\"alert alert-danger display-hide\">\r\n");
       out.write("\t\t\t<button class=\"close\" data-close=\"alert\"></button>\r\n");
@@ -241,10 +241,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("  Login.init();\r\n");
       out.write("       // init background slide images\r\n");
       out.write("       $.backstretch([\r\n");
-      out.write("        \"../resources/admin/pages/media/bg/1.jpg\",\r\n");
-      out.write("        \"../resources/admin/pages/media/bg/2.jpg\",\r\n");
-      out.write("        \"../resources/admin/pages/media/bg/3.jpg\",\r\n");
-      out.write("        \"../resources/admin/pages/media/bg/4.jpg\"\r\n");
+      out.write("        \"resources/admin/pages/media/bg/1.jpg\",\r\n");
+      out.write("        \"resources/admin/pages/media/bg/2.jpg\",\r\n");
+      out.write("        \"resources/admin/pages/media/bg/3.jpg\",\r\n");
+      out.write("        \"resources/admin/pages/media/bg/4.jpg\"\r\n");
       out.write("        ], {\r\n");
       out.write("          fade: 1000,\r\n");
       out.write("          duration: 8000\r\n");

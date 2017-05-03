@@ -94,14 +94,15 @@ public class UserBrandPUserServiceImpl implements UserBrandPUserService{
 			return false;
 		}else{
 			UserBrandPUser ubpu=userBrandPUserDao.getUBPUByUB(userId, brandId);
-			//删除品牌
-			userBrandPUserDao.deleteUBPUByUB(userId, brandId);
+			System.out.println("ubpu:"+ubpu+"/userId:"+userId+"/"+brandId);
 			//更新原来的上级代理数量
-			if(ubpu.getPuserId()!=null&&ubpu.getPuserId()>0){
+			if(ubpu!=null&&ubpu.getPuserId()!=null&&ubpu.getPuserId()>0){
 				UserBrandPUser ubpu4=userBrandPUserDao.getUBPUByUB(ubpu.getPuserId(), ubpu.getBrandId());
 				ubpu4.setNum(ubpu4.getNum()-1);
 				userBrandPUserDao.update(ubpu4);
 			}
+			//删除品牌
+			userBrandPUserDao.deleteUBPUByUB(userId, brandId);
 			return true;
 		}
 	}

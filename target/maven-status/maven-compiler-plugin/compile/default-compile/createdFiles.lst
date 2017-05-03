@@ -21,6 +21,8 @@ com\wskc\dao\PurchaseDao.class
 com\wskc\model\ProductLibraryStatus.class
 com\wskc\service\impl\UserProductStockServiceImpl.class
 com\wskc\dto\UserBrandPUserDto.class
+com\wskc\config\DBPasswordCallback.class
+com\wskc\redis\util\RedisUtil$2.class
 com\wskc\service\BrandService.class
 com\wskc\dao\impl\ProductLibraryDaoImpl.class
 com\wskc\dao\impl\IndustryDaoImpl.class
@@ -40,6 +42,8 @@ com\wskc\model\UserProductStock.class
 com\wskc\service\impl\ProductLibraryServiceImpl.class
 com\wskc\model\Role.class
 com\wskc\dto\ProductAllocationDto.class
+com\wskc\redis\util\RedisUtil$1.class
+com\wskc\redis\util\RedisUtil$3.class
 com\wskc\controller\AllocationController.class
 com\wskc\model\UserBrandPUser.class
 com\wskc\service\impl\IndustryUserServiceImpl.class
@@ -85,6 +89,7 @@ com\wskc\model\Brand.class
 com\wskc\dto\SoleChartVO.class
 com\wskc\controller\StockController.class
 com\wskc\dao\ProductAllocationDao.class
+com\wskc\redis\util\RedisUtil.class
 com\wskc\model\ProductLibrary.class
 com\wskc\model\Resource.class
 com\wskc\dao\impl\BrandDaoImpl.class
@@ -98,12 +103,15 @@ com\wskc\dto\SoleDto.class
 com\wskc\controller\SoleController.class
 com\wskc\dao\impl\ProductDaoImpl.class
 com\wskc\dao\IndustryDao.class
+com\wskc\dto\TemplateSendModel.class
 com\wskc\dao\impl\IndustryUserDaoImpl.class
 com\wskc\model\Industry.class
 com\wskc\service\PurchaseService.class
 com\wskc\dao\IndustryUserDao.class
+com\wskc\dto\TemplateDate.class
 com\wskc\dto\ShowTotalDto.class
 com\wskc\controller\PurchaseController.class
+com\wskc\swagger\SwaggerConfig.class
 com\wskc\dto\ProductAgentTree.class
 com\wskc\model\SoleType.class
 com\wskc\model\ProductStorage.class

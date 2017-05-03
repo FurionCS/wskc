@@ -20,6 +20,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fif_0026_005ftest;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody;
 
@@ -32,6 +33,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
@@ -40,6 +42,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.release();
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.release();
     _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.release();
     _005fjspx_005ftagPool_005fLayout_005fblock_0026_005fname_005fnobody.release();
   }
@@ -68,6 +71,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\r\n");
       out.write("\r\n");
       out.write("  \r\n");
       out.write("\r\n");
@@ -672,7 +676,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f0 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
     _jspx_th_Layout_005foverwrite_005f0.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005foverwrite_005f0.setParent(null);
-    // /WEB-INF/jsp/home/index.jsp(5,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(6,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005foverwrite_005f0.setName("title");
     int _jspx_eval_Layout_005foverwrite_005f0 = _jspx_th_Layout_005foverwrite_005f0.doStartTag();
     if (_jspx_eval_Layout_005foverwrite_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -708,7 +712,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.cs.basic.layout.OverwriteTag _jspx_th_Layout_005foverwrite_005f1 = (org.cs.basic.layout.OverwriteTag) _005fjspx_005ftagPool_005fLayout_005foverwrite_0026_005fname.get(org.cs.basic.layout.OverwriteTag.class);
     _jspx_th_Layout_005foverwrite_005f1.setPageContext(_jspx_page_context);
     _jspx_th_Layout_005foverwrite_005f1.setParent(null);
-    // /WEB-INF/jsp/home/index.jsp(9,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(10,0) name = name type = java.lang.String reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_Layout_005foverwrite_005f1.setName("MyContent");
     int _jspx_eval_Layout_005foverwrite_005f1 = _jspx_th_Layout_005foverwrite_005f1.doStartTag();
     if (_jspx_eval_Layout_005foverwrite_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -725,6 +729,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t<div class=\"display\">\r\n");
         out.write("\t\t\t\t\t\t\t<div class=\"number\">\r\n");
         out.write("\t\t\t\t\t\t\t\t<h3 class=\"font-green-sharp\">");
+        if (_jspx_meth_c_005fif_005f0(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
+          return true;
         if (_jspx_meth_fmt_005fformatNumber_005f0(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
           return true;
         out.write(" </h3>\r\n");
@@ -741,6 +747,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t<div class=\"display\">\r\n");
         out.write("\t\t\t\t\t\t\t<div class=\"number\">\r\n");
         out.write("\t\t\t\t\t\t\t\t<h3 class=\"font-red-haze\">");
+        if (_jspx_meth_c_005fif_005f1(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
+          return true;
         if (_jspx_meth_fmt_005fformatNumber_005f1(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
           return true;
         out.write("</h3>\r\n");
@@ -758,6 +766,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t<div class=\"display\">\r\n");
         out.write("\t\t\t\t\t\t\t<div class=\"number\">\r\n");
         out.write("\t\t\t\t\t\t\t\t<h3 class=\"font-blue-sharp\">");
+        if (_jspx_meth_c_005fif_005f2(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
+          return true;
         if (_jspx_meth_fmt_005fformatNumber_005f2(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
           return true;
         out.write("</h3>\r\n");
@@ -774,6 +784,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.write("\t\t\t\t\t\t<div class=\"display\">\r\n");
         out.write("\t\t\t\t\t\t\t<div class=\"number\">\r\n");
         out.write("\t\t\t\t\t\t\t\t<h3 class=\"font-purple-soft\">");
+        if (_jspx_meth_c_005fif_005f3(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
+          return true;
         if (_jspx_meth_fmt_005fformatNumber_005f3(_jspx_th_Layout_005foverwrite_005f1, _jspx_page_context))
           return true;
         out.write("</h3>\r\n");
@@ -802,6 +814,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     return false;
   }
 
+  private boolean _jspx_meth_c_005fif_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fif_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
+    // /WEB-INF/jsp/home/index.jsp(16,37) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.kcTotalMoney==null }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
+    int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
+    if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write('0');
+        int evalDoAfterBody = _jspx_th_c_005fif_005f0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_005fif_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f0);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f0);
+    return false;
+  }
+
   private boolean _jspx_meth_fmt_005fformatNumber_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f1, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
@@ -810,13 +849,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_005fformatNumber_005f0 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
     _jspx_th_fmt_005fformatNumber_005f0.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatNumber_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/home/index.jsp(15,37) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(16,87) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f0.setType("number");
-    // /WEB-INF/jsp/home/index.jsp(15,37) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(16,87) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.kcTotalMoney }", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/home/index.jsp(15,37) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(16,87) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f0.setPattern("0.00");
-    // /WEB-INF/jsp/home/index.jsp(15,37) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(16,87) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f0.setMaxFractionDigits(2);
     int _jspx_eval_fmt_005fformatNumber_005f0 = _jspx_th_fmt_005fformatNumber_005f0.doStartTag();
     if (_jspx_th_fmt_005fformatNumber_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -824,6 +863,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       return true;
     }
     _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.reuse(_jspx_th_fmt_005fformatNumber_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fif_005f1(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_005fif_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fif_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
+    // /WEB-INF/jsp/home/index.jsp(29,34) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fif_005f1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.soleTotalMoney==null }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
+    int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
+    if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write('0');
+        int evalDoAfterBody = _jspx_th_c_005fif_005f1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_005fif_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f1);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f1);
     return false;
   }
 
@@ -835,13 +901,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_005fformatNumber_005f1 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
     _jspx_th_fmt_005fformatNumber_005f1.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatNumber_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/home/index.jsp(28,34) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(29,86) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f1.setType("number");
-    // /WEB-INF/jsp/home/index.jsp(28,34) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(29,86) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.soleTotalMoney }", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/home/index.jsp(28,34) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(29,86) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f1.setPattern("0.00");
-    // /WEB-INF/jsp/home/index.jsp(28,34) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(29,86) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f1.setMaxFractionDigits(2);
     int _jspx_eval_fmt_005fformatNumber_005f1 = _jspx_th_fmt_005fformatNumber_005f1.doStartTag();
     if (_jspx_th_fmt_005fformatNumber_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -849,6 +915,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       return true;
     }
     _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.reuse(_jspx_th_fmt_005fformatNumber_005f1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fif_005f2(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_005fif_005f2.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fif_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
+    // /WEB-INF/jsp/home/index.jsp(43,36) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fif_005f2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.purchaseTotalMoeny==null }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
+    int _jspx_eval_c_005fif_005f2 = _jspx_th_c_005fif_005f2.doStartTag();
+    if (_jspx_eval_c_005fif_005f2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write('0');
+        int evalDoAfterBody = _jspx_th_c_005fif_005f2.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_005fif_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f2);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f2);
     return false;
   }
 
@@ -860,13 +953,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_005fformatNumber_005f2 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
     _jspx_th_fmt_005fformatNumber_005f2.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatNumber_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/home/index.jsp(42,36) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(43,92) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f2.setType("number");
-    // /WEB-INF/jsp/home/index.jsp(42,36) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(43,92) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.purchaseTotalMoeny }", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/home/index.jsp(42,36) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(43,92) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f2.setPattern("0.00");
-    // /WEB-INF/jsp/home/index.jsp(42,36) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(43,92) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f2.setMaxFractionDigits(2);
     int _jspx_eval_fmt_005fformatNumber_005f2 = _jspx_th_fmt_005fformatNumber_005f2.doStartTag();
     if (_jspx_th_fmt_005fformatNumber_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -874,6 +967,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       return true;
     }
     _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.reuse(_jspx_th_fmt_005fformatNumber_005f2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fif_005f3(javax.servlet.jsp.tagext.JspTag _jspx_th_Layout_005foverwrite_005f1, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_005fif_005f3.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fif_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
+    // /WEB-INF/jsp/home/index.jsp(56,37) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fif_005f3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.netMoeny==null }", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
+    int _jspx_eval_c_005fif_005f3 = _jspx_th_c_005fif_005f3.doStartTag();
+    if (_jspx_eval_c_005fif_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write('0');
+        int evalDoAfterBody = _jspx_th_c_005fif_005f3.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_005fif_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f3);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.reuse(_jspx_th_c_005fif_005f3);
     return false;
   }
 
@@ -885,13 +1005,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag _jspx_th_fmt_005fformatNumber_005f3 = (org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag) _005fjspx_005ftagPool_005ffmt_005fformatNumber_0026_005fvalue_005ftype_005fpattern_005fmaxFractionDigits_005fnobody.get(org.apache.taglibs.standard.tag.rt.fmt.FormatNumberTag.class);
     _jspx_th_fmt_005fformatNumber_005f3.setPageContext(_jspx_page_context);
     _jspx_th_fmt_005fformatNumber_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_Layout_005foverwrite_005f1);
-    // /WEB-INF/jsp/home/index.jsp(55,37) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(56,83) name = type type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f3.setType("number");
-    // /WEB-INF/jsp/home/index.jsp(55,37) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(56,83) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${total.netMoeny }", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/home/index.jsp(55,37) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(56,83) name = pattern type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f3.setPattern("0.00");
-    // /WEB-INF/jsp/home/index.jsp(55,37) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/home/index.jsp(56,83) name = maxFractionDigits type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_fmt_005fformatNumber_005f3.setMaxFractionDigits(2);
     int _jspx_eval_fmt_005fformatNumber_005f3 = _jspx_th_fmt_005fformatNumber_005f3.doStartTag();
     if (_jspx_th_fmt_005fformatNumber_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

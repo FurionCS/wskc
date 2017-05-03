@@ -104,7 +104,7 @@
 								</thead>
 								<tbody>
 								<c:forEach var="ubpd" items="${lubpd }">
-								<tr onclick="selectTr(${ubpd.id},this)" id="tr_${ubpd.brandId }">
+								<tr onclick="selectTr(${ubpd.brandId},this)" id="tr_${ubpd.brandId }">
 									<td>
 										 <a href="../basic/editUserBrandPUser?menuids=2_2&brandId=${ubpd.brandId }" >${ubpd.brandName }</a>
 									</td>
