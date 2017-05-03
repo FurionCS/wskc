@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="../home/checkLogin" method="post">
+	<form class="login-form" action="checkLogin" method="post">
 		<h3 class="form-title" style="text-align:center;">库存系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -140,10 +140,10 @@ jQuery(document).ready(function() {
   Login.init();
        // init background slide images
        $.backstretch([
-        "../resources/admin/pages/media/bg/1.jpg",
-        "../resources/admin/pages/media/bg/2.jpg",
-        "../resources/admin/pages/media/bg/3.jpg",
-        "../resources/admin/pages/media/bg/4.jpg"
+        "resources/admin/pages/media/bg/1.jpg",
+        "resources/admin/pages/media/bg/2.jpg",
+        "resources/admin/pages/media/bg/3.jpg",
+        "resources/admin/pages/media/bg/4.jpg"
         ], {
           fade: 1000,
           duration: 8000

@@ -17,5 +17,9 @@ public class WeiXinConfig {
 	public static final String REDIRECT_URI="http://www.believeyou.top/wskc/weixin/handleAuth";
 	
 	public static final String REDIRECTGZ_URI="http://www.believeyou.top/wskc/weixin/handleAuthGz";
+	/**
+	 * 账号密码模版
+	 */
+	public static final String NPTEMPLATEID="xDEsTVg4T-FgVaZkv_1SgPIIQvTDwCKzOKb4S9K2fJc";
 
 }

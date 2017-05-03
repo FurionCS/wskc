@@ -3,17 +3,23 @@ package com.wskc.service.impl;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.cs.baisc.shiro.kit.ShiroKit;
+import org.cs.basic.weixin.common.AccessToken;
+import org.cs.basic.weixin.template.Template;
+import org.cs.basic.weixin.template.model.TemplateSendResultModel;
+import org.cs.basic.weixin.template.model.TemplateValueAndColor;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.wskc.config.WeiXinConfig;
 import com.wskc.dao.UserDao;
+import com.wskc.dto.TemplateDate;
+import com.wskc.dto.TemplateSendModel;
 import com.wskc.model.Resource;
 import com.wskc.model.User;
 import com.wskc.service.UserService;
@@ -75,6 +81,29 @@ public class UserServiceImpl implements UserService{
 			user.setLeastTime(new Date());
 			user.setUserName(userName);
 			user.setUserPassword(ShiroKit.md5("ws123456",userName));
+			//推送账号密码
+			try {
+				String accessToken=AccessToken.getAccessToken(WeiXinConfig.APPID, WeiXinConfig.SECRET);
+				TemplateSendModel tsm=new TemplateSendModel();
+				tsm.setTouser(user.getOpenid());
+				tsm.setTemplate_id(WeiXinConfig.NPTEMPLATEID);
+				tsm.setUrl("www.believeyou.top/wskc");
+				TemplateDate td=new TemplateDate();
+				TemplateValueAndColor tvc0=new TemplateValueAndColor(user.getUserNike(),"#173177");
+				TemplateValueAndColor tvc1=new TemplateValueAndColor(user.getUserName(),"#173177");
+				TemplateValueAndColor tvc2=new TemplateValueAndColor("ws123456","#173177");
+				td.setName(tvc0);
+				td.setUsername(tvc1);
+				td.setPassword(tvc2);
+				tsm.setData(td);
+				String templSenddatestr=net.sf.json.JSONObject.fromObject(tsm).toString();
+				System.out.println(templSenddatestr);
+				TemplateSendResultModel ltm=Template.sendTemplate(templSenddatestr, accessToken);
+			} catch (Exception e) {
+				logger.error("推送失败：原因："+e.getMessage());
+				e.printStackTrace();
+			}
+
 			return userDao.add(user);
 		}
 	}

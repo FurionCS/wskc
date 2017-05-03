@@ -41,10 +41,12 @@
 										<div class="caption font-green">
 											<span class="caption-subject bold uppercase">采购编码:${pd.purchaseNo }<a></a></span>
 										</div>
-										<div class="actions">
-											<a href="../purchase/EditPurchase?menuids=3_2&id=${pd.id }" class="btn btn-default btn-sm">
-											<i class="fa fa-pencil"></i> 编辑 </a>
-										</div>
+										 <c:if test="${pd.status<4 }">
+											<div class="actions">
+												<a href="../purchase/EditPurchase?menuids=3_2&id=${pd.id }" class="btn btn-default btn-sm">
+												<i class="fa fa-pencil"></i> 编辑 </a>
+											</div>
+										</c:if>
 									</div>
 								<div class="portlet-body form">
 								<div class="row">

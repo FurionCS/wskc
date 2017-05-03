@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
 <%-- <Layout:overwrite name="import"></Layout:overwrite> --%>
 <Layout:overwrite name="title">
-添加品牌
+修改品牌授权
 </Layout:overwrite>
 <%-- <Layout:overwrite name="Mycss"></Layout:overwrite> --%>
 <Layout:overwrite name="MyContent">

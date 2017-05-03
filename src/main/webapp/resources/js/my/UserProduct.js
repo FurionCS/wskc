@@ -8,6 +8,7 @@ var pageCount=0;
 getList(); 
 $("#brand").change(function () {
     pageIndex = 1;
+    brandId=$("#brand").val();
     getList();
 });
 function updateUserProductStatus(stockId,status,type){

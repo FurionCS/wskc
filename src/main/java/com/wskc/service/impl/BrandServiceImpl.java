@@ -31,6 +31,7 @@ public class BrandServiceImpl implements BrandService{
 	private IndustryUserDao indsutryUserDao;
 	@Override
 	public List<Brand> getBrandSerach(String industrys,String str) {
+		
 		// 查询品牌列表
 		return	brandDao.getBrandSerach(industrys,str);
 	}

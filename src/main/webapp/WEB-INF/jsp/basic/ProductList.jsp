@@ -129,7 +129,7 @@
 </Layout:overwrite>
  <Layout:overwrite name="MyScript">
  <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
- <script src="<%=request.getContextPath() %>/resources/js/my/UserProduct.js"></script>
+ <script src="<%=request.getContextPath() %>/resources/js/my/UserProduct.js?v=1"></script>
  </Layout:overwrite> 
 
 <%@ include file="/share/_LayoutB.jsp"%>

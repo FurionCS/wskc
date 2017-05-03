@@ -23,7 +23,7 @@ public class IndustryServiceImpl implements IndustryService{
 	@Autowired
 	private IndustryDao industryDao;
 	/**
-	 * TODO 从缓存中读取
+	 *  从缓存中读取
 	 */
 	@Override
 	@Cacheable(value="wskc_industry",key="'wskc_industryList'")

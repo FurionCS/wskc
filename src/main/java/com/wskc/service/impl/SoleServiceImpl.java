@@ -175,6 +175,7 @@ public class SoleServiceImpl implements SoleService {
 						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=false;
+						j++;
 					}else{
 						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
 							lnum.add(null);
@@ -184,11 +185,36 @@ public class SoleServiceImpl implements SoleService {
 						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=true;
+						j++;
 					}
 				}else{
-					lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
-					ltotal.add(lbscd.get(i).getTotalMoney());
+					if(lmonth.get(j).equals(lbscd.get(i).getMonth())){
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}
 					lint.add(lnum);
+					ischange=true;
+					j=0;
 					ldouble.add(ltotal);
 				}
 				
@@ -230,6 +256,7 @@ public class SoleServiceImpl implements SoleService {
 						}
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=false;
+						j++;
 					}else{
 						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
 							ltotal.add(null);
@@ -237,9 +264,33 @@ public class SoleServiceImpl implements SoleService {
 						}
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=true;
+						j++;
 					}
 				}else{
-					ltotal.add(lbscd.get(i).getTotalMoney());
+					/*ltotal.add(lbscd.get(i).getTotalMoney());
+					ldouble.add(ltotal);*/
+					
+					if(lmonth.get(j).equals(lbscd.get(i).getMonth())){
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							ltotal.add(null);
+							j++;
+						}
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							ltotal.add(null);
+							j++;
+						}
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							ltotal.add(null);
+							j++;
+						}
+					}
+					ischange=true;
+					j=0;
 					ldouble.add(ltotal);
 				}
 				

@@ -50,7 +50,7 @@ public class UserBrandPUser {
 		this.brandId = brandId;
 	}
 	@Column(name="puser_id")
-	public int getPuserId() {
+	public Integer getPuserId() {
 		return puserId;
 	}
 	public void setPuserId(Integer puserId) {

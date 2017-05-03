@@ -85,10 +85,13 @@ public class PurchaseServiceImpl implements PurchaseService{
 	public PurchaseChartVO getPurchaseChartVO(int userId, int brandId) {
 		PurchaseChartVO purchaseChartVO=new PurchaseChartVO();
 		List<BrandPurchaseChartDto> lbscd=purchaseDao.listBrandPurchaseChartDto(brandId, userId);
+		//获得一共有几个月份
 		List<String> lmonth=purchaseDao.listMonth(brandId, userId);
+		//获得一共有多少产品
 		List<String> lproduct= purchaseDao.listProductName(brandId, userId);
 		purchaseChartVO.setMonth(lmonth);
 		purchaseChartVO.setProductName(lproduct);
+		
 		List<List<Integer>> lint=new ArrayList<List<Integer>>();
 		List<List<Double>> ldouble=new ArrayList<List<Double>>();
 		List<Integer> lnum=new ArrayList<Integer>();
@@ -111,6 +114,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 					ltotal=new ArrayList<Double>();
 				}
 				if(i<(lbscd.size()-1)){
+					//还有两个以上记录，判断两个记录是不是同一个产品
 					if(lbscd.get(i).getProductId().equals(lbscd.get(i+1).getProductId())){
 						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
 							lnum.add(null);
@@ -120,6 +124,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=false;
+						j++;
 					}else{
 						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
 							lnum.add(null);
@@ -129,14 +134,39 @@ public class PurchaseServiceImpl implements PurchaseService{
 						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
 						ltotal.add(lbscd.get(i).getTotalMoney());
 						ischange=true;
+						j++;
 					}
 				}else{
-					lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
-					ltotal.add(lbscd.get(i).getTotalMoney());
+					if(lmonth.get(j).equals(lbscd.get(i).getMonth())){
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}else{
+						while(!lmonth.get(j).equals(lbscd.get(i).getMonth())){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+						lnum.add(Integer.valueOf(lbscd.get(i).getNum().toString()));
+						ltotal.add(lbscd.get(i).getTotalMoney());
+						j++;
+						while(j<lmonth.size()){
+							lnum.add(null);
+							ltotal.add(null);
+							j++;
+						}
+					}
+					
 					lint.add(lnum);
+					ischange=true;
+					j=0;
 					ldouble.add(ltotal);
 				}
-				
 		}
 		purchaseChartVO.setNum(lint);
 		purchaseChartVO.setTotalMoney(ldouble);
