@@ -23,7 +23,13 @@ import com.wskc.model.PurchaseStatus;
 import com.wskc.model.User;
 import com.wskc.service.ProductStorageService;
 
-
+/**
+ * 
+ * <p>Title:</p>
+ * <p>Description:入库</p>
+ * @author Mr.Cheng
+ * @date 2017年5月5日 下午10:36:10
+ */
 @Controller
 @RequestMapping("storage")
 public class StorageController {

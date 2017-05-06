@@ -28,7 +28,13 @@ import com.wskc.service.PurchaseService;
 import com.wskc.service.UserBrandPUserService;
 import com.wskc.service.UserProductStockService;
 
-
+/**
+ * 
+ * <p>Title:</p>
+ * <p>Description:采购</p>
+ * @author Mr.Cheng
+ * @date 2017年5月5日 下午10:35:38
+ */
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {

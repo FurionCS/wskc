@@ -49,6 +49,7 @@ $("#product").bsSuggest({
     $("#productId").val(data.productId);
     $("#productName").val(data.Keyword);
     $("#kcnum").val(data.num);
+    alert(data.num);
 }).on('onUnsetSelectValue', function () {
     console.log("onUnsetSelectValue");
 });
@@ -88,13 +89,14 @@ function submitAllocation(){
 			flag=false;
 			return;
 		}
-		var num=$("#num").val().trim();
+		var num=parseInt($("#num").val().trim());
 		if(!isUnsigedInteger(num)){
 			noty({text:"您填写的数量格式不正确",layout:'topCenter',type:"error",timeout:3000});
 			flag=false;
 			return;
 		}
-		if(num>$("#kcnum").val()){
+		var kcnum=parseInt($("#kcnum").val().trim());
+		if(num>kcnum){
 			noty({text:"您填写的数量大于可售库存数量",layout:'topCenter',type:"error",timeout:3000});
 			flag=false;
 			return;

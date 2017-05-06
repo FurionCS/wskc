@@ -16,6 +16,7 @@ function deleteIndustry(industryId,code){
 				if(data.result==1){
 					$("#tr_"+industryId).remove();
 					noty({text:data.msg,layout:'topCenter',type:"success",timeout:2000})
+					setTimeout(function(){history.go(0)},2000);
 				}else{
 					noty({text:data.msg,layout:'topCenter',type:"error",timeout:2000})
 				}

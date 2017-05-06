@@ -133,7 +133,6 @@ function getSoleChart(brandId){
 					for(var i=0;i<data.obj.num.length;i++){
 						soleNum[i]={name:productName[i],type:'line',data:data.obj.num[i]}
 					}
-					alert(JSON.stringify(soleData));
 					init();
 				}else{
 					noty({text:data.msg,layout:'topCenter',type:"error",timeout:3000})

@@ -44,7 +44,7 @@
 								<a href="javascript:;" class="remove" data-original-title="" title="">
 								</a>
 							</div>
-							<c:if test="${fn:length(liud)<2}">
+							<c:if test="${fn:length(liud)<3}">
 								<div class="actions"  style="margin-left:3px">
 									<a href="addIndustryUser?menuids=2_1" data-toggle="modal" data-original-title="" class="btn btn-default btn-sm">
 									<i class="fa fa-plus"></i> 添加 </a>

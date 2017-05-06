@@ -7,6 +7,6 @@ package com.wskc.config;
  * @date 2017年1月22日 下午3:52:00
  */
 public class IndustryUserConfig {
-	public static final int NUM=2;//用户可以拥有几个行业
+	public static final int NUM=3;//用户可以拥有几个行业
 
 }

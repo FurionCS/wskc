@@ -115,7 +115,7 @@
 										<label for="form_control_1">状态</label>
 									</div>
 									<div class="form-group form-md-line-input">
-										<textarea class="form-control" rows="3" id="remark" placeholder="填写入库单备注" style="margin: 0px -4px 0px 0px;"></textarea>
+										<textarea class="form-control" rows="3" id="remark" placeholder="填写调拨单备注" style="margin: 0px -4px 0px 0px;"></textarea>
 										<label for="form_control_1">备注</label>
 									</div>
 								</div>
@@ -139,7 +139,7 @@
 <script src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-suggest-plugin.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/my/public.js" ></script>
-<script src="<%=request.getContextPath() %>/resources/js/my/AddAllocation.js" ></script>
+<script src="<%=request.getContextPath() %>/resources/js/my/AddAllocation.js?v=3" ></script>
 </Layout:overwrite> 
 
 <%@ include file="/share/_LayoutB.jsp"%>

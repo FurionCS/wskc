@@ -348,7 +348,7 @@ public class BasicController {
 				ajaxObj.setMsg("您没有该行业请勿添加");
 			}else if(i==1){
 				ajaxObj.setResult(1);
-				ajaxObj.setMsg("成功添加该品牌到库,审核时间为24小时内");
+				ajaxObj.setMsg("成功添加该品牌到库");
 			}
 		}		
 		return ajaxObj;
