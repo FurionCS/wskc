@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="checkLogin" method="post">
+	<form class="login-form" action="/home/checkLogin" method="post">
 		<h3 class="form-title" style="text-align:center;">库存系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>

@@ -13,8 +13,8 @@
 	
 	
 	<!-- 导入资源文件 -->
-<!-- 	<context:property-placeholder location="classpath:*.properties"/> -->
-	<context:property-placeholder location="file:///D:/wskcConfig/*.properties"/> 
+ 	<context:property-placeholder location="classpath:*.properties"/>
+	<!--<context:property-placeholder location="file:///D:/wskcConfig/*.properties"/> -->
 	<!--数据源加密操作-->
     <bean id="dbPasswordCallback" class="com.wskc.config.DBPasswordCallback" lazy-init="true"/>
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" lazy-init="true">
